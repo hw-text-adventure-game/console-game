@@ -31,9 +31,9 @@ You are...: //These will be options the player can pick from
 
 [1] The Brave Warrior
 [2] The Persistent Mage
-[3] The Quick Thief
+[3] The Agile Thief
 [4] The Empathetic Cleric
-[5] The Cold Witch Hunter
+[5] The Lone Witch Hunter
 
 
 //When selected, display the character info:
@@ -129,7 +129,6 @@ Are you sure this is your name? [Y/N] //Make user confirm their name
 
 //Return a message like this and start the game officially
 "You are (name here), The (character the user picked. Brave Warrior, Persistent Mage, etc.)"
-
 
 
  */
