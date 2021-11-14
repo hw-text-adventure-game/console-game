@@ -7,4 +7,13 @@
 # Editor-based HTTP Client requests
 /httpRequests/
 
-/out
+# MacOS
+.DS_Store
+
+# IntelliJ
+.idea/*
+*.iml
+
+# Compiled output
+*.class
+out/*
