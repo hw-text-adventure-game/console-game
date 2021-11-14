@@ -44,7 +44,7 @@ You are...: //These will be options the player can pick from
 
 "You are the warrior, a person full of bravery and driven by your passion to protect others. You came
 to the forest to ease the worries of the citizens of your kingdom, who are terrified of the Enchanted
-forest."
+Forest."
 
 ATK: 20-25 //Make the attack damage pick a number between 20 and 25
 HEALTH: 120
@@ -54,7 +54,7 @@ HEALTH: 120
 
 
 Trait: Bravery
-Has a 50% chance to do double the set damage. //Damage as a 50% chance to be between 40-45
+Has a 50% chance to do double the set damage. //Damage has a 50% chance to be between 40-45
 
 
 -----------------
@@ -63,10 +63,9 @@ Has a 50% chance to do double the set damage. //Damage as a 50% chance to be bet
 
 "You are the mage, a talented user of magic with an insatiable thirst for knowledge. Everyone called
 you crazy for coming here, but you are determined to find the Revival Stone, an ancient artifact that
-can revive anyone from the dead. To obtain it is the ultimate quest for any mage. Everyone called you
-crazy for coming here."
+can revive anyone from the dead. To obtain it is the ultimate quest for any mage."
 
-ATK: 15-20 //Make the attack damage pick a number between 20 and 25
+ATK: 15-20 //Make the attack damage pick a number between 15 and 20
 HEALTH: 100
 
 Trait: Persistence
@@ -95,11 +94,11 @@ Gives you the ability to run away from a battle. Can only be used three times. /
 herb that can be ground up into medicine. You came here to heal a sick loved one that you care dearly
 about."
 
-ATK: 15-20 //Make the attack damage pick a number between 20 and 25
+ATK: 15-20 //Make the attack damage pick a number between 15 and 20
 HEALTH: 100
 
 Trait: Empathy
-Gives you the ability to heal yourself in battle. //Give the player the option to heal themself, (5-15 range)
+Gives you the ability to heal yourself in battle. //Give the player the option to heal themself, (5-15 random range)
 
 -----------------
 
