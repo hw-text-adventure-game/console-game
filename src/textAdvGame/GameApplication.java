@@ -80,8 +80,10 @@ public class GameApplication {
             }
 
         }
+        System.out.println("line 83: " + userCharacter);
         return userCharacter;
     }
+
 
     private static String enterYourName(){
         Scanner scanner = new Scanner(System.in);
@@ -99,8 +101,11 @@ public class GameApplication {
         return "You are " + userInput + " the " + userCharacter + "!";  //need to get the character...
     }
 
+    //how would we play the game? after the user selects their character, enters their name etc
+    //then we would have to instantiate whatever character they pick. Each character needs their own method like the console game, since they
+    //will have different options...
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
         beginGame();
 
     }

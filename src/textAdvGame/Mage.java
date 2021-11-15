@@ -13,6 +13,7 @@ public class Mage extends Character{
         this.playerHealth = 100;
         this.attackDamage = random.nextInt(6) + 15;
     }
+    //not sure if this needs to be in the constructor, or in the game, probably in the game
     //if(random.nextInt(100) < secondAttackChance{ do the attackmethod again}
     private int secondAttackChance = 25;
 
