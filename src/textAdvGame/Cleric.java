@@ -3,13 +3,15 @@ package textAdvGame;
 import java.util.Random;
 
 public class Cleric extends Character{
-    private int playerHealth = 100;
+    private int playerHealth;
     Random random = new Random();
     //attack bw 15 & 20
-    private int attackDamage = random.nextInt(6) + 15;
+    private int attackDamage;
 
     public Cleric(String name){
         super(name);
+        this.attackDamage = random.nextInt(6) + 15;
+        this.playerHealth = 100;
     }
 
 
