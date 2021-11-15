@@ -11,6 +11,9 @@ public class GameApplication {
                 " are.\n");
         chooseCharacter();
         enterYourName();
+
+        System.out.println("\"After you remember your name and your past, you get up and begin to search The Enchanted Forest,\n" +
+                "but suddenly you hear a noise from behind you!\"");
     }
 
     private static String chooseCharacter(){
@@ -102,8 +105,15 @@ public class GameApplication {
     }
 
     //how would we play the game? after the user selects their character, enters their name etc
+
+    //Rhi Response: Java does everything in order, so if you look at line 15-16 that I added, that part will ONLY activate
+    // after the character selection and that's how the rest of the game goes on.
+    //Right under those new lines you can create a fightGoblin method that will let the user fight an enemy and so on.
+
+
     //then we would have to instantiate whatever character they pick. Each character needs their own method like the console game, since they
     //will have different options...
+
 
     public static void main(String[] args) {
         beginGame();
