@@ -8,8 +8,8 @@ public class Warrior extends Character {
     //attack bw 20 & 25
     private int attackDamage;
 
-    public Warrior(String name){
-        super(name);
+    public Warrior(String name,  String profession){
+        super(name, profession);
         this.playerHealth = 120;
         this.attackDamage = random.nextInt(6) + 20; //random.nextInt(MAX-MIN) + MIN; //or from 0 to 5 shifted + 20
     }

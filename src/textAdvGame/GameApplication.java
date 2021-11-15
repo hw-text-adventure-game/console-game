@@ -48,7 +48,7 @@ public class GameApplication {
                     break;
                 }
             } else if (userChoice.equals("3")) {
-                userCharacter = "Theif";
+                userCharacter = "Thief";
                 System.out.println("You are the thief, a mischievous person who came to the forest in hopes of finding treasure that\n" +
                         "adventurers have left behind over the years to sell at the market. You aren't scared of the forest,\n" +
                         "as you can rely on your agility to get you out of any situation.\n");
@@ -95,7 +95,29 @@ public class GameApplication {
             userReply = scanner.nextLine();
         }while(userReply.equalsIgnoreCase("N"));
         System.out.println("You are " + userInput + " the " + userCharacter);
-        return "You are " + userInput + " the " + userCharacter + "!";  //need to get the character...
+
+        Character userChar;
+
+        //Instantiating class based on input given before
+        //Passing in userInput as name and userCharacter as profession for each
+
+        if (userCharacter.equals("Warrior")) {
+            userChar = new Warrior(userInput, userCharacter);
+        }
+        else if(userCharacter.equals("Mage")) {
+            userChar = new Mage(userInput, userCharacter);
+        }
+        else if(userCharacter.equals("Thief")) {
+            userChar = new Thief(userInput, userCharacter);
+        }
+        else if(userCharacter.equals("Cleric")) {
+            userChar = new Cleric(userInput, userCharacter);
+        }
+        else {
+            userChar = new WitchHunter(userInput, userCharacter);
+        }
+
+        return "You are " + userChar.getName() + " the " + userChar.getProfession() + "!";  //need to get the character...
 
     }
 
@@ -112,7 +134,8 @@ public class GameApplication {
     //will have different options...
 
     //Rhi Response: Merged chooseCharacter and enterName together. Properly returns usercharacter and userinput now.
-    //All info is in one easy to grab spot!
+    //All info is in one easy to grab spot! Also made instantiation methods on lines 104-120. Changes on all
+    //class files made as well to accommodate.
 
 
     public static void main(String[] args) {

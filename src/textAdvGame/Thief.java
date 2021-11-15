@@ -8,8 +8,8 @@ public class Thief extends Character{
     //attack bw 20 & 25
     private int attackDamage;
 
-    public Thief(String name){
-        super(name);
+    public Thief(String name,  String profession){
+        super(name, profession);
         this.playerHealth = 120;
         this.attackDamage = random.nextInt(6) + 20;
     }
