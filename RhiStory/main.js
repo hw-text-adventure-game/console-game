@@ -285,7 +285,7 @@ all the trees. (Add a personalized message here about the player's class)..."
 
 Personalized sentences:
 
-"You wonder if this is what the citizens are afraid of, it would be wise to investigate tbe mansion further." //Warrior
+"You wonder if this is what the citizens are afraid of, it would be wise to investigate the mansion further." //Warrior
 
 "You can feel the magical aura of this mansion; the Revival Stone is definitely hidden in there." //Mage
 
@@ -330,7 +330,8 @@ to your original location."
 CHOOSING EAST
 
 "You decide to head east and find a BEWITCHED BELL! You put it into your inventory. After searching the area some more, you find that
-there isn't anything else that's useful. You head back to your original spot."
+there isn't anything else that's useful. You head back to your original spot." //Put Bewitched bell into txt file after this event.
+//Don't add it if the user doesn't go down this path.
 
 ----------
 
