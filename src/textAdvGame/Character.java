@@ -11,6 +11,8 @@ public class Character {
     //constructor
     public Character (String name){
         this.name = name;
+        this.playerHealth = playerHealth;
+        this.attackDamage = attackDamage;
     }
 
     public String getName() {

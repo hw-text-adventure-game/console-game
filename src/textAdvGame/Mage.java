@@ -3,18 +3,21 @@ package textAdvGame;
 import java.util.Random;
 
 public class Mage extends Character{
-    private int playerHealth = 100;
+    private int playerHealth;
     Random random = new Random();
     //attack bw 15 & 20
-    private int attackDamage = random.nextInt(6) + 15;
+    private int attackDamage;
 
     public Mage(String name){
         super(name);
+        this.playerHealth = 100;
+        this.attackDamage = random.nextInt(6) + 15;
     }
+    //if(random.nextInt(100) < secondAttackChance{ do the attackmethod again}
+    private int secondAttackChance = 25;
 
     //mage also has a trait for perseverance, 25% chance to do a second attack
     //(give the player an extra turn)
 
-    //if(random.nextInt(100) < secondAttackChance{ do the attackmethod again}
-    private int secondAttackChance = 25;
+
 }
