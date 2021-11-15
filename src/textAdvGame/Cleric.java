@@ -8,8 +8,8 @@ public class Cleric extends Character{
     //attack bw 15 & 20
     private int attackDamage;
 
-    public Cleric(String name){
-        super(name);
+    public Cleric(String name,  String profession){
+        super(name, profession);
         this.attackDamage = random.nextInt(6) + 15;
         this.playerHealth = 100;
     }

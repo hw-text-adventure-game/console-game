@@ -2,15 +2,21 @@ package textAdvGame;
 
 public class Character {
     private String name;
+    private String profession;
     private int attackDamage;
     private int playerHealth;
 
     //default constructor
     public Character(){}
 
+    //Rhi Comment: Every character will have a profession, so I added the profession
+    //string, getProfession and setProfession method.
+
     //constructor
-    public Character (String name){
+    public Character (String name, String profession){
         this.name = name;
+        this.profession = profession;
+
         this.playerHealth = playerHealth;
         this.attackDamage = attackDamage;
     }
@@ -21,6 +27,14 @@ public class Character {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getProfession() {
+        return profession;
+    }
+
+    public void setProfession(String profession) {
+        this.profession = profession;
     }
 
     public int getPlayerHealth() {

@@ -8,8 +8,8 @@ public class WitchHunter extends Character{
     //attack bw 20 & 25
     private int attackDamage;
 
-    public WitchHunter(String name){
-        super(name);
+    public WitchHunter(String name,  String profession){
+        super(name, profession);
         this.playerHealth = 120;
         this.attackDamage = random.nextInt(6) + 20;
     }
