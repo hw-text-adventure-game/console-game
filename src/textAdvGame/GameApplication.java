@@ -10,7 +10,6 @@ public class GameApplication {
                 "person...or even return at all. As you rub the sleep out of your eyes, you begin to remember who you" +
                 " are.\n");
         chooseCharacter();
-        enterYourName();
 
         System.out.println("\"After you remember your name and your past, you get up and begin to search The Enchanted Forest,\n" +
                 "but suddenly you hear a noise from behind you!\"");
@@ -84,15 +83,10 @@ public class GameApplication {
 
         }
         System.out.println("line 83: " + userCharacter);
-        return userCharacter;
-    }
 
-
-    private static String enterYourName(){
-        Scanner scanner = new Scanner(System.in);
         String userReply;
         String userInput = "defaultName";
-        String userCharacter = "defaultCharacter";
+//        String userCharacter = "defaultCharacter";
         do {
             System.out.println("You also begin to remember your name...");
             System.out.println("Enter a name: ");
@@ -102,7 +96,10 @@ public class GameApplication {
         }while(userReply.equalsIgnoreCase("N"));
         System.out.println("You are " + userInput + " the " + userCharacter);
         return "You are " + userInput + " the " + userCharacter + "!";  //need to get the character...
+
     }
+
+
 
     //how would we play the game? after the user selects their character, enters their name etc
 
@@ -113,6 +110,9 @@ public class GameApplication {
 
     //then we would have to instantiate whatever character they pick. Each character needs their own method like the console game, since they
     //will have different options...
+
+    //Rhi Response: Merged chooseCharacter and enterName together. Properly returns usercharacter and userinput now.
+    //All info is in one easy to grab spot!
 
 
     public static void main(String[] args) {
