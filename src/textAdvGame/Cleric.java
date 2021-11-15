@@ -14,6 +14,13 @@ public class Cleric extends Character{
         this.playerHealth = 100;
     }
 
+    public int getPlayerHealth() {
+        return playerHealth;
+    }
+
+    public int getAttackDamage() {
+        return attackDamage;
+    }
 
     //cleric also has a trait to heal himself 5-15 random range
     //when the player/cleric wants to heal himself, call this method.

@@ -116,6 +116,7 @@ public class GameApplication {
         else {
             userChar = new WitchHunter(userInput, userCharacter);
         }
+        System.out.println("Your health is " + userChar.getPlayerHealth() + " and your attack damage is " + userChar.getAttackDamage());
 
         return "You are " + userChar.getName() + " the " + userChar.getProfession() + "!";  //need to get the character...
 

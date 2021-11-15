@@ -17,7 +17,7 @@ public class Character {
         this.name = name;
         this.profession = profession;
 
-        this.playerHealth = playerHealth;
+//        this.playerHealth = playerHealth;
         this.attackDamage = attackDamage;
     }
 
@@ -39,6 +39,10 @@ public class Character {
 
     public int getPlayerHealth() {
         return playerHealth;
+    }
+
+    public int getAttackDamage() {
+        return attackDamage;
     }
 
     public void setPlayerHealth(int playerHealth) {
