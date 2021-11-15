@@ -273,8 +273,119 @@ WHEN GOBLIN IS DEFEATED
 
 "You slayed the GOBLIN!"
 
+-------
+
 STORY CONTINUED:
 
-"You continue your journey into The Enchanted Forest."
+"You continue your journey into The Enchanted Forest, on edge after the goblin attack. It's safe to assume the forest is full
+of these kinds of creatures, so you stay on your guard. As you continue further, you see a mansion in the distance, towering above
+all the trees. (Add a personalized message here about the player's class)..."
+
+-------
+
+Personalized sentences:
+
+"You wonder if this is what the citizens are afraid of, it would be wise to investigate tbe mansion further." //Warrior
+
+"You can feel the magical aura of this mansion; the Revival Stone is definitely hidden in there." //Mage
+
+"A mansion this big is bound to be full of treasure, you hit the jackpot!" //Thief
+
+"The owner of the mansion probably has a lavish garden, which most likely contains the healing herbs you need for your potions." //Cleric
+
+"This where the witch resides; you can feel it in your bones." //Witch Hunter
+
+-------
+
+STORY CONTINUED:
+
+"However, the entrance to the mansion is guarded by a huge maze. There isn't any way around it, so your only choice is to go through
+it. You enter the maze with your weapons ready and begin to trek the magical hedges."
+
+Which way would you like to go?
+
+[1] North
+[2] South
+[3] East
+[4] West
+
+//The correct way to the mansion will be: North, West, East, East, South
+
+//One path will lead to an enemy, one path will lead to an item, and another path will lead to a dead end. The final path will be the
+//correct path.
+
+--------------------------------------------------
+
+FIRST SET OF PATHS:
+
+----------
+
+CHOOSING WEST
+
+"You decide to head west, but all you are met with is a large hedge blocking your path. This seems to be a dead end, so you return
+to your original location."
+
+----------
+
+CHOOSING EAST
+
+"You decide to head east and find a BEWITCHED BELL! You put it into your inventory. After searching the area some more, you find that
+there isn't anything else that's useful. You head back to your original spot."
+
+----------
+
+CHOOSING SOUTH
+
+"You decide to head south, but come face to face with a monster made out of the same hedges that make up the maze!"
+
+A MAZE GUARDIAN appears! What would you like to do? //Maze Guardian Health: 150, Attack: 5-10 range.
+//Special Move: Thorny grasp, does 15-20 damage. 25% chance of activating this move.
+
+Engage battle with maze guardian as you did with goblin.
+
+
+Normal Maze Guardian Attack message:
+
+"The Maze Guardian shoots thorns at you! It did x damage!"
+
+
+If Maze Guardian activates Thorny Grasp, display message like this:
+
+"The Maze Guardian uses THORNY GRASP! Prickly vines grow out of the guardians back and slash you, doing x damage!"
+
+----------
+
+//NOTE: The user may have an item at this point, so create an inventory.txt file. If the user has the BEWITCHED BELL, allow them to use
+it and then delete it from the text file after use.
+
+//If user chooses to look at inventory, show all of their items and allow them to pick one.
+//Example output:
+
+Your Items:
+[0] Exit
+
+[1] Healing Potion
+[2] Bewitched Bell
+[3] Crumpled up map
+
+Pick an item to use, or choose 0 to exit.
+
+//If user picks Bewitching Bell, display this message:
+
+"BEWITCHED BELL: Upon hearing the ringing of the bell, enemies will run away. Can be used once. Would you like to use it?" [Y/N] //Code in the Bewitching bell's capability
+//If user picks no, take them back to the inventory menu. Otherwise, display a message like this:
+
+"You use the BEWITCHED BELL, the (monster name here) cowers in fear and runs away! After the monster is out of your sight, the
+bell shatters, its broken remains falling to the floor."
+
+//Remember to delete the item from the inventory list after they use it so they can't choose it again!
+
+----------
+
+CHOOSING NORTH
+
+"You decide to head north and come upon more paths to go down."
+
+(Will add more sets of paths soon! Just get the first set of paths down for right now.)
 
  */
