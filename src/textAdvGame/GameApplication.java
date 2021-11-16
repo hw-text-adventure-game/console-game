@@ -1,6 +1,8 @@
 package textAdvGame;
 
-import java.util.Scanner;
+import textAdvGame.Characters.Character;
+import textAdvGame.Enemies.Enemy;
+import textAdvGame.Enemies.Goblin;
 
 
 public class GameApplication {
@@ -22,7 +24,14 @@ public class GameApplication {
                 "but suddenly you hear a noise from behind you!\"");
         System.out.println("----------------------------------------------------------------------------------------");
 
-        userCharacter.attackMenu();
+//Rhi Comment: Struggling with the problem we had before where it won't pull
+//the right enemy health. Just takes from the default.
+        Enemy firstEnemy;
+        firstEnemy = new Goblin("GOBLIN");
+
+        System.out.println("A " + firstEnemy.getName() + " appears!");
+
+        userCharacter.attackMenu(firstEnemy);
 
     }
 

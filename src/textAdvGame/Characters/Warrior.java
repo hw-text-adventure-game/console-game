@@ -1,4 +1,7 @@
-package textAdvGame;
+package textAdvGame.Characters;
+
+import textAdvGame.Characters.Character;
+import textAdvGame.Enemies.Enemy;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -19,6 +22,11 @@ public class Warrior extends Character {
         return playerHealth;
     }
 
+    //Rhi notes:
+    //The code works, it's just how to get it like to original console game's functionality.
+    //Mary would have a better idea of how to refactor this since she made the first version of the
+    // console game.
+
     public int getAttackDamage() {
         return attackDamage;
     }
@@ -27,15 +35,23 @@ public class Warrior extends Character {
     //if(random.nextInt(100) < bravery { multiply damage by 2 }
     private int bravery = 25;
 
-    public void attackMenu() {
+    public void attackMenu(Enemy evilEnemy) { //Takes in enemy to kill
 
         Scanner scanner = new Scanner(System.in);
         String userChoice;
 
         this.playerHealth = 120;
-        this.attackDamage = random.nextInt(6) + 20; //random.nextInt(MAX-MIN) + MIN; //or from 0 to 5 shifted + 20
+        System.out.println("YOUR HEALTH:" + playerHealth); //Player Health
 
-        System.out.println("ATTACK MENU");
+        int enemyHealth = evilEnemy.getEnemyHealth(); //Enemy Health
+
+        int enemyDamage = evilEnemy.getEnemyAttackDamage();
+        System.out.println("ENEMY DAMAGE:" + enemyDamage);
+
+
+        while(enemyHealth > 0) {
+            System.out.println("ATTACK MENU");
+
         System.out.println("Warrior Options:\n" +
                 "[1] Attack\n" +
                 "[2] Trait\n" +
@@ -46,9 +62,18 @@ public class Warrior extends Character {
 
         if(userChoice.equals("1")) {
             if(random.nextInt(100) < bravery) {
+
+                this.attackDamage = random.nextInt(6) + 20; //Player Attack Damage
+                System.out.println("ENEMY HEALTH:" + enemyHealth); //Enemy Attack Damage
+
+                enemyHealth -= attackDamage;
+                playerHealth -= enemyDamage;
+
                 System.out.println("You showed BRAVERY! You swing your sword valiantly, doing " + this.attackDamage * 2 + " damage!");
+                System.out.println("*** You receive " + enemyDamage + " damage. Your remaining health is " + this.playerHealth);
             } else {
                 System.out.println("You swing your sword and do " + this.attackDamage + " damage!");
+                System.out.println("*** You receive " + enemyDamage + " damage. Your remaining health is " + this.playerHealth);
             }
             attackMenu();
         }
@@ -68,8 +93,7 @@ public class Warrior extends Character {
             attackMenu();
         }
 
-
-
+    }
 
 
     }

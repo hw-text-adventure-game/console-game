@@ -1,4 +1,7 @@
-package textAdvGame;
+package textAdvGame.Characters;
+
+import textAdvGame.*;
+import textAdvGame.Enemies.Enemy;
 
 import java.util.Scanner;
 
@@ -18,9 +21,6 @@ public class Character implements AttackOptions {
     public Character (String name, String profession){
         this.name = name;
         this.profession = profession;
-
-//        this.playerHealth = playerHealth;
-        this.attackDamage = attackDamage;
     }
 
     public String getName() {
@@ -55,7 +55,7 @@ public class Character implements AttackOptions {
 
     }
 
-    static Character chooseCharacter(){
+    public static Character chooseCharacter(){
         Scanner scanner = new Scanner(System.in);
         String userChoice = "NumberChoice";
         String userCharacter = "defaultCharacter";
@@ -170,5 +170,6 @@ public class Character implements AttackOptions {
     }
 
 
-
+    public void attackMenu(Enemy firstEnemy) {
+    }
 }
