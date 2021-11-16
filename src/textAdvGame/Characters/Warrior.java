@@ -1,4 +1,7 @@
-package textAdvGame;
+package textAdvGame.Characters;
+
+import textAdvGame.Characters.Character;
+import textAdvGame.Enemies.Enemy;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -27,13 +30,20 @@ public class Warrior extends Character {
     //if(random.nextInt(100) < bravery { multiply damage by 2 }
     private int bravery = 25;
 
-    public void attackMenu() {
+    public void attackMenu(Enemy evilEnemy) { //Takes in enemy to kill
 
         Scanner scanner = new Scanner(System.in);
         String userChoice;
 
         this.playerHealth = 120;
-        this.attackDamage = random.nextInt(6) + 20; //random.nextInt(MAX-MIN) + MIN; //or from 0 to 5 shifted + 20
+        System.out.println("YOUR HEALTH:" + playerHealth); //Player Health
+        this.attackDamage = random.nextInt(6) + 20; //Player Attack Damage
+
+        int enemyHealth = evilEnemy.getEnemyHealth(); //Enemy Health
+        System.out.println("ENEMY HEALTH:" + enemyHealth); //Enemy Attack Damage
+
+        int enemyDamage = evilEnemy.getEnemyAttackDamage();
+        System.out.println("ENEMY DAMAGE:" + enemyDamage);
 
         System.out.println("ATTACK MENU");
         System.out.println("Warrior Options:\n" +
@@ -67,9 +77,6 @@ public class Warrior extends Character {
             System.err.println("Pick a valid number.");
             attackMenu();
         }
-
-
-
 
 
     }
