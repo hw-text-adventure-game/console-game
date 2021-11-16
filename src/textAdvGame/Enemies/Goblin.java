@@ -13,7 +13,7 @@ public class Goblin extends Enemy {
     public Goblin(String name) {
         super(name);
             this.enemyHealth = 100;
-            this.enemyAttackDamage = random.nextInt(6) + 20; //random.nextInt(MAX-MIN) + MIN; //or from 0 to 5 shifted + 20
+            this.enemyAttackDamage = random.nextInt(6) + 20; //THIS ISN"T THE PROPER DAMAGE RANGE, CHANGE LATER
         }
 
     public int getEnemyHealth() {

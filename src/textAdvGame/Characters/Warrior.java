@@ -22,6 +22,11 @@ public class Warrior extends Character {
         return playerHealth;
     }
 
+    //Rhi notes:
+    //The code works, it's just how to get it like to original console game's functionality.
+    //Mary would have a better idea of how to refactor this since she made the first version of the
+    // console game.
+
     public int getAttackDamage() {
         return attackDamage;
     }
@@ -37,15 +42,16 @@ public class Warrior extends Character {
 
         this.playerHealth = 120;
         System.out.println("YOUR HEALTH:" + playerHealth); //Player Health
-        this.attackDamage = random.nextInt(6) + 20; //Player Attack Damage
 
         int enemyHealth = evilEnemy.getEnemyHealth(); //Enemy Health
-        System.out.println("ENEMY HEALTH:" + enemyHealth); //Enemy Attack Damage
 
         int enemyDamage = evilEnemy.getEnemyAttackDamage();
         System.out.println("ENEMY DAMAGE:" + enemyDamage);
 
-        System.out.println("ATTACK MENU");
+
+        while(enemyHealth > 0) {
+            System.out.println("ATTACK MENU");
+
         System.out.println("Warrior Options:\n" +
                 "[1] Attack\n" +
                 "[2] Trait\n" +
@@ -56,9 +62,18 @@ public class Warrior extends Character {
 
         if(userChoice.equals("1")) {
             if(random.nextInt(100) < bravery) {
+
+                this.attackDamage = random.nextInt(6) + 20; //Player Attack Damage
+                System.out.println("ENEMY HEALTH:" + enemyHealth); //Enemy Attack Damage
+
+                enemyHealth -= attackDamage;
+                playerHealth -= enemyDamage;
+
                 System.out.println("You showed BRAVERY! You swing your sword valiantly, doing " + this.attackDamage * 2 + " damage!");
+                System.out.println("*** You receive " + enemyDamage + " damage. Your remaining health is " + this.playerHealth);
             } else {
                 System.out.println("You swing your sword and do " + this.attackDamage + " damage!");
+                System.out.println("*** You receive " + enemyDamage + " damage. Your remaining health is " + this.playerHealth);
             }
             attackMenu();
         }
@@ -77,6 +92,8 @@ public class Warrior extends Character {
             System.err.println("Pick a valid number.");
             attackMenu();
         }
+
+    }
 
 
     }
