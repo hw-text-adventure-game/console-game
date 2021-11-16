@@ -24,15 +24,16 @@ public class Warrior extends Character {
     }
 
     //warrior also has a trait for bravery, 50% chance to do double damage
-    //if(random.nextInt(100) < bravery { subtract the amount of damage dealt to the enemy again }
-    private int bravery = 50; //50 percent chance to do double damage
+    //if(random.nextInt(100) < bravery { multiply damage by 2 }
+    private int bravery = 25;
 
     public void attackMenu() {
 
         Scanner scanner = new Scanner(System.in);
         String userChoice;
 
-
+        this.playerHealth = 120;
+        this.attackDamage = random.nextInt(6) + 20; //random.nextInt(MAX-MIN) + MIN; //or from 0 to 5 shifted + 20
 
         System.out.println("ATTACK MENU");
         System.out.println("Warrior Options:\n" +
@@ -44,7 +45,27 @@ public class Warrior extends Character {
         userChoice = scanner.nextLine();
 
         if(userChoice.equals("1")) {
-            System.out.println("You swing your sword and do " + getAttackDamage() + " damage!");
+            if(random.nextInt(100) < bravery) {
+                System.out.println("You showed BRAVERY! You swing your sword valiantly, doing " + this.attackDamage * 2 + " damage!");
+            } else {
+                System.out.println("You swing your sword and do " + this.attackDamage + " damage!");
+            }
+            attackMenu();
+        }
+        else if(userChoice.equals("2")) {
+            System.out.println("----------------------------------------------------------------------------------------");
+            System.out.println("Your trait is BRAVERY. You have a 50% chance to do double the set damage.\n" +
+            "This is a trait that is always active.");
+            System.out.println("----------------------------------------------------------------------------------------");
+            attackMenu();
+        } else if(userChoice.equals("3")) {
+            System.out.println("You don't have anything in your inventory.");
+            attackMenu();
+        } else if (userChoice.equals("4")) {
+            System.out.println("Surrendering the fight will cause the game to end. Are you SURE you want to surrender? [Y/N]");
+        } else {
+            System.err.println("Pick a valid number.");
+            attackMenu();
         }
 
 
