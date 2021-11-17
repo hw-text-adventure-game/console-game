@@ -62,7 +62,7 @@ public class Warrior extends Character {
                 System.out.println("---------------");
                 System.out.println("ATTACK MENU\n");
 
-                System.out.println("Warrior Options:\n" +
+                System.out.println("WARRIOR Options:\n" +
                         "[1] Attack\n" +
                         "[2] Trait\n" +
                         "[3] Inventory\n" +
@@ -101,7 +101,7 @@ public class Warrior extends Character {
                     attackMenu();
                 } else if (userChoice.equals("2")) {
                     System.out.println("----------------------------------------------------------------------------------------");
-                    System.out.println("Your trait is BRAVERY. You have a 50% chance to do double the set damage.\n" +
+                    System.out.println("Your trait is BRAVERY. You have a 25% chance to do double the set damage.\n" +
                             "This is a trait that is always active.");
                     System.out.println("----------------------------------------------------------------------------------------");
                     attackMenu();
