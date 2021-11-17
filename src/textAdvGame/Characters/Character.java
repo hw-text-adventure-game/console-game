@@ -10,6 +10,7 @@ public class Character implements AttackOptions {
     private String profession;
     private int attackDamage;
     private int playerHealth;
+    boolean alive = true;
 
     //default constructor
     public Character(){}
@@ -171,5 +172,9 @@ public class Character implements AttackOptions {
 
 
     public void attackMenu(Enemy firstEnemy) {
+    }
+
+    public boolean getStatus() {
+        return alive;
     }
 }

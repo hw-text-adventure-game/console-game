@@ -9,23 +9,23 @@ public class GameApplication {
 
 
     public static void beginGame(){
-        System.out.println("----------------------------------------------------------------------------------------");
+        boolean alive = true;
+        while(alive) { //While character is alive, continue story
+        System.out.println("------------------------------------------------------------------------------------------------------------");
         System.out.println("\"You wake up in the Enchanted Forest, unsure of how you got there. The forest you are in has been\n" +
                 "known for it's strange properties; all adventurers who enter the forest never return as the same\n" +
                 "person...or even return at all. As you rub the sleep out of your eyes, you begin to remember who you" +
                 " are.");
-        System.out.println("----------------------------------------------------------------------------------------");
+        System.out.println("------------------------------------------------------------------------------------------------------------");
         Character userCharacter = Character.chooseCharacter();
 
         System.out.println(userCharacter.getName());
 
-        System.out.println("----------------------------------------------------------------------------------------");
+        System.out.println("------------------------------------------------------------------------------------------------------------");
         System.out.println("\"After you remember your name and your past, you get up and begin to search The Enchanted Forest,\n" +
                 "but suddenly you hear a noise from behind you!\"");
-        System.out.println("----------------------------------------------------------------------------------------");
+        System.out.println("------------------------------------------------------------------------------------------------------------");
 
-//Rhi Comment: Struggling with the problem we had before where it won't pull
-//the right enemy health. Just takes from the default.
         Enemy firstEnemy;
         firstEnemy = new Goblin("GOBLIN");
 
@@ -33,10 +33,34 @@ public class GameApplication {
 
         userCharacter.attackMenu(firstEnemy);
 
+        //check if character is dead after every fight
+
+        if(userCharacter.getStatus() == false) { //if getStatus is false (not alive), end game. Otherwise, continue.
+            alive = false;
+            gameOver();
+            break;
+        } else {
+            youWin();
+            break;
+        }
+
+//        System.out.println("A test.");
+        }
+
+
+        //Right now it will loop if you're alive, but once we add more story this problem will go away. Once
+        // character wins game, we can call a youWin(); method and break out of game
+
+        //Went ahead and added youWin method to demonstrate this.
     }
 
+public static void gameOver() {
+        System.out.println("GAME OVER!");
+}
 
-
+    public static void youWin() {
+        System.out.println("YOU WIN!");
+    }
 
     //how would we play the game? after the user selects their character, enters their name etc
 

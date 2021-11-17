@@ -13,7 +13,6 @@ public class Goblin extends Enemy {
     public Goblin(String name) {
         super(name);
             this.enemyHealth = 100;
-            this.enemyAttackDamage = random.nextInt(6) + 20; //THIS ISN"T THE PROPER DAMAGE RANGE, CHANGE LATER
         }
 
     public int getEnemyHealth() {
@@ -21,6 +20,10 @@ public class Goblin extends Enemy {
     }
 
     public int getEnemyAttackDamage() {
+
+        //Rhi: moved attackDamage in here that way when we call getEnemyAttackDamage, it gives us a
+        // random num *every time* we call it
+        this.enemyAttackDamage = random.nextInt(6) + 10; //THIS ISN"T THE PROPER DAMAGE RANGE, CHANGE LATER
         return enemyAttackDamage;
     }
 
