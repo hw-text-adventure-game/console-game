@@ -110,7 +110,8 @@ public class Warrior extends Character {
                     //need to add something here, if user enters yes....
                     String reply = scanner.nextLine();
                     if (reply.equalsIgnoreCase("Y")) {
-                        break OUTER;  //this will take you out of the outer while loop.
+                        alive = false;
+                        break OUTER;
                     }
                 } else {
                     System.err.println("Pick a valid number.");
