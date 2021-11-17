@@ -46,10 +46,8 @@ public class Warrior extends Character {
         String userChoice;
 
         this.playerHealth = 120;
-        System.out.println("YOUR HEALTH:" + playerHealth); //Player Health
 
         int enemyHealth = evilEnemy.getEnemyHealth(); //Enemy Health
-
 
 //        int enemyDamage = evilEnemy.getEnemyAttackDamage();  //this one is not giving a random number each time, it's giving a random number once, then using that same number for each attack
 //        int enemyDamage = random.nextInt(6) + 20;        //this is also not giving a random number each time, I think this needs to be in the if statement
@@ -61,7 +59,8 @@ public class Warrior extends Character {
         while(running) {
 
             while (enemyHealth > 0) {
-                System.out.println("ATTACK MENU");
+                System.out.println("---------------");
+                System.out.println("ATTACK MENU\n");
 
                 System.out.println("Warrior Options:\n" +
                         "[1] Attack\n" +
@@ -69,30 +68,34 @@ public class Warrior extends Character {
                         "[3] Inventory\n" +
                         "[4] Surrender\n");
 
+                System.out.println("YOUR HEALTH: " + playerHealth + "\n"); //Player Health
+                System.out.println("---------------");
+
                 userChoice = scanner.nextLine();
 
                 if (userChoice.equals("1")) {
+
                     this.attackDamage = random.nextInt(6) + 20; //Player Attack Damage
 
                     int enemyDamage = evilEnemy.getEnemyAttackDamage();
 
-                    System.out.println("ENEMY HEALTH:" + enemyHealth); //Enemy health at the start
                     System.out.println("You swing your sword and do " + this.attackDamage + " damage!");
 
                     enemyHealth -= attackDamage;
                     playerHealth -= enemyDamage;
 
-                    System.out.println("*** You receive " + enemyDamage + " damage. Your remaining health is " + playerHealth); //this needs to be printed here, after you subtract the damage
-
+                    System.out.println("*** The " + evilEnemy.getName() + "'s health is now " + enemyHealth + " ***");
+                    System.out.println("!!-- You receive " + enemyDamage + " damage. --!! Your remaining health is " + playerHealth); //this needs to be printed here, after you subtract the damage
 
                     if (random.nextInt(100) < bravery) {
 
-                        System.out.println("ENEMY HEALTH:" + enemyHealth); //Enemy Attack Damage
-
                         enemyHealth -= attackDamage;
 
+                        System.out.println("------------------------------------------------------------------------");
                         System.out.println("You showed BRAVERY! You swing your sword valiantly, doing double damage!");
-                        System.out.println("*** The enemy's health is now " + enemyHealth);
+                        System.out.println("------------------------------------------------------------------------");
+                        System.out.println("*** The " + evilEnemy.getName() + "'s health after using your TRAIT is now " + enemyHealth + " ***");
+
                     }
 
                     attackMenu();
@@ -118,7 +121,7 @@ public class Warrior extends Character {
                     attackMenu();
                 }
                 if (playerHealth < 1) {
-                    System.out.println("*** You died.............");
+                    System.out.println("*** You died............. *** ");
                     alive = false;
                     break;
                 }
