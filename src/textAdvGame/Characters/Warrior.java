@@ -45,55 +45,84 @@ public class Warrior extends Character {
 
         int enemyHealth = evilEnemy.getEnemyHealth(); //Enemy Health
 
-        int enemyDamage = evilEnemy.getEnemyAttackDamage();
-        System.out.println("ENEMY DAMAGE:" + enemyDamage);
+//        int enemyDamage = evilEnemy.getEnemyAttackDamage();  //this one is not giving a random number each time, it's giving a random number once, then using that same number for each attack
+//        int enemyDamage = random.nextInt(6) + 20;        //this is also not giving a random number each time, I think this needs to be in the if statement
+//        System.out.println("ENEMY DAMAGE:" + enemyDamage);
+
+        boolean running = true;
+
+        OUTER:
+        while(running) {
+
+            while (enemyHealth > 0) {
+                System.out.println("ATTACK MENU");
+
+                System.out.println("Warrior Options:\n" +
+                        "[1] Attack\n" +
+                        "[2] Trait\n" +
+                        "[3] Inventory\n" +
+                        "[4] Surrender\n");
+
+                userChoice = scanner.nextLine();
+
+                if (userChoice.equals("1")) {
+                    this.attackDamage = random.nextInt(6) + 20; //Player Attack Damage
+                    int enemyDamage = random.nextInt(6) + 20;
+
+                    System.out.println("ENEMY HEALTH:" + enemyHealth); //Enemy health at the start
+                    System.out.println("You swing your sword and do " + this.attackDamage + " damage!");
+
+                    enemyHealth -= attackDamage;
+                    playerHealth -= enemyDamage;
+
+                    System.out.println("*** You receive " + enemyDamage + " damage. Your remaining health is " + playerHealth); //this needs to be printed here, after you subtract the damage
 
 
-        while(enemyHealth > 0) {
-            System.out.println("ATTACK MENU");
+                    if (random.nextInt(100) < bravery) {
 
-        System.out.println("Warrior Options:\n" +
-                "[1] Attack\n" +
-                "[2] Trait\n" +
-                "[3] Inventory\n" +
-                "[4] Surrender\n");
+                        System.out.println("ENEMY HEALTH:" + enemyHealth); //Enemy Attack Damage
 
-        userChoice = scanner.nextLine();
+                        enemyHealth -= attackDamage;
 
-        if(userChoice.equals("1")) {
-            if(random.nextInt(100) < bravery) {
+                        System.out.println("You showed BRAVERY! You swing your sword valiantly, doing double damage!");
+                        System.out.println("*** The enemy's health is now " + enemyHealth);
+                    }
 
-                this.attackDamage = random.nextInt(6) + 20; //Player Attack Damage
-                System.out.println("ENEMY HEALTH:" + enemyHealth); //Enemy Attack Damage
+                    attackMenu();
+                } else if (userChoice.equals("2")) {
+                    System.out.println("----------------------------------------------------------------------------------------");
+                    System.out.println("Your trait is BRAVERY. You have a 50% chance to do double the set damage.\n" +
+                            "This is a trait that is always active.");
+                    System.out.println("----------------------------------------------------------------------------------------");
+                    attackMenu();
+                } else if (userChoice.equals("3")) {
+                    System.out.println("You don't have anything in your inventory.");
+                    attackMenu();
+                } else if (userChoice.equals("4")) {
+                    System.out.println("Surrendering the fight will cause the game to end. Are you SURE you want to surrender? [Y/N]");
+                    //need to add something here, if user enters yes....
+                    String reply = scanner.nextLine();
+                    if (reply.equalsIgnoreCase("Y")) {
+                        break OUTER;  //this will take you out of the outer while loop.
+                    }
+                } else {
+                    System.err.println("Pick a valid number.");
+                    attackMenu();
+                }
+                if (playerHealth < 1) {
+                    System.out.println("*** You died.............");
+                    break;
+                }
 
-                enemyHealth -= attackDamage;
-                playerHealth -= enemyDamage;
-
-                System.out.println("You showed BRAVERY! You swing your sword valiantly, doing " + this.attackDamage * 2 + " damage!");
-                System.out.println("*** You receive " + enemyDamage + " damage. Your remaining health is " + this.playerHealth);
-            } else {
-                System.out.println("You swing your sword and do " + this.attackDamage + " damage!");
-                System.out.println("*** You receive " + enemyDamage + " damage. Your remaining health is " + this.playerHealth);
             }
-            attackMenu();
-        }
-        else if(userChoice.equals("2")) {
-            System.out.println("----------------------------------------------------------------------------------------");
-            System.out.println("Your trait is BRAVERY. You have a 50% chance to do double the set damage.\n" +
-            "This is a trait that is always active.");
-            System.out.println("----------------------------------------------------------------------------------------");
-            attackMenu();
-        } else if(userChoice.equals("3")) {
-            System.out.println("You don't have anything in your inventory.");
-            attackMenu();
-        } else if (userChoice.equals("4")) {
-            System.out.println("Surrendering the fight will cause the game to end. Are you SURE you want to surrender? [Y/N]");
-        } else {
-            System.err.println("Pick a valid number.");
-            attackMenu();
-        }
-
-    }
+            //outside of the inner while loop,
+            running = false; //if you remove this line, it will cause an infinite loop that says the enemy was defeated...
+            System.out.println("*******************************");
+            System.out.println("*** The enemy was defeated! ***");
+            System.out.println("*******************************");
+            //after this, we can give more options...
+        } //end of outer while loop
+        System.out.println("What to do now...");
 
 
     }
