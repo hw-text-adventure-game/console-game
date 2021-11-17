@@ -29,7 +29,7 @@ public class GameApplication {
         Enemy firstEnemy;
         firstEnemy = new Goblin("GOBLIN");
 
-        System.out.println("A " + firstEnemy.getName() + " appears!");
+        System.out.println("***** A " + firstEnemy.getName() + " appears! *****");
 
         userCharacter.attackMenu(firstEnemy);
 
