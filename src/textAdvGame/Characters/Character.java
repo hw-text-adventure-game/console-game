@@ -123,7 +123,6 @@ public class Character implements AttackOptions {
             }
 
         }
-        System.out.println("line 83: " + userCharacter);
 
         String userReply;
         String userInput = "defaultName";
@@ -135,7 +134,6 @@ public class Character implements AttackOptions {
             System.out.println("You entered " + userInput + ". Are you sure you want that to be your name? [Y/N]");
             userReply = scanner.nextLine();
         }while(userReply.equalsIgnoreCase("N"));
-        System.out.println("You are " + userInput + " the " + userCharacter);
 
         Character userChar;
 
@@ -161,12 +159,8 @@ public class Character implements AttackOptions {
         userChar.setName(userInput);
         userChar.setProfession(userCharacter);
 
-        System.out.println("Your health is " + userChar.getPlayerHealth() + " and your attack damage is " + userChar.getAttackDamage());
-
-        System.out.println("You are " + userChar.getName() + " the " + userChar.getProfession() + "!");  //need to get the character...
-
+        System.out.println("The " + userChar.getProfession() + " appears...their name is:");
         return userChar;
-
 
     }
 
