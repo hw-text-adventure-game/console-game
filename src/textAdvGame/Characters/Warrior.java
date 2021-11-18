@@ -79,25 +79,32 @@ public class Warrior extends Character {
 
                     int enemyDamage = evilEnemy.getEnemyAttackDamage();
 
-                    System.out.println("You swing your sword and do " + this.attackDamage + " damage!");
-
-                    enemyHealth -= attackDamage;
-                    playerHealth -= enemyDamage;
-
-                    System.out.println("*** The " + evilEnemy.getName() + "'s health is now " + enemyHealth + " ***");
-                    System.out.println("!!-- You receive " + enemyDamage + " damage. --!! Your remaining health is " + playerHealth); //this needs to be printed here, after you subtract the damage
-
-                    if (random.nextInt(100) < bravery) {
+                        System.out.println("You swing your sword and do " + this.attackDamage + " damage!");
 
                         enemyHealth -= attackDamage;
 
-                        System.out.println("------------------------------------------------------------------------");
-                        System.out.println("You showed BRAVERY! You swing your sword valiantly, doing double damage!");
-                        System.out.println("------------------------------------------------------------------------");
-                        System.out.println("*** The " + evilEnemy.getName() + "'s health after using your TRAIT is now " + enemyHealth + " ***");
+
+                    if (enemyHealth <= 0) { //Displays 0 if enemy health dips into negatives
+                        System.out.println("*** The " + evilEnemy.getName() + " has no more health! ***");
+                    } else {
+
+                        playerHealth -= enemyDamage; //Only lower player health if monster is alive
+
+                    System.out.println("*** The " + evilEnemy.getName() + "'s health is now " + enemyHealth + " ***");
+                        System.out.println("!!-- You receive " + enemyDamage + " damage. --!! Your remaining health is " + playerHealth); //this needs to be printed here, after you subtract the damage
+
+                        if (random.nextInt(100) < bravery) {
+
+                            enemyHealth -= attackDamage;
+
+                            System.out.println("------------------------------------------------------------------------");
+                            System.out.println("You showed BRAVERY! You swing your sword valiantly, doing double damage!");
+                            System.out.println("------------------------------------------------------------------------");
+                            System.out.println("*** The " + evilEnemy.getName() + "'s health after using your TRAIT is now " + enemyHealth + " ***");
+
 
                     }
-
+                }
                     attackMenu();
                 } else if (userChoice.equals("2")) {
                     System.out.println("----------------------------------------------------------------------------------------");
