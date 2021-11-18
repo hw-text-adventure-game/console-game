@@ -100,8 +100,12 @@ public class Warrior extends Character {
                             System.out.println("------------------------------------------------------------------------");
                             System.out.println("You showed BRAVERY! You swing your sword valiantly, doing double damage!");
                             System.out.println("------------------------------------------------------------------------");
-                            System.out.println("*** The " + evilEnemy.getName() + "'s health after using your TRAIT is now " + enemyHealth + " ***");
 
+                            if (enemyHealth <= 0) { //Displays 0 if enemy health dips into negative, schecks after double damagek
+                                System.out.println("*** The " + evilEnemy.getName() + " has no more health! ***");
+                            } else{
+                            System.out.println("*** The " + evilEnemy.getName() + "'s health after using your TRAIT is now " + enemyHealth + " ***");
+                        }
 
                     }
                 }

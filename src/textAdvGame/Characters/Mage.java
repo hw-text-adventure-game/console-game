@@ -81,6 +81,11 @@ public class Mage extends Character {
                     System.out.println("You cast a spell and do " + this.attackDamage + " damage!");
 
                     enemyHealth -= attackDamage;
+
+                    if (enemyHealth <= 0) { //Displays 0 if enemy health dips into negatives
+                        System.out.println("*** The " + evilEnemy.getName() + " has no more health! ***");
+                    } else {
+
                     playerHealth -= enemyDamage;
 
                     System.out.println("*** The " + evilEnemy.getName() + "'s health is now " + enemyHealth + " ***");
@@ -94,9 +99,16 @@ public class Mage extends Character {
                         System.out.println("You showed PERSISTENCE! Determined to not let the enemy get the best of you,\n" +
                                 "you cast a second spell, doing " + this.attackDamage2 + " damage!"); //Generates a second random number
                         System.out.println("------------------------------------------------------------------------");
-                        System.out.println("*** The " + evilEnemy.getName() + "'s health after using your TRAIT is now " + enemyHealth + " ***");
+
+                        if (enemyHealth <= 0) { //Displays 0 if enemy health dips into negatives, checks after second attack
+                            System.out.println("*** The " + evilEnemy.getName() + " has no more health! ***");
+                        } else {
+                            System.out.println("*** The " + evilEnemy.getName() + "'s health after using your TRAIT is now " + enemyHealth + " ***");
+                        }
 
                     }
+
+                }
 
                     attackMenu();
                 } else if (userChoice.equals("2")) {
