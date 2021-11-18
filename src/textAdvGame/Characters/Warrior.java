@@ -126,16 +126,25 @@ public class Warrior extends Character {
                     break;
                 }
 
+
             }
             //outside of the inner while loop,
             running = false; //if you remove this line, it will cause an infinite loop that says the enemy was defeated...
-            System.out.println("*******************************");
-            System.out.println("*** The enemy was defeated! ***");
-            System.out.println("*******************************");
+
+            if(alive == true) { //Will only print this if you're alive, removing the problem that this
+                //message would pop up whether or not you won or lost
+                System.out.println("*******************************");
+                System.out.println("*** The enemy was defeated! ***");
+                System.out.println("*******************************");
+            } else {
+                break;
+            }
+
+
             //after this, we can give more options...
         } //end of outer while loop
 
-            System.out.println(alive);
+//            System.out.println(alive);
 
 
     }
