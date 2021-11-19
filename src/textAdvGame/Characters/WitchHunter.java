@@ -26,6 +26,10 @@ public class WitchHunter extends Character {
         return attackDamage;
     }
 
+    public String personalMessage1() {
+        return "This where the witch resides; you can feel it in your bones.";
+    }
+
     //witch hunter has a trait for adaptability, 25% chance to dodge an attack/cancel out the enemy attack
     //if(random.nextInt(100) < dodgeChance{ add back whatever health amount was deducted}
     private int dodgeChance = 25;
