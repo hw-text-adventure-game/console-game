@@ -17,8 +17,8 @@ public class Mage extends Character {
     public Mage(String name,  String profession){
         super(name, profession);
         this.playerHealth = 100;
-        this.attackDamage = random.nextInt(6) + 15;
-        this.attackDamage2 = random.nextInt(6) + 15;
+        this.attackDamage = random.nextInt(6) + 10;
+        this.attackDamage2 = random.nextInt(6) + 10;
     }
     //not sure if this needs to be in the constructor, or in the game, probably in the game
     //if(random.nextInt(100) < secondAttackChance{ do the attackmethod again}
@@ -39,11 +39,17 @@ public class Mage extends Character {
 
 
     public void attackMenu(Enemy evilEnemy) { //Takes in enemy to kill
+        int previousHealth = 0;
 
         Scanner scanner = new Scanner(System.in);
         String userChoice;
 
-        this.playerHealth = 100;
+//        this.playerHealth = 100;
+        if(previousHealth < 100){
+            previousHealth = playerHealth;
+        } else {
+            int playerHealth = this.getPlayerHealth();
+        }
 
         int enemyHealth = evilEnemy.getEnemyHealth(); //Enemy Health
 
@@ -93,7 +99,7 @@ public class Mage extends Character {
 
                     if (random.nextInt(100) < persistence) {
 
-                        enemyHealth -= attackDamage;
+                        enemyHealth -= attackDamage2;
 
                         System.out.println("------------------------------------------------------------------------");
                         System.out.println("You showed PERSISTENCE! Determined to not let the enemy get the best of you,\n" +
@@ -144,10 +150,11 @@ public class Mage extends Character {
             System.out.println("*******************************");
             System.out.println("*** The enemy was defeated! ***");
             System.out.println("*******************************");
+            previousHealth = playerHealth;
             //after this, we can give more options...
         } //end of outer while loop
 
-        System.out.println(alive);
+//        System.out.println(alive);
 
 
     }

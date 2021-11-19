@@ -31,4 +31,6 @@ public class Cleric extends Character {
         int healAmnt = random.nextInt(11) + 5;  //this generates a random number between 5 and 15. (a number from 0-10, then shifted +5 to get 5 to 15)
         playerHealth = playerHealth + healAmnt;
     }
+
+    //for Cleric, enemy attack is negated, whatever damage the enemy would've done get's added back to the players health
 }

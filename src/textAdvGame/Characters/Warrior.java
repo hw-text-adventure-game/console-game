@@ -38,14 +38,21 @@ public class Warrior extends Character {
 
     //warrior also has a trait for bravery, 50% chance to do double damage
     //if(random.nextInt(100) < bravery { multiply damage by 2 }
+    //default playerHealth = 120,  int remainingHealth; if previousHealth < 120 playerHealth = remainingHealth
     private int bravery = 25;
 
     public void attackMenu(Enemy evilEnemy) { //Takes in enemy to kill
+        int previousHealth = 0;
 
         Scanner scanner = new Scanner(System.in);
         String userChoice;
 
-        this.playerHealth = 120;
+//        this.playerHealth = 120;
+        if(previousHealth < 120){
+            previousHealth = playerHealth;
+        } else {
+            int playerHealth = this.getPlayerHealth();
+        }
 
         int enemyHealth = evilEnemy.getEnemyHealth(); //Enemy Health
 
@@ -91,7 +98,7 @@ public class Warrior extends Character {
                         playerHealth -= enemyDamage; //Only lower player health if monster is alive
 
                     System.out.println("*** The " + evilEnemy.getName() + "'s health is now " + enemyHealth + " ***");
-                        System.out.println("!!-- You receive " + enemyDamage + " damage. --!! Your remaining health is " + playerHealth); //this needs to be printed here, after you subtract the damage
+                        System.out.println("!!-- You receive " + enemyDamage + " damage. --!!"); //this needs to be printed here, after you subtract the damage
 
                         if (random.nextInt(100) < bravery) {
 
@@ -147,6 +154,8 @@ public class Warrior extends Character {
                 System.out.println("*******************************");
                 System.out.println("*** The enemy was defeated! ***");
                 System.out.println("*******************************");
+                previousHealth = playerHealth;
+                System.out.println("player health remaining " + playerHealth);
             } else {
                 break;
             }
