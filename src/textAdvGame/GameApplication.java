@@ -28,11 +28,16 @@ public class GameApplication {
 
         Enemy firstEnemy;
         firstEnemy = new Goblin("GOBLIN");
+        Enemy secondEnemy = new Goblin("GOBLIN");
+        Enemy thirdEnemy = new Goblin("GOBLIN");
+        Enemy fourthEnemy = new Goblin("GOBLIN");
 
         System.out.println("***** A " + firstEnemy.getName() + " appears! *****");
 
         userCharacter.attackMenu(firstEnemy);
-
+        userCharacter.attackMenu(secondEnemy);
+        userCharacter.attackMenu(thirdEnemy);
+        userCharacter.attackMenu(fourthEnemy);
 
 
             //check if character is dead after every fight
@@ -41,19 +46,14 @@ public class GameApplication {
             alive = false;
             gameOver();
             break;
-        } else {
-            youWin();
-            break;
         }
 
-//        System.out.println("A test.");
         }
 
+        //Tried to create maze methods in separate class, but the game needs access to Character userCharacter
+        //to work. I tried a bunch of things, but it wouldn't work no matter what I did. Worse case scenario,
+        //we move the maze methods into the game application unless we can find another way.
 
-        //Right now it will loop if you're alive, but once we add more story this problem will go away. Once
-        // character wins game, we can call a youWin(); method and break out of game
-
-        //Went ahead and added youWin method to demonstrate this.
     }
 
 public static void gameOver() {
@@ -64,19 +64,6 @@ public static void gameOver() {
         System.out.println("YOU WIN!");
     }
 
-    //how would we play the game? after the user selects their character, enters their name etc
-
-    //Rhi Response: Java does everything in order, so if you look at line 15-16 that I added, that part will ONLY activate
-    // after the character selection and that's how the rest of the game goes on.
-    //Right under those new lines you can create a fightGoblin method that will let the user fight an enemy and so on.
-
-
-    //then we would have to instantiate whatever character they pick. Each character needs their own method like the console game, since they
-    //will have different options...
-
-    //Rhi Response: Merged chooseCharacter and enterName together. Properly returns usercharacter and userinput now.
-    //All info is in one easy to grab spot! Also made instantiation methods on lines 104-120. Changes on all
-    //class files made as well to accommodate.
 
 
     public static void main(String[] args) {
