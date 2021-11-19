@@ -76,7 +76,7 @@ public class WitchHunter extends Character {
 
                     int enemyDamage = evilEnemy.getEnemyAttackDamage();
 
-                    System.out.println("You swing your sword and do " + this.attackDamage + " damage!");
+                    System.out.println("You shoot your crossbow and do " + this.attackDamage + " damage!");
 
                     enemyHealth -= attackDamage;
 
@@ -104,8 +104,8 @@ public class WitchHunter extends Character {
                     attackMenu();
                 } else if (userChoice.equals("2")) {
                     System.out.println("----------------------------------------------------------------------------------------");
-                    System.out.println("Your trait is BRAVERY. You have a 25% chance to do double the set damage.\n" +
-                            "This is a trait that is always active.");
+                    System.out.println("\"Your trait is ADAPTABILITY. Gives you a 25% chance to dodge any attack.\n" +
+                            "This is a trait that is always active.\"");
                     System.out.println("----------------------------------------------------------------------------------------");
                     attackMenu();
                 } else if (userChoice.equals("3")) {

@@ -91,21 +91,22 @@ public class Thief extends Character {
                     attackMenu();
                 } else if (userChoice.equals("2")) {
                     System.out.println("----------------------------------------------------------------------------------------");
-                    System.out.println("Your trait is AGILITY. You can run away 3 times.\n" +
-                            "Do you want to run away [Y/N]");
+                    System.out.println("Your trait is AGILITY. You can run away from a battle. Can only be used\n" +
+                            "three times. Would you like to use your trait? [Y/N]");
                     System.out.println("----------------------------------------------------------------------------------------");
                     String runAway = scanner.nextLine();
                     if (runAway.equalsIgnoreCase("Y")) {
                         if(agility > 1){
                             agility--;
-                            System.out.println("You have " + agility + "remaining");
+                            System.out.println("You showed AGILITY! You decided the battle was not one worth winning, so you\n" +
+                                    "make a tactful retreat! You can run away " + agility + " more times.");
                             alive = true;
                             break OUTER;
                         } else if (agility == 1){
                             agility--;
-                            System.out.println("This is your last one. You can't run away anymore after this.");
+                            System.out.println("You use the last of your AGILITY. You can't run away anymore after this.");
                         }else {
-                            System.out.println("You have used all of your agility. You can't run away anymore!");
+                            System.out.println("You tried to show AGILITY, but the enemy corners you! You can't run away anymore.");
                             attackMenu();
                         }
                     } else {
