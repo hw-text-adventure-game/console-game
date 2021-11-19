@@ -26,5 +26,9 @@ public class Goblin extends Enemy {
         return enemyAttackDamage;
     }
 
+    public String monsterInfo() {
+        return "*** A creature with green skin and a large nose. Probably smells bad. ***";
+    }
+
     }
 

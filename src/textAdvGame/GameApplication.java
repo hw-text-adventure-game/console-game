@@ -36,6 +36,7 @@ public class GameApplication {
 //        Enemy fourthEnemy = new Goblin("GOBLIN");
 
         System.out.println("***** A " + firstEnemy.getName() + " appears! *****");
+            System.out.println(firstEnemy.monsterInfo());
 
         userCharacter.attackMenu(firstEnemy);
 //        userCharacter.attackMenu(secondEnemy);
@@ -73,7 +74,6 @@ public class GameApplication {
     public static void youWin() {
         System.out.println("YOU WIN!");
     }
-
 
 
     public static void main(String[] args) {
