@@ -389,5 +389,18 @@ CHOOSING NORTH
 
 (Will add more sets of paths soon! Just get the first set of paths down for right now.)
 
+
+
+(AFTER YOU EXIT THE MAZE)
+
+- The mansion is guarded by a deep trench, so make a cave/trench area for the player to go through.
+
+- Make a cave tunnel system and make an NPC called the "Hangman Man" man who you can talk to and play the game
+hang man with. His purpose is to give the player the secret code to enter the mansion, BUT he will only play
+hangman with you if you find and bring him a mushroom.
+
+
+
+
  */
 

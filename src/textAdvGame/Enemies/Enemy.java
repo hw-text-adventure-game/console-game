@@ -26,6 +26,9 @@ public class Enemy {
         return enemyAttackDamage;
     }
 
+    public String monsterInfo() {
+        return null;
+    }
 
 
 }
