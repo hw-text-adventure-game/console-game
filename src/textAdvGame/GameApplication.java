@@ -3,6 +3,11 @@ package textAdvGame;
 import textAdvGame.Characters.Character;
 import textAdvGame.Enemies.Enemy;
 import textAdvGame.Enemies.Goblin;
+import textAdvGame.Maze;
+
+import java.util.Scanner;
+
+import static textAdvGame.Maze.enterMaze;
 
 
 public class GameApplication {
@@ -28,16 +33,16 @@ public class GameApplication {
 
         Enemy firstEnemy;
         firstEnemy = new Goblin("GOBLIN");
-        Enemy secondEnemy = new Goblin("GOBLIN");
-        Enemy thirdEnemy = new Goblin("GOBLIN");
-        Enemy fourthEnemy = new Goblin("GOBLIN");
+//        Enemy secondEnemy = new Goblin("GOBLIN");
+//        Enemy thirdEnemy = new Goblin("GOBLIN");
+//        Enemy fourthEnemy = new Goblin("GOBLIN");
 
         System.out.println("***** A " + firstEnemy.getName() + " appears! *****");
 
         userCharacter.attackMenu(firstEnemy);
-        userCharacter.attackMenu(secondEnemy);
-        userCharacter.attackMenu(thirdEnemy);
-        userCharacter.attackMenu(fourthEnemy);
+//        userCharacter.attackMenu(secondEnemy);
+//        userCharacter.attackMenu(thirdEnemy);
+//        userCharacter.attackMenu(fourthEnemy);
 
 
             //check if character is dead after every fight
@@ -48,15 +53,17 @@ public class GameApplication {
             break;
         }
 
+        //Add personalized line here before the user enters the maze.
+
+            enterMaze(userCharacter); //Passing in userCharacter to maze
+
         }
 
-        //Tried to create maze methods in separate class, but the game needs access to Character userCharacter
-        //to work. I tried a bunch of things, but it wouldn't work no matter what I did. Worse case scenario,
-        //we move the maze methods into the game application unless we can find another way.
 
     }
 
-public static void gameOver() {
+
+    public static void gameOver() {
         System.out.println("GAME OVER!");
 }
 

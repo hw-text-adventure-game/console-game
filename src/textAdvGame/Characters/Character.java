@@ -2,6 +2,7 @@ package textAdvGame.Characters;
 
 import textAdvGame.*;
 import textAdvGame.Enemies.Enemy;
+import textAdvGame.Enemies.Goblin;
 
 import java.util.Scanner;
 
@@ -159,7 +160,7 @@ public class Character implements AttackOptions {
         userChar.setName(userInput);
         userChar.setProfession(userCharacter);
 
-        System.out.println("The " + userChar.getProfession() + " appears...their name is:");
+        System.out.println("You are " + userChar.getName() + " the " + userChar.getProfession() + "!");
         return userChar;
 
     }
