@@ -28,16 +28,11 @@ public class GameApplication {
 
         Enemy firstEnemy;
         firstEnemy = new Goblin("GOBLIN");
-        Enemy secondEnemy = new Goblin("GOBLIN");
-        Enemy thirdEnemy = new Goblin("GOBLIN");
-        Enemy fourthEnemy = new Goblin("GOBLIN");
 
         System.out.println("***** A " + firstEnemy.getName() + " appears! *****");
 
         userCharacter.attackMenu(firstEnemy);
-        userCharacter.attackMenu(secondEnemy);
-        userCharacter.attackMenu(thirdEnemy);
-        userCharacter.attackMenu(fourthEnemy);
+
 
 
             //check if character is dead after every fight
