@@ -36,6 +36,10 @@ public class Warrior extends Character {
         return alive;
     }
 
+    public String personalMessage1() {
+        return "You wonder if this is what the citizens are afraid of; it would be wise to investigate the mansion.";
+    }
+
     //warrior also has a trait for bravery, 50% chance to do double damage
     //if(random.nextInt(100) < bravery { multiply damage by 2 }
     //default playerHealth = 120,  int remainingHealth; if previousHealth < 120 playerHealth = remainingHealth

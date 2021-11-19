@@ -37,6 +37,10 @@ public class Mage extends Character {
         return alive;
     }
 
+    public String personalMessage1() {
+        return "You can feel the magical aura of this mansion; the Revival Stone is definitely hidden in there.";
+    }
+
 
     public void attackMenu(Enemy evilEnemy) { //Takes in enemy to kill
         int previousHealth = 0;

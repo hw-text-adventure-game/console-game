@@ -54,7 +54,16 @@ public class Character implements AttackOptions {
     }
 
     public void attackMenu() {
+    }
 
+
+    public boolean getStatus() {
+        return alive;
+    }
+
+
+    public String personalMessage1() {
+        return null;
     }
 
     public static Character chooseCharacter(){
@@ -166,10 +175,9 @@ public class Character implements AttackOptions {
     }
 
 
-    public void attackMenu(Enemy firstEnemy) {
-    }
 
-    public boolean getStatus() {
-        return alive;
+    //FIGHTS
+
+    public void attackMenu(Enemy firstEnemy) {
     }
 }

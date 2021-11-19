@@ -25,6 +25,10 @@ public class Thief extends Character {
         return attackDamage;
     }
 
+    public String personalMessage1() {
+        return "A mansion this big is bound to be full of treasure, you hit the jackpot!";
+    }
+
     //also has a trait for agility, run away from battle, can be used 3 times to "cancel" a fight
     private int agility = 3;
 

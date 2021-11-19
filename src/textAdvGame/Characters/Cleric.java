@@ -24,6 +24,11 @@ public class Cleric extends Character {
         return attackDamage;
     }
 
+    public String personalMessage1() {
+        return "The owner of the mansion probably has a lavish garden, which most likely contains the healin\n" +
+                "herbs you need for your potions.";
+    }
+
     //cleric also has a trait to heal himself 5-15 random range
     //when the player/cleric wants to heal himself, call this method.
     public void healSelf(){
