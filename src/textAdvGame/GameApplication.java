@@ -52,8 +52,8 @@ public class GameApplication {
             break;
         }
             System.out.println("------------------------------------------------------------------------------------------------------------");
-        System.out.println("You continue your journey into The Enchanted Forest, on edge after the goblin attack.\n " +
-                "It's safe to assume the forest is full of these kinds of creatures, so you stay on your guard.\n " +
+        System.out.println("You continue your journey into The Enchanted Forest, on edge after the goblin attack.\n" +
+                "It's safe to assume the forest is full of these kinds of creatures, so you stay on your guard.\n" +
                 "As you continue further, you see a mansion in the distance, towering above all the trees.\n" +
                 userCharacter.personalMessage1());
             System.out.println("------------------------------------------------------------------------------------------------------------");

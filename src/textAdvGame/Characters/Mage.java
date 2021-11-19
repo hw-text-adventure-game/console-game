@@ -99,7 +99,7 @@ public class Mage extends Character {
                     playerHealth -= enemyDamage;
 
                     System.out.println("*** The " + evilEnemy.getName() + "'s health is now " + enemyHealth + " ***");
-                    System.out.println("!!-- You receive " + enemyDamage + " damage. --!! Your remaining health is " + playerHealth); //this needs to be printed here, after you subtract the damage
+                    System.out.println("!!-- You receive " + enemyDamage + " damage. --!!"); //this needs to be printed here, after you subtract the damage
 
                     if (random.nextInt(100) < persistence) {
 

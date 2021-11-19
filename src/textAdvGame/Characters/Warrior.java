@@ -159,7 +159,6 @@ public class Warrior extends Character {
                 System.out.println("*** The enemy was defeated! ***");
                 System.out.println("*******************************");
                 previousHealth = playerHealth;
-                System.out.println("player health remaining " + playerHealth);
             } else {
                 break;
             }
