@@ -43,7 +43,7 @@ public class Warrior extends Character {
     //warrior also has a trait for bravery, 50% chance to do double damage
     //if(random.nextInt(100) < bravery { multiply damage by 2 }
     //default playerHealth = 120,  int remainingHealth; if previousHealth < 120 playerHealth = remainingHealth
-    private int bravery = 25;
+    private int bravery = 95;
 
     public void attackMenu(Enemy evilEnemy) { //Takes in enemy to kill
         int previousHealth = 0;
@@ -90,30 +90,47 @@ public class Warrior extends Character {
 
                     int enemyDamage = evilEnemy.getEnemyAttackDamage();
 
-                        System.out.println("You swing your sword and do " + this.attackDamage + " damage!");
+                    System.out.println("You swing your sword and do " + this.attackDamage + " damage!");
+                    enemyHealth -= attackDamage;
+
+                    if (random.nextInt(100) < bravery) {
 
                         enemyHealth -= attackDamage;
 
+                        System.out.println("------------------------------------------------------------------------");
+                        System.out.println("You showed BRAVERY! You swing your sword valiantly, doing double damage!");
+                        System.out.println("------------------------------------------------------------------------");
+
+                        if (enemyHealth <= 0) { //Displays 0 if enemy health dips into negative, schecks after double damagek
+                            System.out.println("*** The " + evilEnemy.getName() + " has no more health! ***");
+                            break;
+                        } else {
+                            System.out.println("*** The " + evilEnemy.getName() + "'s health after using your TRAIT is now " + enemyHealth + " ***");
+                        }
+                    }
+                    else if (random.nextInt(100) > bravery){ //Displays this message ONLY if trait is NOT used
+                        System.out.println("*** The " + evilEnemy.getName() + "'s health is now " + enemyHealth + " ***");
+                    }
+
                     if (enemyHealth <= 0) { //Displays 0 if enemy health dips into negatives
                         System.out.println("*** The " + evilEnemy.getName() + " has no more health! ***");
-                    } else {
+                        break;
+                    }
 
                         if(evilEnemy.getSpecialAttackChance() != 0) {  //checking if enemy has special attack
 
                             if (random.nextInt(100) < evilEnemy.getSpecialAttackChance()) {  //if the enemy does have special attack, activate enemy trait
                                 int enemySpecialDamage = evilEnemy.getSpecialAttackDamage();
-                                System.out.println("Enemy Special Damage " + enemySpecialDamage);
 
                                 playerHealth -= enemySpecialDamage;
-                                System.out.println("Enemy's special attack was activated");
-                                System.out.println("Special Damage " + enemySpecialDamage);
+
+                                System.out.println(evilEnemy.specialMessage() + "!!-- It does " + enemySpecialDamage + " damage! --!!");
                                 System.out.println("Player Health " + playerHealth);
                             }
                             else {     //if the enemy does have a special attack, but the chance wasn't high enough, then do the following
 
                                 playerHealth -= enemyDamage;
 
-                                System.out.println("*** The " + evilEnemy.getName() + "'s health is now " + enemyHealth + " ***");
                                 System.out.println("!!-- You receive " + enemyDamage + " damage. --!!");
                                 System.out.println("Player Health " + playerHealth);
                             }
@@ -121,28 +138,11 @@ public class Warrior extends Character {
 
                             playerHealth -= enemyDamage;
 
-                            System.out.println("*** The " + evilEnemy.getName() + "'s health is now " + enemyHealth + " ***");
                             System.out.println("!!-- You receive " + enemyDamage + " damage. --!!"); //this needs to be printed here, after you subtract the damage
                             System.out.println("Player Health " + playerHealth);
                         }
 
 
-                        if (random.nextInt(100) < bravery) {
-
-                            enemyHealth -= attackDamage;
-
-                            System.out.println("------------------------------------------------------------------------");
-                            System.out.println("You showed BRAVERY! You swing your sword valiantly, doing double damage!");
-                            System.out.println("------------------------------------------------------------------------");
-
-                            if (enemyHealth <= 0) { //Displays 0 if enemy health dips into negative, schecks after double damagek
-                                System.out.println("*** The " + evilEnemy.getName() + " has no more health! ***");
-                            } else{
-                            System.out.println("*** The " + evilEnemy.getName() + "'s health after using your TRAIT is now " + enemyHealth + " ***");
-                        }
-
-                    }
-                }
                     attackMenu();
                 } else if (userChoice.equals("2")) {
                     System.out.println("----------------------------------------------------------------------------------------");
