@@ -95,12 +95,34 @@ public class Mage extends Character {
                     if (enemyHealth <= 0) { //Displays 0 if enemy health dips into negatives
                         System.out.println("*** The " + evilEnemy.getName() + " has no more health! ***");
                     } else {
+                        if(evilEnemy.getSpecialAttackChance() != 0) {  //checking if enemy has special attack
 
-                    playerHealth -= enemyDamage;
+                            if (random.nextInt(100) < evilEnemy.getSpecialAttackChance()) {  //if the enemy does have special attack, activate enemy trait
+                                int enemySpecialDamage = evilEnemy.getSpecialAttackDamage();
+                                System.out.println("Enemy Special Damage " + enemySpecialDamage);
 
-                    System.out.println("*** The " + evilEnemy.getName() + "'s health is now " + enemyHealth + " ***");
-                    System.out.println("!!-- You receive " + enemyDamage + " damage. --!!"); //this needs to be printed here, after you subtract the damage
+                                playerHealth -= enemySpecialDamage;
+                                System.out.println("Enemy's special attack was activated");
+                                System.out.println("Special Damage " + enemySpecialDamage);
+                                System.out.println("Player Health " + playerHealth);
+                                System.out.println("Maze Guardian Health " + enemyHealth);
+                            }
+                            else {     //if the enemy does have a special attack, but the chance wasn't high enough, then do the following
 
+                                playerHealth -= enemyDamage;
+
+                                System.out.println("*** The " + evilEnemy.getName() + "'s health is now " + enemyHealth + " ***");
+                                System.out.println("!!-- You receive " + enemyDamage + " damage. --!!");
+                                System.out.println("Player Health " + playerHealth);
+                            }
+                        } else {   //if enemy has no special attack (like the goblin) do the following
+
+                            playerHealth -= enemyDamage;
+
+                            System.out.println("*** The " + evilEnemy.getName() + "'s health is now " + enemyHealth + " ***");
+                            System.out.println("!!-- You receive " + enemyDamage + " damage. --!!"); //this needs to be printed here, after you subtract the damage
+                            System.out.println("Player Health " + playerHealth);
+                        }
                     if (random.nextInt(100) < persistence) {
 
                         enemyHealth -= attackDamage2;
@@ -151,17 +173,16 @@ public class Mage extends Character {
             }
             //outside of the inner while loop,
             running = false; //if you remove this line, it will cause an infinite loop that says the enemy was defeated...
-            System.out.println("*******************************");
-            System.out.println("*** The enemy was defeated! ***");
-            System.out.println("*******************************");
+            if(alive == true) { //Will only print this if you're alive, removing the problem that this
+                System.out.println("*******************************");
+                System.out.println("*** The enemy was defeated! ***");
+                System.out.println("*******************************");
             previousHealth = playerHealth;
-            //after this, we can give more options...
-        } //end of outer while loop
-
-//        System.out.println(alive);
-
+        } else {
+            break;
+            }
+        } //end of while running loop
 
     }
-
 
 }

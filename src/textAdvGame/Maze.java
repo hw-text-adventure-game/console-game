@@ -26,6 +26,7 @@ public class Maze {
     }
 
     public static void MazePaths(Character myCharacter) {
+        boolean alive = true;
 
         Character userCharacter = myCharacter;
 
@@ -33,7 +34,7 @@ public class Maze {
         String firstChoice;
         boolean running = true;
 
-        while(running) {
+        while (running) {
             System.out.println("----------------------------------");
             System.out.println("Which way would you like to go?\n" +
                     "\n" +
@@ -61,39 +62,40 @@ public class Maze {
                 System.out.println(firstEnemy.monsterInfo());
 
                 userCharacter.attackMenu(firstEnemy);
+                if (userCharacter.getStatus() == false) { //if getStatus is false (not alive), end game. Otherwise, continue.
+                    alive = false;
+                    gameOver();
+                    break;
+                }
 
-                System.out.println("----------------------------------------------------------------------------------------");
-                System.out.println("After defeating the maze guardian, you look around, but can't find anything useful.\n" +
-                "You head back to the crossroads.");
-                System.out.println("----------------------------------------------------------------------------------------");
-                MazePaths(userCharacter);
-            } else if (firstChoice.equals("3")) {
-                System.out.println("----------------------------------------------------------------------------------------");
-                System.out.println("You decide to head east and find a BEWITCHED BELL! You put it into your inventory.\n" +
-                        "After searching the area some more, you find that there isn't anything else that's useful. You\n" +
-                        "head back to your original spot.");
-                System.out.println("----------------------------------------------------------------------------------------");
-                MazePaths(userCharacter);
-            } else if(firstChoice.equals("4")) {
-                System.out.println("----------------------------------------------------------------------------------------");
-                System.out.println("You decide to head west, but all you are met with is a large hedge blocking your path.\n" +
-                        "This seems to be a dead end, so you go back and retrace your steps.");
-                System.out.println("----------------------------------------------------------------------------------------");
-                MazePaths(userCharacter);
-            } else {
-                System.err.println("Enter a valid number.");
-                MazePaths(userCharacter);
+                    System.out.println("----------------------------------------------------------------------------------------");
+                    System.out.println("After defeating the maze guardian, you look around, but can't find anything useful.\n" +
+                            "You head back to the crossroads.");
+                    System.out.println("----------------------------------------------------------------------------------------");
+                    MazePaths(userCharacter);
+                } else if (firstChoice.equals("3")) {
+                    System.out.println("----------------------------------------------------------------------------------------");
+                    System.out.println("You decide to head east and find a BEWITCHED BELL! You put it into your inventory.\n" +
+                            "After searching the area some more, you find that there isn't anything else that's useful. You\n" +
+                            "head back to your original spot.");
+                    System.out.println("----------------------------------------------------------------------------------------");
+                    MazePaths(userCharacter);
+                } else if (firstChoice.equals("4")) {
+                    System.out.println("----------------------------------------------------------------------------------------");
+                    System.out.println("You decide to head west, but all you are met with is a large hedge blocking your path.\n" +
+                            "This seems to be a dead end, so you go back and retrace your steps.");
+                    System.out.println("----------------------------------------------------------------------------------------");
+                    MazePaths(userCharacter);
+                } else {
+                    System.err.println("Enter a valid number.");
+                    MazePaths(userCharacter);
+                }
+
+
             }
 
-
         }
-
-
-    }
-
-
-
-    public static void secondMazePaths() {
+    public static void secondMazePaths () {
         System.out.println("You decide to head north and come upon more paths to go down.");
         System.out.println("Which way would you like to go now?\n" +
                 "\n" +
@@ -102,8 +104,18 @@ public class Maze {
                 "[3] East\n" +
                 "[4] West");
     }
+    public static void gameOver () {
+        System.out.println("GAME OVER!");
+    }
+
+    public static void youWin () {
+        System.out.println("YOU WIN!");
+    }
+
 
 }
+
+
 
 
 

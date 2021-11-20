@@ -98,9 +98,9 @@ public class Warrior extends Character {
                         System.out.println("*** The " + evilEnemy.getName() + " has no more health! ***");
                     } else {
 
-                        if(evilEnemy.getSpecialAttackChance() != 0) {
+                        if(evilEnemy.getSpecialAttackChance() != 0) {  //checking if enemy has special attack
 
-                            if (random.nextInt(100) < evilEnemy.getSpecialAttackChance()) {
+                            if (random.nextInt(100) < evilEnemy.getSpecialAttackChance()) {  //if the enemy does have special attack, activate enemy trait
                                 int enemySpecialDamage = evilEnemy.getSpecialAttackDamage();
                                 System.out.println("Enemy Special Damage " + enemySpecialDamage);
 
@@ -109,15 +109,15 @@ public class Warrior extends Character {
                                 System.out.println("Special Damage " + enemySpecialDamage);
                                 System.out.println("Player Health " + playerHealth);
                             }
-                            else {
+                            else {     //if the enemy does have a special attack, but the chance wasn't high enough, then do the following
 
                                 playerHealth -= enemyDamage;
 
                                 System.out.println("*** The " + evilEnemy.getName() + "'s health is now " + enemyHealth + " ***");
-                                System.out.println("!!-- You receive " + enemyDamage + " damage. --!!"); //this needs to be printed here, after you subtract the damage
+                                System.out.println("!!-- You receive " + enemyDamage + " damage. --!!");
                                 System.out.println("Player Health " + playerHealth);
                             }
-                        } else {
+                        } else {   //if enemy has no special attack (like the goblin) do the following
 
                             playerHealth -= enemyDamage;
 
