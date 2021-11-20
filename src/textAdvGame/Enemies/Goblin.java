@@ -5,6 +5,7 @@ import java.util.Random;
 public class Goblin extends Enemy {
 
     private int enemyHealth;
+    private int specialAttack = 0;
 
     Random random = new Random();
     private int enemyAttackDamage;

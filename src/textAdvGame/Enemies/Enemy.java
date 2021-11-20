@@ -5,6 +5,8 @@ public class Enemy {
     private static int enemyAttackDamage;
     private String name;
     private int enemyHealth;
+    private int specialAttackChance;
+
 
     public Enemy(String name) {
         this.name = name;
@@ -24,6 +26,10 @@ public class Enemy {
 
     public int getEnemyAttackDamage() {
         return enemyAttackDamage;
+    }
+
+    public int getSpecialAttackChance() {
+        return specialAttackChance;
     }
 
     public String monsterInfo() {

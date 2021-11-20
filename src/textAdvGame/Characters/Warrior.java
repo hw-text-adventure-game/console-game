@@ -94,10 +94,19 @@ public class Warrior extends Character {
 
                         enemyHealth -= attackDamage;
 
-
                     if (enemyHealth <= 0) { //Displays 0 if enemy health dips into negatives
                         System.out.println("*** The " + evilEnemy.getName() + " has no more health! ***");
                     } else {
+
+                        if(evilEnemy.getSpecialAttackChance() != 0) {
+
+                            if (random.nextInt(100) < evilEnemy.getSpecialAttackChance()) {
+                                int enemySpecialDamage = evilEnemy.getEnemyAttackDamage();
+
+                                playerHealth -= enemyDamage;
+                                System.out.println("Enemy's special attack was activated");
+                            }
+                        }
 
                         playerHealth -= enemyDamage; //Only lower player health if monster is alive
 

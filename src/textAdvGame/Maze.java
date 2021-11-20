@@ -3,7 +3,8 @@ package textAdvGame;
 import textAdvGame.*;
 import textAdvGame.Characters.Character;
 import textAdvGame.Enemies.Enemy;
-import textAdvGame.Enemies.Goblin;;
+import textAdvGame.Enemies.Goblin;
+import textAdvGame.Enemies.MazeGuard;;
 import java.util.Scanner;
 
 public class Maze {
@@ -54,7 +55,7 @@ public class Maze {
                 System.out.println("------------------------------------------------------------------------------");
 
                 Enemy firstEnemy;
-                firstEnemy = new Goblin("GOBLIN"); //Change to maze guardian or boulder monster
+                firstEnemy = new MazeGuard("MAZE GUARDIAN"); //Change to maze guardian or boulder monster
 
                 System.out.println("***** A " + firstEnemy.getName() + " appears! *****");
                 System.out.println(firstEnemy.monsterInfo());
