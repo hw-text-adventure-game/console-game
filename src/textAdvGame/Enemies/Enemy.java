@@ -40,4 +40,8 @@ public class Enemy {
     public int getSpecialAttackDamage() {
         return 0;
     }
+
+    public String specialMessage() {
+        return null;
+    }
 }

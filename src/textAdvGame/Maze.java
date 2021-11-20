@@ -51,8 +51,7 @@ public class Maze {
                 secondMazePaths();
             } else if (firstChoice.equals("2")) {
                 System.out.println("------------------------------------------------------------------------------");
-                System.out.println("\"You decide to head south, but come face to face with a monster made out of\n" +
-                        "the same hedges that make up the maze!\"");
+                System.out.println("\"You decide to head south, but come face to face with a monster!\"");
                 System.out.println("------------------------------------------------------------------------------");
 
                 Enemy firstEnemy;

@@ -30,13 +30,16 @@ public class MazeGuard extends Enemy{
     }
 
     public String monsterInfo() {
-        return "*** Put a description here. ***";
+        return "*** A monster that's made up of hedges and thorns. Has a special move, so look out! ***";
     }
 
     public int getSpecialAttackDamage() {
         return this.enemyAttackDamage * 2;
     }
 
+    public String specialMessage() {
+        return "*** The MAZE GUARDIAN uses THORNY GRASP! Prickly vines grow out of the guardians back and slash you! ***\n";
+    }
 
 }
 //if the enemy has a special trait, put that number into the variable;
