@@ -101,17 +101,31 @@ public class Warrior extends Character {
                         if(evilEnemy.getSpecialAttackChance() != 0) {
 
                             if (random.nextInt(100) < evilEnemy.getSpecialAttackChance()) {
-                                int enemySpecialDamage = evilEnemy.getEnemyAttackDamage();
+                                int enemySpecialDamage = evilEnemy.getSpecialAttackDamage();
+                                System.out.println("Enemy Special Damage " + enemySpecialDamage);
+
+                                playerHealth -= enemySpecialDamage;
+                                System.out.println("Enemy's special attack was activated");
+                                System.out.println("Special Damage " + enemySpecialDamage);
+                                System.out.println("Player Health " + playerHealth);
+                            }
+                            else {
 
                                 playerHealth -= enemyDamage;
-                                System.out.println("Enemy's special attack was activated");
+
+                                System.out.println("*** The " + evilEnemy.getName() + "'s health is now " + enemyHealth + " ***");
+                                System.out.println("!!-- You receive " + enemyDamage + " damage. --!!"); //this needs to be printed here, after you subtract the damage
+                                System.out.println("Player Health " + playerHealth);
                             }
+                        } else {
+
+                            playerHealth -= enemyDamage;
+
+                            System.out.println("*** The " + evilEnemy.getName() + "'s health is now " + enemyHealth + " ***");
+                            System.out.println("!!-- You receive " + enemyDamage + " damage. --!!"); //this needs to be printed here, after you subtract the damage
+                            System.out.println("Player Health " + playerHealth);
                         }
 
-                        playerHealth -= enemyDamage; //Only lower player health if monster is alive
-
-                    System.out.println("*** The " + evilEnemy.getName() + "'s health is now " + enemyHealth + " ***");
-                        System.out.println("!!-- You receive " + enemyDamage + " damage. --!!"); //this needs to be printed here, after you subtract the damage
 
                         if (random.nextInt(100) < bravery) {
 

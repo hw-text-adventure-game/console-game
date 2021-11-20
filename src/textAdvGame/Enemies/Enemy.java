@@ -37,4 +37,7 @@ public class Enemy {
     }
 
 
+    public int getSpecialAttackDamage() {
+        return 0;
+    }
 }
