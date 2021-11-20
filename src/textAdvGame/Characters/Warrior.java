@@ -40,10 +40,7 @@ public class Warrior extends Character {
         return "You wonder if this is what the citizens are afraid of; it would be wise to investigate the mansion.";
     }
 
-    //warrior also has a trait for bravery, 50% chance to do double damage
-    //if(random.nextInt(100) < bravery { multiply damage by 2 }
-    //default playerHealth = 120,  int remainingHealth; if previousHealth < 120 playerHealth = remainingHealth
-    private int bravery = 95;
+    private int bravery = 25;
 
     public void attackMenu(Enemy evilEnemy) { //Takes in enemy to kill
         int previousHealth = 0;
@@ -51,8 +48,8 @@ public class Warrior extends Character {
         Scanner scanner = new Scanner(System.in);
         String userChoice;
 
-//        this.playerHealth = 120;
-        if(previousHealth < 120){
+
+        if(previousHealth < 120){ //keeps track of your health from last fight
             previousHealth = playerHealth;
         } else {
             int playerHealth = this.getPlayerHealth();
@@ -60,9 +57,6 @@ public class Warrior extends Character {
 
         int enemyHealth = evilEnemy.getEnemyHealth(); //Enemy Health
 
-//        int enemyDamage = evilEnemy.getEnemyAttackDamage();  //this one is not giving a random number each time, it's giving a random number once, then using that same number for each attack
-//        int enemyDamage = random.nextInt(6) + 20;        //this is also not giving a random number each time, I think this needs to be in the if statement
-//        System.out.println("ENEMY DAMAGE:" + enemyDamage);
 
         boolean running = true;
 
@@ -90,10 +84,10 @@ public class Warrior extends Character {
 
                     int enemyDamage = evilEnemy.getEnemyAttackDamage();
 
-                    System.out.println("You swing your sword and do " + this.attackDamage + " damage!");
+                    System.out.println("You swing your sword and do " + this.attackDamage + " damage!"); //Attack
                     enemyHealth -= attackDamage;
 
-                    if (random.nextInt(100) < bravery) {
+                    if (random.nextInt(100) < bravery) { //Check if you can use trait
 
                         enemyHealth -= attackDamage;
 
@@ -119,7 +113,7 @@ public class Warrior extends Character {
 
                         if(evilEnemy.getSpecialAttackChance() != 0) {  //checking if enemy has special attack
 
-                            if (random.nextInt(100) < evilEnemy.getSpecialAttackChance()) {  //if the enemy does have special attack, activate enemy trait
+                            if (random.nextInt(100) < evilEnemy.getSpecialAttackChance()) {  //if the enemy does have special attack, activate enemy special attack
                                 int enemySpecialDamage = evilEnemy.getSpecialAttackDamage();
 
                                 playerHealth -= enemySpecialDamage;
