@@ -4,7 +4,8 @@ import textAdvGame.*;
 import textAdvGame.Characters.Character;
 import textAdvGame.Enemies.Enemy;
 import textAdvGame.Enemies.Goblin;
-import textAdvGame.Enemies.MazeGuard;;
+import textAdvGame.Enemies.MazeGuard;
+import textAdvGame.Enemies.StoneGolem;;
 import java.util.Scanner;
 
 public class Maze {
@@ -181,6 +182,22 @@ public class Maze {
     /* --------------------- THIRD MAZE PATHS --------------------- */
 
     public static void thirdMazePaths(Character myCharacter) {
+
+        Character userCharacter = myCharacter;
+        boolean alive = true;
+
+        Enemy firstEnemy;
+        firstEnemy = new StoneGolem("STONE GOLEM"); //Change to maze guardian or boulder monster
+
+        System.out.println("***** A " + firstEnemy.getName() + " appears! *****");
+        System.out.println(firstEnemy.monsterInfo());
+        System.out.println(firstEnemy.traitMessage());
+
+        userCharacter.attackMenu(firstEnemy);
+        if (userCharacter.getStatus() == false) { //if getStatus is false (not alive), end game. Otherwise, continue.
+            alive = false;
+            gameOver();
+        }
 
 
     }

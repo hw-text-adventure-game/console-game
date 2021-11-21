@@ -44,4 +44,12 @@ public class Enemy {
     public String specialMessage() {
         return null;
     }
+
+    public String traitMessage() {
+        return null;
+    }
+
+    public String getType() {
+        return "Normal";
+    }
 }
