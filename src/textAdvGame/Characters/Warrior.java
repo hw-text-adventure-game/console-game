@@ -84,7 +84,15 @@ public class Warrior extends Character {
 
                     int enemyDamage = evilEnemy.getEnemyAttackDamage();
 
-                    System.out.println("You swing your sword and do " + this.attackDamage + " damage!"); //Attack
+                    if(evilEnemy.getType().equals("Rock")) {
+                        int reducedDamage = this.attackDamage = random.nextInt(6) + 20 / 2;
+                        System.out.println("You swing your sword and do " + reducedDamage + " damage!"); //Attack if monster type is rock
+                    }
+                    else {
+                        System.out.println("You swing your sword and do " + this.attackDamage + " damage!"); //Attack
+                    }
+
+
                     enemyHealth -= attackDamage;
 
                     if (random.nextInt(100) < bravery) { //Check if you can use trait
@@ -102,7 +110,15 @@ public class Warrior extends Character {
                             System.out.println("*** The " + evilEnemy.getName() + "'s health after using your TRAIT is now " + enemyHealth + " ***");
                         }
                     }
-                    else if (random.nextInt(100) > bravery){ //Displays this message ONLY if trait is NOT used
+                    else if (random.nextInt(100) > bravery){
+                        if (enemyHealth <= 0) { //Displays 0 if enemy health dips into negative, schecks after double damagek
+                            System.out.println("*** The " + evilEnemy.getName() + " has no more health! ***");
+                            break;
+                        } else {
+                            System.out.println("*** The " + evilEnemy.getName() + "'s health is now " + enemyHealth + " ***");
+                        }
+
+                    } else {
                         System.out.println("*** The " + evilEnemy.getName() + "'s health is now " + enemyHealth + " ***");
                     }
 
@@ -119,21 +135,18 @@ public class Warrior extends Character {
                                 playerHealth -= enemySpecialDamage;
 
                                 System.out.println(evilEnemy.specialMessage() + "!!-- It does " + enemySpecialDamage + " damage! --!!");
-                                System.out.println("Player Health " + playerHealth);
                             }
                             else {     //if the enemy does have a special attack, but the chance wasn't high enough, then do the following
 
                                 playerHealth -= enemyDamage;
 
                                 System.out.println("!!-- You receive " + enemyDamage + " damage. --!!");
-                                System.out.println("Player Health " + playerHealth);
                             }
                         } else {   //if enemy has no special attack (like the goblin) do the following
 
                             playerHealth -= enemyDamage;
 
                             System.out.println("!!-- You receive " + enemyDamage + " damage. --!!"); //this needs to be printed here, after you subtract the damage
-                            System.out.println("Player Health " + playerHealth);
                         }
 
 
