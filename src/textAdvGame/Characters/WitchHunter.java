@@ -9,8 +9,8 @@ import java.util.Scanner;
 public class WitchHunter extends Character {
     private int playerHealth;
     Random random = new Random();
-    //attack bw 20 & 25
     private int attackDamage;
+    private int dodgeChance = 25;  //witch hunter trait for adaptability, Percent% chance to dodge an attack/cancel out the enemy attack
 
     public WitchHunter(String name,  String profession){
         super(name, profession);
@@ -30,18 +30,12 @@ public class WitchHunter extends Character {
         return "This where the witch resides; you can feel it in your bones.";
     }
 
-    //witch hunter has a trait for adaptability, 25% chance to dodge an attack/cancel out the enemy attack
-    //if(random.nextInt(100) < dodgeChance{ add back whatever health amount was deducted}
-    private int dodgeChance = 25;
-
-
     public void attackMenu(Enemy evilEnemy) { //Takes in enemy to kill
         int previousHealth = 0;
 
         Scanner scanner = new Scanner(System.in);
         String userChoice;
 
-//        this.playerHealth = 120;
         if(previousHealth < 120){
             previousHealth = playerHealth;
         } else {
@@ -50,9 +44,6 @@ public class WitchHunter extends Character {
 
         int enemyHealth = evilEnemy.getEnemyHealth(); //Enemy Health
 
-//        int enemyDamage = evilEnemy.getEnemyAttackDamage();  //this one is not giving a random number each time, it's giving a random number once, then using that same number for each attack
-//        int enemyDamage = random.nextInt(6) + 20;        //this is also not giving a random number each time, I think this needs to be in the if statement
-//        System.out.println("ENEMY DAMAGE:" + enemyDamage);
 
         boolean running = true;
 
@@ -63,7 +54,7 @@ public class WitchHunter extends Character {
                 System.out.println("---------------");
                 System.out.println("ATTACK MENU\n");
 
-                System.out.println("WARRIOR Options:\n" +
+                System.out.println("WITCH HUNTER Options:\n" +
                         "[1] Attack\n" +
                         "[2] Trait\n" +
                         "[3] Inventory\n" +
@@ -95,9 +86,9 @@ public class WitchHunter extends Character {
                                 System.out.println("Enemy Special Damage " + enemySpecialDamage);
 
                                 playerHealth -= enemySpecialDamage;
+                                System.out.println("Maze Guardian Health " + enemyHealth);
                                 System.out.println("Enemy's special attack was activated");
                                 System.out.println("!!-- You receive " + enemySpecialDamage + " damage. --!!");
-                                System.out.println("Maze Guardian Health " + enemyHealth);
 
                                 if (random.nextInt(100) < dodgeChance) {
 
@@ -109,31 +100,44 @@ public class WitchHunter extends Character {
 
                                 }
 
-                            }
-                            else {     //if the enemy does have a special attack, but the chance wasn't high enough, then do the following
+                            } else {     //if the enemy does have a special attack, but the chance wasn't high enough, then do the following
 
                                 playerHealth -= enemyDamage;
 
                                 System.out.println("*** The " + evilEnemy.getName() + "'s health is now " + enemyHealth + " ***");
                                 System.out.println("!!-- You receive " + enemyDamage + " damage. --!!");
-                                System.out.println("Player Health " + playerHealth);
-                            }
-                        } else {   //if enemy has no special attack (like the goblin) do the following
-                            if (random.nextInt(100) < dodgeChance) {
+//                                System.out.println("Player Health " + playerHealth); //THIS IS SHOWING PLAYER HEALTH BEFORE THEY HAVE A CHANCE TO DODGE, MOVED IT DOWN--CAN PROBABLY REMOVE IT WHEN WE ARE FINISHED
+
+                                //WE NEED AN OPPORTUNITY TO DODGE HERE TOO
+                                if (random.nextInt(100) < dodgeChance) {
 
                                 playerHealth += enemyDamage;
 
-                                System.out.println("------------------------------------------------------------------------");
-                                System.out.println("You showed ADAPTABILITY! You predicted the enemies moves and dodged their attack!");
-                                System.out.println("------------------------------------------------------------------------");
+                                    System.out.println("------------------------------------------------------------------------");
+                                    System.out.println("You showed ADAPTABILITY! You predicted the enemies moves and dodged their attack!");
+                                    System.out.println("------------------------------------------------------------------------");
 
-                            } else {
-                                playerHealth -= enemyDamage;
-
-                                System.out.println("*** The " + evilEnemy.getName() + "'s health is now " + enemyHealth + " ***");
-                                System.out.println("!!-- You receive " + enemyDamage + " damage. --!!"); //this needs to be printed here, after you subtract the damage
+                                }
                                 System.out.println("Player Health " + playerHealth);
+
                             }
+                        } else {   //if enemy has no special attack (like the goblin) do the following
+                            playerHealth -= enemyDamage;
+
+                            System.out.println("*** The " + evilEnemy.getName() + "'s health is now " + enemyHealth + " ***");
+                            System.out.println("!!-- You receive " + enemyDamage + " damage. --!!"); //this needs to be printed here, after you subtract the damage
+//                            System.out.println("Player Health " + playerHealth); //THIS IS SHOWING PLAYER HEALTH BEFORE THEY HAVE A CHANCE TO DODGE, MOVED IT DOWN
+
+                                if (random.nextInt(100) < dodgeChance) {
+
+                                    playerHealth += enemyDamage;
+
+                                    System.out.println("------------------------------------------------------------------------");
+                                    System.out.println("You showed ADAPTABILITY! You predicted the enemies moves and dodged their attack!");
+                                    System.out.println("------------------------------------------------------------------------");
+
+                                }
+                            System.out.println("Player Health " + playerHealth);
 
                         }
 
