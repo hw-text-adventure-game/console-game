@@ -14,19 +14,26 @@
 [] Finish fifthMazePaths
 [] When going down a path to get an item, add item to inventory and program functionality of item.
 
+
+---- TRENCH TODOS ----
+
+[]Add a small maze of cave systems
+[]Add an NPC to talk to who you can play hangman with
+[]ONLY allow the user to play hangman if they find the RED MUSHROOM item in the maze
+[]Add a monster with a type of "Shadow" and make weapons that produce light do an extra +5 damage (add this buff only to Mage and Cleric)
+[]Add a LANTERN item that kills ONLY Shadow type monsters, otherwise make it useless
+
+
 ---- ENEMY TODOS ----
 
 [✔]Add Boulder Monster + Functionality //Rhi
 []Add this functionality to EVERY class
 []Do a check to make sure each user fights every enemy the same way (special attacks being activated, types of monsters taking effects, etc)
+[]Give MazeGuard a type of "Plant" and have sharp weapons do an extra +5 damage (add this buff only to Warrior, Thief, and Witch Hunter)
 
 -- Minor TODOS ---
 
 [] Refactor attackMenu to make it less cluttered
-
-
-
-
 
 
  */
