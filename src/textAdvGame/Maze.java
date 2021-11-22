@@ -80,7 +80,7 @@ public class Maze {
                 System.out.println("----------------------------------------------------------------------------------------");
                 System.out.println("You decide to head east and find a BEWITCHED BELL! You put it into your inventory.\n" +
                         "After searching the area some more, you find that there isn't anything else that's useful. You\n" +
-                        "head back to your original spot.");
+                        "return to your original spot.");
                 System.out.println("----------------------------------------------------------------------------------------");
                 MazePaths(userCharacter);
             } else if (firstChoice.equals("4")) {
@@ -153,7 +153,7 @@ public class Maze {
             System.out.println("----------------------------------------------------------------------------------------");
             System.out.println("You decide to head east and find a HEALING POTION! You put it into your inventory.\n" +
                     "After searching the area some more, you find that there isn't anything else that's useful. You\n" +
-                    "head back to your original spot.");
+                    "return to your original spot.");
             System.out.println("----------------------------------------------------------------------------------------");
             MazePaths(userCharacter);
 
