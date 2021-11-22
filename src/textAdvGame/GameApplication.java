@@ -54,7 +54,7 @@ public class GameApplication {
             System.out.println("------------------------------------------------------------------------------------------------------------");
         System.out.println("You continue your journey into The Enchanted Forest, on edge after the goblin attack.\n" +
                 "It's safe to assume the forest is full of these kinds of creatures, so you stay on your guard.\n" +
-                "As you continue further, you see a mansion in the distance, towering above all the trees.\n" +
+                "As you continue further, you see a castle in the distance, towering above all the trees.\n" +
                 userCharacter.personalMessage1());
             System.out.println("------------------------------------------------------------------------------------------------------------");
         //Add personalized line here before the user enters the maze.

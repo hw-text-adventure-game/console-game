@@ -25,7 +25,7 @@ public class Cleric extends Character {
     }
 
     public String personalMessage1() {
-        return "The owner of the mansion probably has a lavish garden, which most likely contains the healin\n" +
+        return "The owner of the castle probably has a lavish garden, which most likely contains the healing\n" +
                 "herbs you need for your potions.";
     }
 
