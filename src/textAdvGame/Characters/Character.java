@@ -189,6 +189,6 @@ public class Character implements AttackOptions {
 
     //FIGHTS
 
-    public void attackMenu(Enemy firstEnemy) {
+    public void attackMenu(Enemy firstEnemy, ArrayList<String> inventory) {
     }
 }

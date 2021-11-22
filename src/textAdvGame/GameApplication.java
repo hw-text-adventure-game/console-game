@@ -30,18 +30,17 @@ public class GameApplication {
                 "but suddenly you hear a noise from behind you!\"");
         System.out.println("------------------------------------------------------------------------------------------------------------");
 
+            ArrayList<String> inventory = new ArrayList<>();
+
         Enemy firstEnemy;
         firstEnemy = new Goblin("GOBLIN");
 
         System.out.println("***** A " + firstEnemy.getName() + " appears! *****");
             System.out.println(firstEnemy.monsterInfo());
 
-        userCharacter.attackMenu(firstEnemy);
+        userCharacter.attackMenu(firstEnemy, inventory);
 
-        ArrayList<String> inventory = new ArrayList<>();
-        inventory.add("BEWITCHED BELL");
 
-        userCharacter.showInventory(inventory);
 
 
             //check if character is dead after every fight
@@ -59,7 +58,7 @@ public class GameApplication {
             System.out.println("------------------------------------------------------------------------------------------------------------");
         //Add personalized line here before the user enters the maze.
 
-            enterMaze(userCharacter); //Passing in userCharacter to maze
+            enterMaze(userCharacter, inventory); //Passing in userCharacter to maze
 
         }
 

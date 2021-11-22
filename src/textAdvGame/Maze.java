@@ -6,6 +6,7 @@ import textAdvGame.Enemies.Enemy;
 import textAdvGame.Enemies.Goblin;
 import textAdvGame.Enemies.MazeGuard;
 import textAdvGame.Enemies.StoneGolem;;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Maze {
@@ -15,24 +16,26 @@ public class Maze {
 
 /* --------------------- ENTER MAZE --------------------- */
 
-    public static void enterMaze(Character myCharacter) {
+    public static void enterMaze(Character myCharacter, ArrayList<String> characterInventory) {
         Character userCharacter = myCharacter;
+        ArrayList<String> inventory = characterInventory;
 
         System.out.println("However, the entrance to the mansion is guarded by a huge maze. There isn't\n" +
                 "any way around it, so your only choice is to go through it. You enter the maze with\n" +
                 "your weapons ready and begin to trek the magical hedges.");
 
-        MazePaths(userCharacter);
+        MazePaths(userCharacter, inventory);
 
 
     }
 
     /* --------------------- FIRST MAZE PATHS --------------------- */
 
-    public static void MazePaths(Character myCharacter) {
+    public static void MazePaths(Character myCharacter, ArrayList<String> characterInventory) {
         boolean alive = true;
 
         Character userCharacter = myCharacter;
+        ArrayList<String> inventory = characterInventory;
 
         Scanner scanner = new Scanner(System.in);
         String firstChoice;
@@ -52,7 +55,7 @@ public class Maze {
 
             if (firstChoice.equals("1")) {
                 running = false;
-                secondMazePaths(myCharacter);
+                secondMazePaths(myCharacter, inventory);
             } else if (firstChoice.equals("2")) {
                 System.out.println("------------------------------------------------------------------------------");
                 System.out.println("\"You decide to head south, but come face to face with a monster!\"");
@@ -64,7 +67,7 @@ public class Maze {
                 System.out.println("***** A " + firstEnemy.getName() + " appears! *****");
                 System.out.println(firstEnemy.monsterInfo());
 
-                userCharacter.attackMenu(firstEnemy);
+                userCharacter.attackMenu(firstEnemy, inventory);
                 if (userCharacter.getStatus() == false) { //if getStatus is false (not alive), end game. Otherwise, continue.
                     alive = false;
                     gameOver();
@@ -75,23 +78,26 @@ public class Maze {
                 System.out.println("After defeating the " + firstEnemy.getName() + ", you look around, but can't find anything\n" +
                         "else. You head back to the crossroads.");
                 System.out.println("----------------------------------------------------------------------------------------");
-                MazePaths(userCharacter);
+                MazePaths(userCharacter, inventory);
             } else if (firstChoice.equals("3")) {
                 System.out.println("----------------------------------------------------------------------------------------");
                 System.out.println("You decide to head east and find a BEWITCHED BELL! You put it into your inventory.\n" +
                         "After searching the area some more, you find that there isn't anything else that's useful. You\n" +
                         "return to your original spot.");
                 System.out.println("----------------------------------------------------------------------------------------");
-                MazePaths(userCharacter);
+
+                inventory.add("BEWITCHED BELL");
+
+                MazePaths(userCharacter, inventory);
             } else if (firstChoice.equals("4")) {
                 System.out.println("----------------------------------------------------------------------------------------");
                 System.out.println("You decide to head west, but all you are met with is a large hedge blocking your path.\n" +
                         "This seems to be a dead end, so you go back and retrace your steps.");
                 System.out.println("----------------------------------------------------------------------------------------");
-                MazePaths(userCharacter);
+                MazePaths(userCharacter, inventory);
             } else {
                 System.err.println("Enter a valid number.");
-                MazePaths(userCharacter);
+                MazePaths(userCharacter, inventory);
             }
 
 
@@ -101,13 +107,14 @@ public class Maze {
 
     /* --------------------- SECOND MAZE PATHS --------------------- */
 
-    public static void secondMazePaths(Character myCharacter) {
+    public static void secondMazePaths(Character myCharacter, ArrayList<String> characterInventory) {
 
         System.out.println("You decide to head north and come upon more paths to go down."); //User chose north in firstMazePaths
 
         boolean alive = true;
 
         Character userCharacter = myCharacter;
+        ArrayList<String> inventory = characterInventory;
 
         Scanner scanner = new Scanner(System.in);
         String secondChoice;
@@ -135,7 +142,7 @@ public class Maze {
             System.out.println("***** A " + firstEnemy.getName() + " appears! *****");
             System.out.println(firstEnemy.monsterInfo());
 
-            userCharacter.attackMenu(firstEnemy);
+            userCharacter.attackMenu(firstEnemy, inventory);
             if (userCharacter.getStatus() == false) { //if getStatus is false (not alive), end game. Otherwise, continue.
                 alive = false;
                 gameOver();
@@ -146,7 +153,7 @@ public class Maze {
             System.out.println("After defeating the " + firstEnemy.getName() + ", you look around, but can't find anything\n" +
                     "else. You head back to the crossroads.");
             System.out.println("----------------------------------------------------------------------------------------");
-            secondMazePaths(userCharacter);
+            secondMazePaths(userCharacter, inventory);
 
         } else if (secondChoice.equals("2")) {
 
@@ -155,7 +162,10 @@ public class Maze {
                     "After searching the area some more, you find that there isn't anything else that's useful. You\n" +
                     "return to your original spot.");
             System.out.println("----------------------------------------------------------------------------------------");
-            secondMazePaths(userCharacter);
+
+            inventory.add("HEALING POTION");
+
+            secondMazePaths(userCharacter, inventory);
 
             } else if (secondChoice.equals("3")) {
 
@@ -163,16 +173,16 @@ public class Maze {
             System.out.println("You decide to head west, but all you are met with is a large hedge blocking your path.\n" +
                     "This seems to be a dead end, so you go back and retrace your steps.");
             System.out.println("----------------------------------------------------------------------------------------");
-            secondMazePaths(userCharacter);
+            secondMazePaths(userCharacter, inventory);
 
             } else if (secondChoice.equals("4")) {
 
             running = false;
-            thirdMazePaths(myCharacter);
+            thirdMazePaths(myCharacter, inventory);
 
             } else {
                 System.err.println("Enter a valid number.");
-            secondMazePaths(userCharacter);
+            secondMazePaths(userCharacter, inventory);
             }
 
 
@@ -181,7 +191,7 @@ public class Maze {
 
     /* --------------------- THIRD MAZE PATHS --------------------- */
 
-    public static void thirdMazePaths(Character myCharacter) {
+    public static void thirdMazePaths(Character myCharacter, ArrayList<String> characterInventory) {
 
         System.out.println("You decide to head west and come upon more paths. It seems\n" +
                 "like people could get lost pretty easily in here with all these routes."); //User chose north in firstMazePaths
@@ -189,6 +199,7 @@ public class Maze {
         boolean alive = true;
 
         Character userCharacter = myCharacter;
+        ArrayList<String> inventory = characterInventory;
 
         Scanner scanner = new Scanner(System.in);
         String thirdChoice;
@@ -211,7 +222,10 @@ public class Maze {
                         "After searching the area some more, you find that there isn't anything else that's useful. You\n" +
                         "return to your original spot.");
                 System.out.println("----------------------------------------------------------------------------------------");
-                thirdMazePaths(userCharacter);
+
+                inventory.add("RED MUSHROOM");
+
+                thirdMazePaths(userCharacter, inventory);
 
             } else if (thirdChoice.equals("2")) {
 
@@ -219,7 +233,7 @@ public class Maze {
                 System.out.println("You decide to head south, but all you are met with is a large hedge blocking your path.\n" +
                         "This seems to be a dead end, so you go back and retrace your steps.");
                 System.out.println("----------------------------------------------------------------------------------------");
-                thirdMazePaths(userCharacter);
+                thirdMazePaths(userCharacter, inventory);
 
             } else if (thirdChoice.equals("3")) {
 
@@ -240,7 +254,7 @@ public class Maze {
                 System.out.println(firstEnemy.monsterInfo());
                 System.out.println(firstEnemy.traitMessage());
 
-                userCharacter.attackMenu(firstEnemy);
+                userCharacter.attackMenu(firstEnemy, inventory);
                 if (userCharacter.getStatus() == false) { //if getStatus is false (not alive), end game. Otherwise, continue.
                     alive = false;
                     gameOver();
@@ -251,11 +265,11 @@ public class Maze {
                 System.out.println("After defeating the " + firstEnemy.getName() + ", you look around, but can't find anything\n" +
                         "else. You head back to the crossroads.");
                 System.out.println("----------------------------------------------------------------------------------------");
-                thirdMazePaths(userCharacter);
+                thirdMazePaths(userCharacter, inventory);
 
             } else {
                 System.err.println("Enter a valid number.");
-                thirdMazePaths(userCharacter);
+                thirdMazePaths(userCharacter, inventory);
             }
 
 
