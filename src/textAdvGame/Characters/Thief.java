@@ -12,7 +12,7 @@ public class Thief extends Character {
     Random random = new Random();
     //attack bw 20 & 25
     private int attackDamage;
-    private ArrayList<String> inventory = new ArrayList<>();
+
 
     public Thief(String name,  String profession){
         super(name, profession);
@@ -34,11 +34,12 @@ public class Thief extends Character {
     //also has a trait for agility, run away from battle, can be used 3 times to "cancel" a fight
     private int agility = 3;
 
-    public void attackMenu(Enemy evilEnemy) { //Takes in enemy to kill
+    public void attackMenu(Enemy evilEnemy, ArrayList<String> characterInventory) { //Takes in enemy to kill
         int previousHealth = 0;
 
         Scanner scanner = new Scanner(System.in);
         String userChoice;
+        ArrayList<String> inventory = characterInventory; //The inventory
 
 //        this.playerHealth = 120;
         if(previousHealth < 120){
@@ -141,7 +142,7 @@ public class Thief extends Character {
                         attackMenu();
                     }
                 } else if (userChoice.equals("3")) {
-                    System.out.println("You don't have anything in your inventory.");
+                    showInventory(inventory);
                     attackMenu();
                 } else if (userChoice.equals("4")) {
                     System.out.println("Surrendering the fight will cause the game to end. Are you SURE you want to surrender? [Y/N]");

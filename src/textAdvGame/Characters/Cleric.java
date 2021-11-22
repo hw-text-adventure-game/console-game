@@ -13,7 +13,7 @@ public class Cleric extends Character {
     //attack bw 15 & 20
     private int attackDamage;
     private int healChance = 25;
-    private ArrayList<String> inventory = new ArrayList<>();
+
 
     public Cleric(String name,  String profession){
         super(name, profession);
@@ -34,11 +34,12 @@ public class Cleric extends Character {
                 "herbs you need for your potions.";
     }
 
-    public void attackMenu(Enemy evilEnemy) { //Takes in enemy to kill
+    public void attackMenu(Enemy evilEnemy, ArrayList<String> characterInventory) { //Takes in enemy to kill
         int previousHealth = 0;
 
         Scanner scanner = new Scanner(System.in);
         String userChoice;
+        ArrayList<String> inventory = characterInventory; //The inventory
 
         if (previousHealth < 120) {
             previousHealth = playerHealth;
@@ -163,7 +164,7 @@ public class Cleric extends Character {
                     System.out.println("----------------------------------------------------------------------------------------");
                     attackMenu();
                 } else if (userChoice.equals("3")) {
-                    System.out.println("You don't have anything in your inventory.");
+                    showInventory(inventory);
                     attackMenu();
                 } else if (userChoice.equals("4")) {
                     System.out.println("Surrendering the fight will cause the game to end. Are you SURE you want to surrender? [Y/N]");
