@@ -20,9 +20,9 @@ public class Maze {
         Character userCharacter = myCharacter;
         ArrayList<String> inventory = characterInventory;
 
-        System.out.println("However, the entrance to the mansion is guarded by a huge maze. There isn't\n" +
+        System.out.println("However, the entrance to the castle is guarded by a huge maze. There isn't\n" +
                 "any way around it, so your only choice is to go through it. You enter the maze with\n" +
-                "your weapons ready and begin to trek the magical hedges.");
+                "your weapons ready and begin to trek the magical hedges.\n");
 
         MazePaths(userCharacter, inventory);
 
@@ -39,9 +39,11 @@ public class Maze {
 
         Scanner scanner = new Scanner(System.in);
         String firstChoice;
-        boolean running = true;
 
-        while (running) {
+        while (alive) {
+
+            System.out.println("----FIRST MAZE PATHS----");
+
             System.out.println("----------------------------------");
             System.out.println("Which way would you like to go?\n" +
                     "\n" +
@@ -54,8 +56,9 @@ public class Maze {
             firstChoice = scanner.nextLine();
 
             if (firstChoice.equals("1")) {
-                running = false;
+                alive = false;
                 secondMazePaths(myCharacter, inventory);
+
             } else if (firstChoice.equals("2")) {
                 System.out.println("------------------------------------------------------------------------------");
                 System.out.println("\"You decide to head south, but come face to face with a monster!\"");
@@ -120,14 +123,18 @@ public class Maze {
         String secondChoice;
         boolean running = true;
 
-        while (running) {
+        while (alive) {
 
+            System.out.println("----SECOND MAZE PATHS----");
+
+        System.out.println("----------------------------------");
         System.out.println("Which way would you like to go now?\n" +
                 "\n" +
                 "[1] North\n" +
                 "[2] South\n" +
                 "[3] East\n" +
                 "[4] West");
+        System.out.println("----------------------------------");
 
             secondChoice = scanner.nextLine();
 
@@ -177,7 +184,7 @@ public class Maze {
 
             } else if (secondChoice.equals("4")) {
 
-            running = false;
+            alive = false;
             thirdMazePaths(myCharacter, inventory);
 
             } else {
@@ -205,14 +212,18 @@ public class Maze {
         String thirdChoice;
         boolean running = true;
 
-        while (running) {
+        while (alive) {
 
-            System.out.println("Which way would you like to go now?\n" +
+            System.out.println("----THIRD MAZE PATHS----");
+
+            System.out.println("----------------------------------");
+            System.out.println("Which way would you like to go this time?\n" +
                     "\n" +
                     "[1] North\n" +
                     "[2] South\n" +
                     "[3] East\n" +
                     "[4] West");
+            System.out.println("----------------------------------");
 
             thirdChoice = scanner.nextLine();
 
@@ -237,9 +248,8 @@ public class Maze {
 
             } else if (thirdChoice.equals("3")) {
 
-                running = false;
+                alive = false;
                 fourthMazePaths(myCharacter);
-
 
             } else if (thirdChoice.equals("4")) {
 
