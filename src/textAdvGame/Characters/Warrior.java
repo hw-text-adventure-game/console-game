@@ -3,6 +3,7 @@ package textAdvGame.Characters;
 import textAdvGame.Characters.Character;
 import textAdvGame.Enemies.Enemy;
 
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -34,6 +35,17 @@ public class Warrior extends Character {
 
     public boolean getStatus() {
         return alive;
+    }
+
+    public void showInventory(ArrayList<String> characterInventory) {
+
+        if(!characterInventory.isEmpty()) {
+            for(String item : characterInventory) {
+                System.out.println(item);
+            }
+        }  else {
+            System.out.println("You have nothing in your inventory.");
+        }
     }
 
     public String personalMessage1() {

@@ -3,6 +3,7 @@ package textAdvGame.Characters;
 import textAdvGame.Characters.Character;
 import textAdvGame.Enemies.Enemy;
 
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -13,6 +14,7 @@ public class Mage extends Character {
     private int attackDamage;
     private int attackDamage2;
     boolean alive = true;
+    private ArrayList<String> inventory = new ArrayList<>();
 
     public Mage(String name,  String profession){
         super(name, profession);

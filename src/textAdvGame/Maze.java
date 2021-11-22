@@ -234,10 +234,11 @@ public class Maze {
                 System.out.println("------------------------------------------------------------------------------");
 
                 Enemy firstEnemy;
-                firstEnemy = new Goblin("GOBLIN"); //Change to maze guardian or boulder monster
+                firstEnemy = new StoneGolem("GOLEM"); //Change to maze guardian or boulder monster
 
                 System.out.println("***** A " + firstEnemy.getName() + " appears! *****");
                 System.out.println(firstEnemy.monsterInfo());
+                System.out.println(firstEnemy.traitMessage());
 
                 userCharacter.attackMenu(firstEnemy);
                 if (userCharacter.getStatus() == false) { //if getStatus is false (not alive), end game. Otherwise, continue.

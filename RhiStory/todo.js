@@ -2,7 +2,7 @@
 
 --------------- OVERALL TODOS ---------------
 
-[] Add Cleric Functionality
+[✔] Add Cleric Functionality
 [] Do testing with each class, make them all look similar to WARRIOR outputs.
 [] Add a functioning inventory system for each character. (Using arraylists?)
 [] Don't allow player to use/pick an item they don't have in battle.
@@ -18,7 +18,7 @@
 
 [✔]Add Boulder Monster + Functionality //Rhi
 []Add this functionality to EVERY class
-[]DO a check to make sure each user fights every enemy the same way (special attacks being activated, types of monsters taking effects, etc)
+[]Do a check to make sure each user fights every enemy the same way (special attacks being activated, types of monsters taking effects, etc)
 
 -- Minor TODOS ---
 
