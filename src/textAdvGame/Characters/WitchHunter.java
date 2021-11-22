@@ -32,11 +32,12 @@ public class WitchHunter extends Character {
         return "This where the witch resides; you can feel it in your bones.";
     }
 
-    public void attackMenu(Enemy evilEnemy) { //Takes in enemy to kill
+    public void attackMenu(Enemy evilEnemy, ArrayList<String> characterInventory) { //Takes in enemy to kill
         int previousHealth = 0;
 
         Scanner scanner = new Scanner(System.in);
         String userChoice;
+        ArrayList<String> inventory = characterInventory; //The inventory
 
         if(previousHealth < 120){
             previousHealth = playerHealth;
@@ -152,7 +153,7 @@ public class WitchHunter extends Character {
                     System.out.println("----------------------------------------------------------------------------------------");
                     attackMenu();
                 } else if (userChoice.equals("3")) {
-                    System.out.println("You don't have anything in your inventory.");
+                    showInventory(inventory);
                     attackMenu();
                 } else if (userChoice.equals("4")) {
                     System.out.println("Surrendering the fight will cause the game to end. Are you SURE you want to surrender? [Y/N]");
