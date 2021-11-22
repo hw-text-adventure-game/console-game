@@ -5,6 +5,7 @@ import textAdvGame.Enemies.Enemy;
 import textAdvGame.Enemies.Goblin;
 import textAdvGame.Maze;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import static textAdvGame.Maze.enterMaze;
@@ -31,17 +32,16 @@ public class GameApplication {
 
         Enemy firstEnemy;
         firstEnemy = new Goblin("GOBLIN");
-//        Enemy secondEnemy = new Goblin("GOBLIN");
-//        Enemy thirdEnemy = new Goblin("GOBLIN");
-//        Enemy fourthEnemy = new Goblin("GOBLIN");
 
         System.out.println("***** A " + firstEnemy.getName() + " appears! *****");
             System.out.println(firstEnemy.monsterInfo());
 
         userCharacter.attackMenu(firstEnemy);
-//        userCharacter.attackMenu(secondEnemy);
-//        userCharacter.attackMenu(thirdEnemy);
-//        userCharacter.attackMenu(fourthEnemy);
+
+        ArrayList<String> inventory = new ArrayList<>();
+        inventory.add("BEWITCHED BELL");
+
+        userCharacter.showInventory(inventory);
 
 
             //check if character is dead after every fight

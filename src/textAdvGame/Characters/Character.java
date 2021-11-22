@@ -1,9 +1,9 @@
 package textAdvGame.Characters;
-
 import textAdvGame.*;
 import textAdvGame.Enemies.Enemy;
 import textAdvGame.Enemies.Goblin;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Character implements AttackOptions {
@@ -54,6 +54,17 @@ public class Character implements AttackOptions {
     }
 
     public void attackMenu() {
+    }
+
+    public void showInventory(ArrayList<String> characterInventory) {
+
+        if(!characterInventory.isEmpty()) {
+            for(String item : characterInventory) {
+                System.out.println(item);
+            }
+        }  else {
+            System.out.println("You have nothing in your inventory.");
+        }
     }
 
 

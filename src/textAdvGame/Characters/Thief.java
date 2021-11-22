@@ -3,6 +3,7 @@ package textAdvGame.Characters;
 import textAdvGame.Characters.Character;
 import textAdvGame.Enemies.Enemy;
 
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -11,6 +12,7 @@ public class Thief extends Character {
     Random random = new Random();
     //attack bw 20 & 25
     private int attackDamage;
+    private ArrayList<String> inventory = new ArrayList<>();
 
     public Thief(String name,  String profession){
         super(name, profession);
@@ -60,7 +62,7 @@ public class Thief extends Character {
                 System.out.println("---------------");
                 System.out.println("ATTACK MENU\n");
 
-                System.out.println("WARRIOR Options:\n" +
+                System.out.println("THIEF Options:\n" +
                         "[1] Attack\n" +
                         "[2] Trait\n" +
                         "[3] Inventory\n" +

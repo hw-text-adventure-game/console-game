@@ -3,6 +3,7 @@ package textAdvGame.Characters;
 import textAdvGame.Characters.Character;
 import textAdvGame.Enemies.Enemy;
 
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -11,6 +12,7 @@ public class WitchHunter extends Character {
     Random random = new Random();
     private int attackDamage;
     private int dodgeChance = 25;  //witch hunter trait for adaptability, Percent% chance to dodge an attack/cancel out the enemy attack
+    private ArrayList<String> inventory = new ArrayList<>();
 
     public WitchHunter(String name,  String profession){
         super(name, profession);
