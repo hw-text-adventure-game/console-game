@@ -74,6 +74,7 @@ public class Maze {
 
                 System.out.println("***** A " + firstEnemy.getName() + " appears! *****");
                 System.out.println(firstEnemy.monsterInfo());
+                System.out.println(firstEnemy.traitMessage());
 
                 userCharacter.attackMenu(firstEnemy, inventory);
                 if (userCharacter.getStatus() == false) { //if getStatus is false (not alive), end game. Otherwise, continue.
@@ -155,6 +156,7 @@ public class Maze {
 
             System.out.println("***** A " + firstEnemy.getName() + " appears! *****");
             System.out.println(firstEnemy.monsterInfo());
+            System.out.println(firstEnemy.traitMessage());
 
             userCharacter.attackMenu(firstEnemy, inventory);
             if (userCharacter.getStatus() == false) { //if getStatus is false (not alive), end game. Otherwise, continue.
@@ -352,7 +354,7 @@ public class Maze {
                 System.out.println("------------------------------------------------------------------------------");
 
                 Enemy firstEnemy;
-                firstEnemy = new StoneGolem("STONE GOLEM"); //Change to maze guardian or boulder monster
+                firstEnemy = new MazeGuard("MAZE GUARDIAN"); //Change to maze guardian or boulder monster
 
                 System.out.println("***** A " + firstEnemy.getName() + " appears! *****");
                 System.out.println(firstEnemy.monsterInfo());
@@ -458,6 +460,7 @@ public class Maze {
 
                 System.out.println("***** A " + firstEnemy.getName() + " appears! *****");
                 System.out.println(firstEnemy.monsterInfo());
+                System.out.println(firstEnemy.traitMessage());
 
                 userCharacter.attackMenu(firstEnemy, inventory);
                 if (userCharacter.getStatus() == false) { //if getStatus is false (not alive), end game. Otherwise, continue.
