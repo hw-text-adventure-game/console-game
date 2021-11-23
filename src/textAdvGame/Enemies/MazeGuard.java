@@ -38,7 +38,7 @@ public class MazeGuard extends Enemy{
     }
 
     public String specialMessage() {
-        return "*** The MAZE GUARDIAN uses THORNY GRASP! Prickly vines grow out of the guardians back and slash you! ***\n";
+        return "*** The MAZE GUARDIAN uses THORNY GRASP! Prickly vines grow out of the guardian's back and slash you! ***\n";
     }
 
 }

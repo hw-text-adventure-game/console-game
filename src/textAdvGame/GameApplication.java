@@ -68,6 +68,7 @@ public class GameApplication {
 
     public static void gameOver() {
         System.out.println("GAME OVER!");
+        beginGame();
 }
 
     public static void youWin() {

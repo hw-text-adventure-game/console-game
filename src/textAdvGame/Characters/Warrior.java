@@ -41,10 +41,9 @@ public class Warrior extends Character {
 
         if(!characterInventory.isEmpty()) {
             for(String item : characterInventory) {
-                System.out.println(item);
+                int x = 0;
+                System.out.println(x + 1 + ". " + item);
             }
-        }  else {
-            System.out.println("You have nothing in your inventory.");
         }
     }
 
@@ -171,7 +170,38 @@ public class Warrior extends Character {
                     attackMenu();
                 } else if (userChoice.equals("3")) {
                     showInventory(inventory);
+                    boolean viewInventory = true;
+                    while(viewInventory) {
+                        if (inventory.isEmpty()) {
+                            System.out.println("You have nothing in your inventory.");
+                            viewInventory = false;
+                        } else {
+                            System.out.println("Which item do you want to use? Type out the name of the item, or type exit to go back to the menu.");
+                            String userItem = scanner.nextLine();
+                            if (userItem.equalsIgnoreCase("BEWITCHED BELL") && inventory.contains("BEWITCHED BELL")) {
+                                System.out.println("You use the BEWITCHED BELL, the " + evilEnemy.getName() + " cowers in fear and runs away! After the monster is out of your sight, the\n" +
+                                        "bell shatters, its broken remains falling to the floor.");
+                                inventory.remove("BEWITCHED BELL");
+                                alive = true;
+                                break;
+                            } else if (userItem.equalsIgnoreCase("HEALING POTION") && inventory.contains("HEALING POTION")) {
+                                System.out.println("You drink the entire HEALING POTION and regain your full health.");
+                                playerHealth = 120;
+                                inventory.remove("HEALING POTION");
+                                viewInventory = false;
+                            } else if (userItem.equalsIgnoreCase("RED MUSHROOM") && inventory.contains("RED MUSHROOM")) {
+                                System.out.println("What do you think you're going to do with that mushroom?");
+                                attackMenu();
+                            } else if (userItem.equalsIgnoreCase("exit")) {
+                                viewInventory = false;
+                            } else {
+                                System.out.println("You don't have that in your inventory");
+                                showInventory(inventory);
+                            }
+                        }
+                    }
                     attackMenu();
+
                 } else if (userChoice.equals("4")) {
                     System.out.println("Surrendering the fight will cause the game to end. Are you SURE you want to surrender? [Y/N]");
                     //need to add something here, if user enters yes....

@@ -83,13 +83,17 @@ public class Maze {
                 System.out.println("----------------------------------------------------------------------------------------");
                 MazePaths(userCharacter, inventory);
             } else if (firstChoice.equals("3")) {
-                System.out.println("----------------------------------------------------------------------------------------");
-                System.out.println("You decide to head east and find a BEWITCHED BELL! You put it into your inventory.\n" +
-                        "After searching the area some more, you find that there isn't anything else that's useful. You\n" +
-                        "return to your original spot.");
-                System.out.println("----------------------------------------------------------------------------------------");
+                if(!inventory.contains("BEWITCHED BELL")) {
+                    inventory.add("BEWITCHED BELL");
 
-                inventory.add("BEWITCHED BELL");
+                    System.out.println("----------------------------------------------------------------------------------------");
+                    System.out.println("You decide to head east and find a BEWITCHED BELL! You put it into your inventory.\n" +
+                            "After searching the area some more, you find that there isn't anything else that's useful. You\n" +
+                            "return to your original spot.");
+                    System.out.println("----------------------------------------------------------------------------------------");
+                } else {
+                    System.out.println("You already found the item in this area.");
+                }
 
                 MazePaths(userCharacter, inventory);
             } else if (firstChoice.equals("4")) {
@@ -164,20 +168,24 @@ public class Maze {
 
         } else if (secondChoice.equals("2")) {
 
-            System.out.println("----------------------------------------------------------------------------------------");
-            System.out.println("You decide to head east and find a HEALING POTION! You put it into your inventory.\n" +
-                    "After searching the area some more, you find that there isn't anything else that's useful. You\n" +
-                    "return to your original spot.");
-            System.out.println("----------------------------------------------------------------------------------------");
+            if(!inventory.contains("HEALING POTION")) {
+                inventory.add("HEALING POTION");
 
-            inventory.add("HEALING POTION");
+                System.out.println("----------------------------------------------------------------------------------------");
+                System.out.println("You decide to head south and find a HEALING POTION! You put it into your inventory.\n" +
+                        "After searching the area some more, you find that there isn't anything else that's useful. You\n" +
+                        "return to your original spot.");
+                System.out.println("----------------------------------------------------------------------------------------");
+            } else {
+                System.out.println("You already found the item in this area.");
+            }
 
             secondMazePaths(userCharacter, inventory);
 
             } else if (secondChoice.equals("3")) {
 
             System.out.println("----------------------------------------------------------------------------------------");
-            System.out.println("You decide to head west, but all you are met with is a large hedge blocking your path.\n" +
+            System.out.println("You decide to head east, but all you are met with is a large hedge blocking your path.\n" +
                     "This seems to be a dead end, so you go back and retrace your steps.");
             System.out.println("----------------------------------------------------------------------------------------");
             secondMazePaths(userCharacter, inventory);
@@ -228,13 +236,18 @@ public class Maze {
             thirdChoice = scanner.nextLine();
 
             if (thirdChoice.equals("1")) {
+                if(!inventory.contains("RED MUSHROOM")){
+                    inventory.add("RED MUSHROOM");
+
                 System.out.println("----------------------------------------------------------------------------------------");
                 System.out.println("You decide to head north and find a RED MUSHROOM! You put it into your inventory.\n" +
                         "After searching the area some more, you find that there isn't anything else that's useful. You\n" +
                         "return to your original spot.");
                 System.out.println("----------------------------------------------------------------------------------------");
 
-                inventory.add("RED MUSHROOM");
+                } else {
+                    System.out.println("You already found the item in this area.");
+                }
 
                 thirdMazePaths(userCharacter, inventory);
 
@@ -258,7 +271,7 @@ public class Maze {
                 System.out.println("------------------------------------------------------------------------------");
 
                 Enemy firstEnemy;
-                firstEnemy = new StoneGolem("GOLEM"); //Change to maze guardian or boulder monster
+                firstEnemy = new StoneGolem("STONE GOLEM"); //Change to maze guardian or boulder monster
 
                 System.out.println("***** A " + firstEnemy.getName() + " appears! *****");
                 System.out.println(firstEnemy.monsterInfo());
@@ -296,6 +309,7 @@ public class Maze {
 
     public static void gameOver () {
         System.out.println("GAME OVER!");
+        GameApplication.beginGame();
     }
 
     public static void youWin () {
