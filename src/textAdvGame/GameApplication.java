@@ -55,7 +55,7 @@ public class GameApplication {
                 "It's safe to assume the forest is full of these kinds of creatures, so you stay on your guard.\n" +
                 "As you continue further, you see a castle in the distance, towering above all the trees.\n" +
                 userCharacter.personalMessage1());
-            System.out.println("------------------------------------------------------------------------------------------------------------");
+
         //Add personalized line here before the user enters the maze.
 
             enterMaze(userCharacter, inventory); //Passing in userCharacter to maze

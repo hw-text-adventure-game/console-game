@@ -39,7 +39,7 @@ public class Mage extends Character {
     }
 
     public String personalMessage1() {
-        return "You can feel the magical aura of this castle; the Revival Stone is definitely hidden in there.";
+        return "You can feel the magical aura of this castle; the Revival Stone is definitely hidden in there.\n";
     }
 
 

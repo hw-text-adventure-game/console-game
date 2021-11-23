@@ -29,7 +29,7 @@ public class WitchHunter extends Character {
     }
 
     public String personalMessage1() {
-        return "This where the witch resides; you can feel it in your bones.";
+        return "This where the witch resides; you can feel it in your bones.\n";
     }
 
     public void attackMenu(Enemy evilEnemy, ArrayList<String> characterInventory) { //Takes in enemy to kill

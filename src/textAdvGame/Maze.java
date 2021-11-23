@@ -20,9 +20,11 @@ public class Maze {
         Character userCharacter = myCharacter;
         ArrayList<String> inventory = characterInventory;
 
+
         System.out.println("However, the entrance to the castle is guarded by a huge maze. There isn't\n" +
                 "any way around it, so your only choice is to go through it. You enter the maze with\n" +
-                "your weapons ready and begin to trek the magical hedges.\n");
+                "your weapons ready and begin to trek the magical hedges.");
+        System.out.println("------------------------------------------------------------------------------------------------------------");
 
         MazePaths(userCharacter, inventory);
 
@@ -56,6 +58,9 @@ public class Maze {
             firstChoice = scanner.nextLine();
 
             if (firstChoice.equals("1")) {
+                System.out.println("---------------------------------------------------------------------");
+                System.out.println("You decide to head north and come upon more paths to go down."); //User chose north in firstMazePaths
+                System.out.println("---------------------------------------------------------------------");
                 alive = false;
                 secondMazePaths(myCharacter, inventory);
 
@@ -115,8 +120,6 @@ public class Maze {
     /* --------------------- SECOND MAZE PATHS --------------------- */
 
     public static void secondMazePaths(Character myCharacter, ArrayList<String> characterInventory) {
-
-        System.out.println("You decide to head north and come upon more paths to go down.\n"); //User chose north in firstMazePaths
 
         boolean alive = true;
 
@@ -192,6 +195,11 @@ public class Maze {
 
             } else if (secondChoice.equals("4")) {
 
+            System.out.println("---------------------------------------------------------------------");
+            System.out.println("You decide to head west and come upon more paths. It seems\n" +
+                    "like people could get lost pretty easily in here with all these routes."); //User chose west in secondtMazePaths
+            System.out.println("---------------------------------------------------------------------");
+
             alive = false;
             thirdMazePaths(myCharacter, inventory);
 
@@ -207,9 +215,6 @@ public class Maze {
     /* --------------------- THIRD MAZE PATHS --------------------- */
 
     public static void thirdMazePaths(Character myCharacter, ArrayList<String> characterInventory) {
-
-        System.out.println("You decide to head west and come upon more paths. It seems\n" +
-                "like people could get lost pretty easily in here with all these routes.\n"); //User chose west in secondtMazePaths
 
         boolean alive = true;
 
@@ -261,6 +266,11 @@ public class Maze {
 
             } else if (thirdChoice.equals("3")) {
 
+                System.out.println("---------------------------------------------------------------------");
+                System.out.println("You decide to head east and come upon more paths. You\n" +
+                        "wonder how much longer you'll wander for."); //User chose east in thirdMazePaths
+                System.out.println("---------------------------------------------------------------------");
+
                 alive = false;
                 fourthMazePaths(myCharacter, inventory);
 
@@ -304,10 +314,6 @@ public class Maze {
 
     public static void fourthMazePaths(Character myCharacter, ArrayList<String> characterInventory) {
 
-
-        System.out.println("You decide to head east and come upon more paths. You\n" +
-                "wonder how much longer you'll wander for.\n"); //User chose east in thirdMazePaths
-
         boolean alive = true;
 
         Character userCharacter = myCharacter;
@@ -321,7 +327,7 @@ public class Maze {
             System.out.println("----FOURTH MAZE PATHS----\n");
 
             System.out.println("----------------------------------");
-            System.out.println("Which way would you like to go this time?\n" +
+            System.out.println("Which way would you like to go?\n" +
                     "\n" +
                     "[1] North\n" +
                     "[2] South\n" +
@@ -366,6 +372,11 @@ public class Maze {
                 fourthMazePaths(userCharacter, inventory);
 
             } else if (fourthChoice.equals("3")) {
+
+                System.out.println("---------------------------------------------------------------------");
+                System.out.println("You decide to head east and come upon more paths. You can\n" +
+                        "see the lights of the castle in the distance; you're almost out of the maze.");
+                System.out.println("---------------------------------------------------------------------");
 
                 alive = false;
                 fifthMazePaths(myCharacter, inventory);
@@ -413,9 +424,6 @@ public class Maze {
 
     public static void fifthMazePaths(Character myCharacter, ArrayList<String> characterInventory) {
 
-        System.out.println("You decide to head east and come upon more paths. It seems\n" +
-                "like people could get lost pretty easily in here with all these routes.\n"); //User chose north in firstMazePaths
-
         boolean alive = true;
 
         Character userCharacter = myCharacter;
@@ -429,7 +437,7 @@ public class Maze {
             System.out.println("----FIFTH MAZE PATHS----\n");
 
             System.out.println("----------------------------------");
-            System.out.println("Which way would you like to go this time?\n" +
+            System.out.println("Which way would you like to go now?\n" +
                     "\n" +
                     "[1] North\n" +
                     "[2] South\n" +
@@ -467,7 +475,7 @@ public class Maze {
 
             } else if (fifthChoice.equals("2")) {
 
-                System.out.println("You escaped the maze!");
+                System.out.println("***You escaped the maze!***");
                 alive = false; //break out of maze
                 youWin();
 
@@ -512,6 +520,7 @@ public class Maze {
 
     public static void youWin () {
         System.out.println("YOU WIN!");
+        GameApplication.beginGame();
     }
 
 

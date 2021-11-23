@@ -48,7 +48,7 @@ public class Warrior extends Character {
     }
 
     public String personalMessage1() {
-        return "You wonder if this is what the citizens are afraid of; it would be wise to investigate the castle.";
+        return "You wonder if this is what the citizens are afraid of; it would be wise to investigate the castle.\n";
     }
 
     private int bravery = 25;
