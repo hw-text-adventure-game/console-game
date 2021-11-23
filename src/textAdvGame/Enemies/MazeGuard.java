@@ -6,6 +6,7 @@ public class MazeGuard extends Enemy{
 
     private int enemyHealth;
     private int specialAttackChance = 15;  //percent chance
+    public String type;
 
     Random random = new Random();
     private int enemyAttackDamage;
@@ -29,6 +30,10 @@ public class MazeGuard extends Enemy{
         return specialAttackChance;
     }
 
+    public String getType() {
+        return "Plant";
+    }
+
     public String monsterInfo() {
         return "*** A monster that's made up of hedges and thorns. Has a special move, so look out! ***";
     }
@@ -39,6 +44,10 @@ public class MazeGuard extends Enemy{
 
     public String specialMessage() {
         return "*** The MAZE GUARDIAN uses THORNY GRASP! Prickly vines grow out of the guardian's back and slash you! ***\n";
+    }
+
+    public String traitMessage() {
+        return "!!- The MAZE GUARDIAN is a PLANT monster! +5 damage will be added if your character wields a sharp weapon! -!!\n";
     }
 
 }

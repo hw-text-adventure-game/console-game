@@ -98,6 +98,9 @@ public class Warrior extends Character {
                     if(evilEnemy.getType().equals("Rock")) {
                         int reducedDamage = this.attackDamage = random.nextInt(6) + 20 / 2;
                         System.out.println("You swing your sword and do " + reducedDamage + " damage!"); //Attack if monster type is rock
+                    } else if (evilEnemy.getType().equals("Plant")) {
+                        int plantDamage = this.attackDamage = random.nextInt(6) + 20 + 5;
+                        System.out.println("CRITICAL HIT! You swing your sword and do " + plantDamage + " damage!");
                     }
                     else {
                         System.out.println("You swing your sword and do " + this.attackDamage + " damage!"); //Attack

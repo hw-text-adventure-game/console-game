@@ -32,9 +32,14 @@
 ---- ENEMY TODOS ----
 
 [✔]Add Boulder Monster + Functionality //Rhi
+[]Add Phantom Demon + Functionality
 []Add this functionality to EVERY class
 []Do a check to make sure each user fights every enemy the same way (special attacks being activated, types of monsters taking effects, etc)
 []Give MazeGuard a type of "Plant" and have sharp weapons do an extra +5 damage (add this buff only to Warrior, Thief, and Witch Hunter)
+    [✔] for Warrior
+    [] for Thief
+    [] for Witch Hunter
+
 
 -- Minor TODOS ---
 
