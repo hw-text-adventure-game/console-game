@@ -41,8 +41,8 @@ public class Warrior extends Character {
 
         if(!characterInventory.isEmpty()) {
             for(String item : characterInventory) {
-                int x = 0;
-                System.out.println(x + 1 + ". " + item);
+                System.out.println("- " + item); //Counter was just printing 1 for every item,
+                                                 // so I had to change it until a solution is found :(
             }
         }
     }
@@ -179,13 +179,23 @@ public class Warrior extends Character {
                         } else {
                             System.out.println("Which item do you want to use? Type out the name of the item, or type exit to go back to the menu.");
                             String userItem = scanner.nextLine();
+
                             if (userItem.equalsIgnoreCase("BEWITCHED BELL") && inventory.contains("BEWITCHED BELL")) {
                                 System.out.println("You use the BEWITCHED BELL, the " + evilEnemy.getName() + " cowers in fear and runs away! After the monster is out of your sight, the\n" +
                                         "bell shatters, its broken remains falling to the floor.");
                                 inventory.remove("BEWITCHED BELL");
                                 alive = true;
                                 break;
-                            } else if (userItem.equalsIgnoreCase("HEALING POTION") && inventory.contains("HEALING POTION")) {
+                            }
+                            else if (userItem.equalsIgnoreCase("DIVINE BLADE") && inventory.contains("DIVINE BLADE")) {
+                                System.out.println("You wield the DIVINE BLADE and attack your enemy! The " + evilEnemy.getName() + " bursts\n" +
+                                        "into a magical light, the soul being freed from the monster's curse! The DIVINE BLADE slowly fades\n" +
+                                        "into magical light as well, rendering the weapon unusable.\n");
+                                inventory.remove("DIVINE BLADE");
+                                alive = true;
+                                break;
+                            }
+                            else if (userItem.equalsIgnoreCase("HEALING POTION") && inventory.contains("HEALING POTION")) {
                                 System.out.println("You drink the entire HEALING POTION and regain your full health.");
                                 playerHealth = 120;
                                 inventory.remove("HEALING POTION");
@@ -193,7 +203,7 @@ public class Warrior extends Character {
                             } else if (userItem.equalsIgnoreCase("HEALING POTION 2") && inventory.contains("HEALING POTION 2")) {
                                 System.out.println("You drink the entire HEALING POTION and regain your full health.");
                                 playerHealth = 120;
-                                inventory.remove("HEALING POTION");
+                                inventory.remove("HEALING POTION 2");
                                 viewInventory = false;
                             }
                             else if (userItem.equalsIgnoreCase("RED MUSHROOM") && inventory.contains("RED MUSHROOM")) {
@@ -202,7 +212,7 @@ public class Warrior extends Character {
                             } else if (userItem.equalsIgnoreCase("exit")) {
                                 viewInventory = false;
                             } else {
-                                System.out.println("You don't have that in your inventory");
+                                System.out.println("You don't have that item in your inventory!");
                                 showInventory(inventory);
                             }
                         }
