@@ -15,8 +15,8 @@
 ---- MAZE TODOS ----
 
 [✔] Finish thirdMazePaths //Rhi
-[] Finish fourthMazePaths
-[] Finish fifthMazePaths
+[✔] Finish fourthMazePaths
+[✔] Finish fifthMazePaths
 [✔] When going down a path to get an item, add item to inventory and program functionality of item.
 
 

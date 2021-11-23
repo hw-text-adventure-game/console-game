@@ -209,7 +209,7 @@ public class Maze {
     public static void thirdMazePaths(Character myCharacter, ArrayList<String> characterInventory) {
 
         System.out.println("You decide to head west and come upon more paths. It seems\n" +
-                "like people could get lost pretty easily in here with all these routes.\n"); //User chose north in firstMazePaths
+                "like people could get lost pretty easily in here with all these routes.\n"); //User chose west in secondtMazePaths
 
         boolean alive = true;
 
@@ -305,8 +305,8 @@ public class Maze {
     public static void fourthMazePaths(Character myCharacter, ArrayList<String> characterInventory) {
 
 
-        System.out.println("You decide to head west and come upon more paths. It seems\n" +
-                "like people could get lost pretty easily in here with all these routes.\n"); //User chose north in firstMazePaths
+        System.out.println("You decide to head east and come upon more paths. You\n" +
+                "wonder how much longer you'll wander for.\n"); //User chose east in thirdMazePaths
 
         boolean alive = true;
 
@@ -409,8 +409,98 @@ public class Maze {
 
     }
 
-    private static void fifthMazePaths(Character myCharacter, ArrayList<String> characterInventory) {
+    /* --------------------- FIFTH MAZE PATHS --------------------- */
 
+    public static void fifthMazePaths(Character myCharacter, ArrayList<String> characterInventory) {
+
+        System.out.println("You decide to head east and come upon more paths. It seems\n" +
+                "like people could get lost pretty easily in here with all these routes.\n"); //User chose north in firstMazePaths
+
+        boolean alive = true;
+
+        Character userCharacter = myCharacter;
+        ArrayList<String> inventory = characterInventory;
+
+        Scanner scanner = new Scanner(System.in);
+        String fifthChoice;
+
+        while (alive) {
+
+            System.out.println("----FIFTH MAZE PATHS----\n");
+
+            System.out.println("----------------------------------");
+            System.out.println("Which way would you like to go this time?\n" +
+                    "\n" +
+                    "[1] North\n" +
+                    "[2] South\n" +
+                    "[3] East\n" +
+                    "[4] West");
+            System.out.println("----------------------------------");
+
+            fifthChoice = scanner.nextLine();
+
+            if (fifthChoice.equals("1")) {
+
+                System.out.println("------------------------------------------------------------------------------");
+                System.out.println("\"You decide to head north, but come face to face with a monster!\"");
+                System.out.println("------------------------------------------------------------------------------");
+
+                Enemy firstEnemy;
+                firstEnemy = new MazeGuard("MAZE GUARDIAN"); //Change to maze guardian or boulder monster
+
+                System.out.println("***** A " + firstEnemy.getName() + " appears! *****");
+                System.out.println(firstEnemy.monsterInfo());
+
+                userCharacter.attackMenu(firstEnemy, inventory);
+                if (userCharacter.getStatus() == false) { //if getStatus is false (not alive), end game. Otherwise, continue.
+                    alive = false;
+                    gameOver();
+                    break;
+                }
+
+                System.out.println("----------------------------------------------------------------------------------------");
+                System.out.println("After defeating the " + firstEnemy.getName() + ", you look around, but can't find anything\n" +
+                        "else. You head back to the crossroads.");
+                System.out.println("----------------------------------------------------------------------------------------");
+                fifthMazePaths(userCharacter, inventory);
+
+
+            } else if (fifthChoice.equals("2")) {
+
+                System.out.println("You escaped the maze!");
+                alive = false; //break out of maze
+                youWin();
+
+            } else if (fifthChoice.equals("3")) {
+
+                if(!inventory.contains("DIVINE BLADE")){
+                    inventory.add("DIVINE BLADE");
+
+                    System.out.println("----------------------------------------------------------------------------------------");
+                    System.out.println("You decide to head north and find a DIVINE BLADE! You put it into your inventory.\n" +
+                            "After searching the area some more, you find that there isn't anything else that's useful. You\n" +
+                            "return to your original spot.");
+                    System.out.println("----------------------------------------------------------------------------------------");
+
+                } else {
+                    System.out.println("You already found the item in this area.");
+                }
+
+            } else if (fifthChoice.equals("4")) {
+
+                System.out.println("----------------------------------------------------------------------------------------");
+                System.out.println("You decide to head west, but all you are met with is a large hedge blocking your path.\n" +
+                        "This seems to be a dead end, so you go back and retrace your steps.");
+                System.out.println("----------------------------------------------------------------------------------------");
+                fifthMazePaths(userCharacter, inventory);
+
+            } else {
+                System.err.println("Enter a valid number.");
+                fifthMazePaths(userCharacter, inventory);
+            }
+
+
+        }
 
     }
 
