@@ -5,7 +5,7 @@ import java.util.Random;
 public class StoneGolem extends Enemy{
 
     private int enemyHealth;
-    private int specialAttackChance = 25;  //percent chance
+    private int specialAttackChance = 15;  //percent chance
     public String type;
 
     Random random = new Random();

@@ -5,7 +5,7 @@ import java.util.Random;
 public class MazeGuard extends Enemy{
 
     private int enemyHealth;
-    private int specialAttackChance = 25;  //percent chance
+    private int specialAttackChance = 15;  //percent chance
 
     Random random = new Random();
     private int enemyAttackDamage;
