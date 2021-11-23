@@ -262,7 +262,7 @@ public class Maze {
             } else if (thirdChoice.equals("3")) {
 
                 alive = false;
-                fourthMazePaths(myCharacter);
+                fourthMazePaths(myCharacter, inventory);
 
             } else if (thirdChoice.equals("4")) {
 
@@ -302,7 +302,115 @@ public class Maze {
 
     /* --------------------- FOURTH MAZE PATHS --------------------- */
 
-    public static void fourthMazePaths(Character myCharacter) {
+    public static void fourthMazePaths(Character myCharacter, ArrayList<String> characterInventory) {
+
+
+        System.out.println("You decide to head west and come upon more paths. It seems\n" +
+                "like people could get lost pretty easily in here with all these routes.\n"); //User chose north in firstMazePaths
+
+        boolean alive = true;
+
+        Character userCharacter = myCharacter;
+        ArrayList<String> inventory = characterInventory;
+
+        Scanner scanner = new Scanner(System.in);
+        String fourthChoice;
+
+        while (alive) {
+
+            System.out.println("----FOURTH MAZE PATHS----\n");
+
+            System.out.println("----------------------------------");
+            System.out.println("Which way would you like to go this time?\n" +
+                    "\n" +
+                    "[1] North\n" +
+                    "[2] South\n" +
+                    "[3] East\n" +
+                    "[4] West");
+            System.out.println("----------------------------------");
+
+            fourthChoice = scanner.nextLine();
+
+            if (fourthChoice.equals("1")) {
+
+                    System.out.println("----------------------------------------------------------------------------------------");
+                    System.out.println("You decide to head north, but all you are met with is a large hedge blocking your path.\n" +
+                            "This seems to be a dead end, so you go back and retrace your steps.");
+                    System.out.println("----------------------------------------------------------------------------------------");
+                    fourthMazePaths(userCharacter, inventory);
+
+            } else if (fourthChoice.equals("2")) {
+
+                System.out.println("------------------------------------------------------------------------------");
+                System.out.println("\"You decide to head south, but come face to face with a monster!\"");
+                System.out.println("------------------------------------------------------------------------------");
+
+                Enemy firstEnemy;
+                firstEnemy = new StoneGolem("STONE GOLEM"); //Change to maze guardian or boulder monster
+
+                System.out.println("***** A " + firstEnemy.getName() + " appears! *****");
+                System.out.println(firstEnemy.monsterInfo());
+                System.out.println(firstEnemy.traitMessage());
+
+                userCharacter.attackMenu(firstEnemy, inventory);
+                if (userCharacter.getStatus() == false) { //if getStatus is false (not alive), end game. Otherwise, continue.
+                    alive = false;
+                    gameOver();
+                    break;
+                }
+
+                System.out.println("----------------------------------------------------------------------------------------");
+                System.out.println("After defeating the " + firstEnemy.getName() + ", you look around, but can't find anything\n" +
+                        "else. You head back to the crossroads.");
+                System.out.println("----------------------------------------------------------------------------------------");
+                fourthMazePaths(userCharacter, inventory);
+
+            } else if (fourthChoice.equals("3")) {
+
+                alive = false;
+                fifthMazePaths(myCharacter, inventory);
+
+            } else if (fourthChoice.equals("4")) {
+
+                if(!inventory.contains("HEALING POTION")) {
+                    inventory.add("HEALING POTION");
+
+                    System.out.println("----------------------------------------------------------------------------------------");
+                    System.out.println("You decide to head south and find a HEALING POTION! You put it into your inventory.\n" +
+                            "After searching the area some more, you find that there isn't anything else that's useful. You\n" +
+                            "return to your original spot.");
+                    System.out.println("----------------------------------------------------------------------------------------");
+                } else if (inventory.contains("HEALING POTION") && !inventory.contains("HEALING POTION (2)")) {
+
+                    inventory.add("HEALING POTION (2)");
+
+                    System.out.println("----------------------------------------------------------------------------------------");
+                    System.out.println("You decide to head south and find a HEALING POTION (2)! You put it into your inventory.\n" +
+                            "After searching the area some more, you find that there isn't anything else that's useful. You\n" +
+                            "return to your original spot.");
+                    System.out.println("----------------------------------------------------------------------------------------");
+
+                } else if (inventory.contains("HEALING POTION") && inventory.contains("HEALING POTION (2)")) {
+                    System.out.println("You already found the item in this area.");
+                }
+                else {
+                    System.out.println("You already found the item in this area.");
+                }
+
+                fourthMazePaths(userCharacter, inventory);
+
+            } else {
+                System.err.println("Enter a valid number.");
+                fourthMazePaths(userCharacter, inventory);
+            }
+
+
+        }
+
+    }
+
+    private static void fifthMazePaths(Character myCharacter, ArrayList<String> characterInventory) {
+
 
     }
 
