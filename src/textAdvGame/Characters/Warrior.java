@@ -169,6 +169,7 @@ public class Warrior extends Character {
                     System.out.println("----------------------------------------------------------------------------------------");
                     attackMenu();
                 } else if (userChoice.equals("3")) {
+
                     showInventory(inventory);
                     boolean viewInventory = true;
                     while(viewInventory) {
@@ -189,7 +190,13 @@ public class Warrior extends Character {
                                 playerHealth = 120;
                                 inventory.remove("HEALING POTION");
                                 viewInventory = false;
-                            } else if (userItem.equalsIgnoreCase("RED MUSHROOM") && inventory.contains("RED MUSHROOM")) {
+                            } else if (userItem.equalsIgnoreCase("HEALING POTION 2") && inventory.contains("HEALING POTION 2")) {
+                                System.out.println("You drink the entire HEALING POTION and regain your full health.");
+                                playerHealth = 120;
+                                inventory.remove("HEALING POTION");
+                                viewInventory = false;
+                            }
+                            else if (userItem.equalsIgnoreCase("RED MUSHROOM") && inventory.contains("RED MUSHROOM")) {
                                 System.out.println("What do you think you're going to do with that mushroom?");
                                 attackMenu();
                             } else if (userItem.equalsIgnoreCase("exit")) {
@@ -199,6 +206,7 @@ public class Warrior extends Character {
                                 showInventory(inventory);
                             }
                         }
+
                     }
                     attackMenu();
 

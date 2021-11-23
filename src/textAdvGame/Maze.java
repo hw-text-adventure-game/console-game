@@ -380,17 +380,17 @@ public class Maze {
                             "After searching the area some more, you find that there isn't anything else that's useful. You\n" +
                             "return to your original spot.");
                     System.out.println("----------------------------------------------------------------------------------------");
-                } else if (inventory.contains("HEALING POTION") && !inventory.contains("HEALING POTION (2)")) {
+                } else if (inventory.contains("HEALING POTION") && !inventory.contains("HEALING POTION 2")) {
 
-                    inventory.add("HEALING POTION (2)");
+                    inventory.add("HEALING POTION 2");
 
                     System.out.println("----------------------------------------------------------------------------------------");
-                    System.out.println("You decide to head south and find a HEALING POTION (2)! You put it into your inventory.\n" +
+                    System.out.println("You decide to head south and find a HEALING POTION 2! You put it into your inventory.\n" +
                             "After searching the area some more, you find that there isn't anything else that's useful. You\n" +
                             "return to your original spot.");
                     System.out.println("----------------------------------------------------------------------------------------");
 
-                } else if (inventory.contains("HEALING POTION") && inventory.contains("HEALING POTION (2)")) {
+                } else if (inventory.contains("HEALING POTION") && inventory.contains("HEALING POTION 2")) {
                     System.out.println("You already found the item in this area.");
                 }
                 else {
