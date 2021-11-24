@@ -7,9 +7,9 @@
 [] Add a functioning inventory system (Using arraylists?)
     [✔] for Warrior
     [✔] for Thief
-    [] for Cleric
-    [] for Witch Hunter
-    [] for Mage
+    [✔] for Cleric
+    [✔] for Witch Hunter
+    [✔] for Mage
 [✔] Don't allow player to use/pick an item they don't have in battle.
 
 ---- MAZE TODOS ----

@@ -53,6 +53,7 @@ public class WitchHunter extends Character {
         OUTER:
         while(running) {
 
+            INNER:
             while (enemyHealth > 0) {
                 System.out.println("---------------");
                 System.out.println("ATTACK MENU\n");
@@ -154,7 +155,54 @@ public class WitchHunter extends Character {
                     attackMenu();
                 } else if (userChoice.equals("3")) {
                     showInventory(inventory);
-                    attackMenu();
+                    boolean viewInventory = true;
+                    while(viewInventory) {
+                        if (inventory.isEmpty()) {
+                            System.out.println("You have nothing in your inventory.");
+                            viewInventory = false;
+                        } else {
+                            System.out.println("Which item do you want to use? Type out the name of the item, or type exit to go back to the menu.");
+                            String userItem = scanner.nextLine();
+
+                            if (userItem.equalsIgnoreCase("BEWITCHED BELL") && inventory.contains("BEWITCHED BELL")) {
+                                System.out.println("You use the BEWITCHED BELL, the " + evilEnemy.getName() + " cowers in fear and runs away! After the monster is out of your sight, the\n" +
+                                        "bell shatters, its broken remains falling to the floor.");
+                                inventory.remove("BEWITCHED BELL");
+                                alive = true;
+                                break INNER;
+                            }
+                            else if (userItem.equalsIgnoreCase("DIVINE BLADE") && inventory.contains("DIVINE BLADE")) {
+                                System.out.println("You wield the DIVINE BLADE and attack your enemy! The " + evilEnemy.getName() + " bursts\n" +
+                                        "into a magical light, the soul being freed from the monster's curse! The DIVINE BLADE slowly fades\n" +
+                                        "into magical light as well, rendering the weapon unusable.\n");
+                                inventory.remove("DIVINE BLADE");
+                                alive = true;
+                                break INNER;
+                            }
+                            else if (userItem.equalsIgnoreCase("HEALING POTION") && inventory.contains("HEALING POTION")) {
+                                System.out.println("You drink the entire HEALING POTION and regain your full health.");
+                                playerHealth = 120;
+                                inventory.remove("HEALING POTION");
+                                viewInventory = false;
+                            } else if (userItem.equalsIgnoreCase("HEALING POTION 2") && inventory.contains("HEALING POTION 2")) {
+                                System.out.println("You drink the entire HEALING POTION and regain your full health.");
+                                playerHealth = 120;
+                                inventory.remove("HEALING POTION 2");
+                                viewInventory = false;
+                            }
+                            else if (userItem.equalsIgnoreCase("RED MUSHROOM") && inventory.contains("RED MUSHROOM")) {
+                                System.out.println("What do you think you're going to do with that mushroom?");
+                                attackMenu();
+                            } else if (userItem.equalsIgnoreCase("exit")) {
+                                viewInventory = false;
+                            } else {
+                                System.out.println("You don't have that item in your inventory!");
+                                showInventory(inventory);
+                            }
+                        }
+                    }
+
+
                 } else if (userChoice.equals("4")) {
                     System.out.println("Surrendering the fight will cause the game to end. Are you SURE you want to surrender? [Y/N]");
                     //need to add something here, if user enters yes....
