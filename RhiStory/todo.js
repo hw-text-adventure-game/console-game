@@ -3,9 +3,9 @@
 --------------- OVERALL TODOS ---------------
 
 [✔] Add Cleric Functionality
-[] Do testing with each class, make them all look similar to WARRIOR outputs.
+[✔] Do testing with each class, make them all look similar to WARRIOR outputs.
     [✔] for Thief
-    [] for Cleric
+    [✔] for Cleric
     [✔] for Witch Hunter
     [✔] for Mage
 
@@ -43,7 +43,7 @@
     [] for Cleric
     [] for Witch Hunter
     [] for Mage
-[]Do a check to make sure each user fights every enemy the same way (special attacks being activated, types of monsters taking effects, etc)
+[✔]Do a check to make sure each user fights every enemy the same way (special attacks being activated, types of monsters taking effects, etc)
 [✔]Give MazeGuard a type of "Plant" and have sharp weapons do an extra +5 damage (add this buff only to Warrior, Thief, and Witch Hunter)
     [✔] for Warrior
     [✔] for Thief

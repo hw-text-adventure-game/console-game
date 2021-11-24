@@ -18,8 +18,8 @@ public class Mage extends Character {
     public Mage(String name,  String profession){
         super(name, profession);
         this.playerHealth = 100;
-        this.attackDamage = random.nextInt(6) + 10;
-        this.attackDamage2 = random.nextInt(6) + 10;
+        this.attackDamage = random.nextInt(6) + 15;
+        this.attackDamage2 = random.nextInt(6) + 15;
     }
     //not sure if this needs to be in the constructor, or in the game, probably in the game
     //if(random.nextInt(100) < secondAttackChance{ do the attackmethod again}
@@ -96,12 +96,18 @@ public class Mage extends Character {
 
                 if (userChoice.equals("1")) {
 
-                    this.attackDamage = random.nextInt(6) + 20; //Player Attack Damage
-                    this.attackDamage2 = random.nextInt(6) + 20; //second roll
+                    this.attackDamage = random.nextInt(6) + 15; //Player Attack Damage
+                    this.attackDamage2 = random.nextInt(6) + 15; //second roll
 
                     int enemyDamage = evilEnemy.getEnemyAttackDamage();
 
-                    System.out.println("You cast a spell and do " + this.attackDamage + " damage!");
+                    if(evilEnemy.getType().equals("Rock")) {
+                        int reducedDamage = this.attackDamage = random.nextInt(6) + 15 / 2;
+                        System.out.println("You cast a spell and do " + reducedDamage + " damage!");
+                    }
+                    else {
+                        System.out.println("You cast a spell and do " + this.attackDamage + " damage!");
+                    }
 
                     enemyHealth -= attackDamage;
 
