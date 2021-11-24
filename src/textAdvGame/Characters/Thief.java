@@ -27,6 +27,16 @@ public class Thief extends Character {
         return attackDamage;
     }
 
+    public void showInventory(ArrayList<String> characterInventory) {
+
+        if(!characterInventory.isEmpty()) {
+            for(String item : characterInventory) {
+                System.out.println("- " + item); //Counter was just printing 1 for every item,
+                // so I had to change it until a solution is found :(
+            }
+        }
+    }
+
     public String personalMessage1() {
         return "A castle this big is bound to be full of treasure, you hit the jackpot!\n";
     }
@@ -59,6 +69,7 @@ public class Thief extends Character {
         OUTER:
         while(running) {
 
+            INNER:
             while (enemyHealth > 0) {
                 System.out.println("---------------");
                 System.out.println("ATTACK MENU\n");
@@ -134,7 +145,7 @@ public class Thief extends Character {
                             System.out.println("You showed AGILITY! You decided the battle was not one worth winning, so you\n" +
                                     "make a tactful retreat! You can run away " + agility + " more times.");
                             alive = true;
-                            break OUTER;
+                            break;
                         } else if (agility == 1){
                             agility--;
                             System.out.println("You use the last of your AGILITY. You can't run away anymore after this.");
@@ -149,6 +160,7 @@ public class Thief extends Character {
 
                     showInventory(inventory);
                     boolean viewInventory = true;
+
                     while(viewInventory) {
                         if (inventory.isEmpty()) {
                             System.out.println("You have nothing in your inventory.");
@@ -162,7 +174,7 @@ public class Thief extends Character {
                                         "bell shatters, its broken remains falling to the floor.");
                                 inventory.remove("BEWITCHED BELL");
                                 alive = true;
-                                break;
+                                break INNER;
                             }
                             else if (userItem.equalsIgnoreCase("DIVINE BLADE") && inventory.contains("DIVINE BLADE")) {
                                 System.out.println("You wield the DIVINE BLADE and attack your enemy! The " + evilEnemy.getName() + " bursts\n" +
@@ -170,7 +182,7 @@ public class Thief extends Character {
                                         "into magical light as well, rendering the weapon unusable.\n");
                                 inventory.remove("DIVINE BLADE");
                                 alive = true;
-                                break;
+                                break INNER;
                             }
                             else if (userItem.equalsIgnoreCase("HEALING POTION") && inventory.contains("HEALING POTION")) {
                                 System.out.println("You drink the entire HEALING POTION and regain your full health.");
@@ -195,8 +207,8 @@ public class Thief extends Character {
                         }
 
                     }
-                    attackMenu();
 
+                    attackMenu();
 
                 } else if (userChoice.equals("4")) {
                     System.out.println("Surrendering the fight will cause the game to end. Are you SURE you want to surrender? [Y/N]");
@@ -218,7 +230,8 @@ public class Thief extends Character {
 
 
             }
-            //outside of the inner while loop,
+
+
             running = false; //if you remove this line, it will cause an infinite loop that says the enemy was defeated...
 
             if(alive == true) { //Will only print this if you're alive, removing the problem that this
@@ -230,7 +243,6 @@ public class Thief extends Character {
             } else {
                 break;
             }
-
 
         } //end of outer while loop
 

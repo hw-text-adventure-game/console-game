@@ -6,7 +6,7 @@
 [] Do testing with each class, make them all look similar to WARRIOR outputs.
 [] Add a functioning inventory system (Using arraylists?)
     [✔] for Warrior
-    [] for Thief
+    [✔] for Thief
     [] for Cleric
     [] for Witch Hunter
     [] for Mage

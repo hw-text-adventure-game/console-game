@@ -74,6 +74,7 @@ public class Warrior extends Character {
         OUTER:
         while(running) {
 
+            INNER:
             while (enemyHealth > 0) {
                 System.out.println("---------------");
                 System.out.println("ATTACK MENU\n");
@@ -188,7 +189,7 @@ public class Warrior extends Character {
                                         "bell shatters, its broken remains falling to the floor.");
                                 inventory.remove("BEWITCHED BELL");
                                 alive = true;
-                                break;
+                                break INNER;
                             }
                             else if (userItem.equalsIgnoreCase("DIVINE BLADE") && inventory.contains("DIVINE BLADE")) {
                                 System.out.println("You wield the DIVINE BLADE and attack your enemy! The " + evilEnemy.getName() + " bursts\n" +
@@ -196,7 +197,7 @@ public class Warrior extends Character {
                                         "into magical light as well, rendering the weapon unusable.\n");
                                 inventory.remove("DIVINE BLADE");
                                 alive = true;
-                                break;
+                                break INNER;
                             }
                             else if (userItem.equalsIgnoreCase("HEALING POTION") && inventory.contains("HEALING POTION")) {
                                 System.out.println("You drink the entire HEALING POTION and regain your full health.");
@@ -221,7 +222,7 @@ public class Warrior extends Character {
                         }
 
                     }
-                    attackMenu();
+
 
                 } else if (userChoice.equals("4")) {
                     System.out.println("Surrendering the fight will cause the game to end. Are you SURE you want to surrender? [Y/N]");
