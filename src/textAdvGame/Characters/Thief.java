@@ -80,7 +80,17 @@ public class Thief extends Character {
 
                     int enemyDamage = evilEnemy.getEnemyAttackDamage();
 
-                    System.out.println("You swing your sword and do " + this.attackDamage + " damage!");
+                    if(evilEnemy.getType().equals("Rock")) {
+                        int reducedDamage = this.attackDamage = random.nextInt(6) + 20 / 2;
+                        System.out.println("You slash the enemy with your blades and do " + reducedDamage + " damage!"); //Attack if monster type is rock
+                    } else if (evilEnemy.getType().equals("Plant")) {
+                        int plantDamage = this.attackDamage = random.nextInt(6) + 20 + 5;
+                        System.out.println("CRITICAL HIT! You slash the enemy with your blades and do " + plantDamage + " damage!");
+                    }
+                    else {
+                        System.out.println("You slash the enemy with your blades and do " + this.attackDamage + " damage!"); //Attack
+                    }
+
 
                     enemyHealth -= attackDamage;
 
@@ -88,35 +98,29 @@ public class Thief extends Character {
                     if (enemyHealth <= 0) { //Displays 0 if enemy health dips into negatives
                         System.out.println("*** The " + evilEnemy.getName() + " has no more health! ***");
                     } else {
+                        System.out.println("*** The " + evilEnemy.getName() + "'s health is now " + enemyHealth + " ***");
+                    }
                         if(evilEnemy.getSpecialAttackChance() != 0) {  //checking if enemy has special attack
 
                             if (random.nextInt(100) < evilEnemy.getSpecialAttackChance()) {  //if the enemy does have special attack, activate enemy trait
                                 int enemySpecialDamage = evilEnemy.getSpecialAttackDamage();
-                                System.out.println("Enemy Special Damage " + enemySpecialDamage);
 
                                 playerHealth -= enemySpecialDamage;
-                                System.out.println("Enemy's special attack was activated");
-                                System.out.println("Special Damage " + enemySpecialDamage);
-                                System.out.println("Player Health " + playerHealth);
-                                System.out.println("Maze Guardian Health " + enemyHealth);
+
+                                System.out.println(evilEnemy.specialMessage() + "!!-- It does " + enemySpecialDamage + " damage! --!!");
                             }
                             else {     //if the enemy does have a special attack, but the chance wasn't high enough, then do the following
 
                                 playerHealth -= enemyDamage;
 
-                                System.out.println("*** The " + evilEnemy.getName() + "'s health is now " + enemyHealth + " ***");
                                 System.out.println("!!-- You receive " + enemyDamage + " damage. --!!");
-                                System.out.println("Player Health " + playerHealth);
                             }
                         } else {   //if enemy has no special attack (like the goblin) do the following
 
                             playerHealth -= enemyDamage;
 
-                            System.out.println("*** The " + evilEnemy.getName() + "'s health is now " + enemyHealth + " ***");
-                            System.out.println("!!-- You receive " + enemyDamage + " damage. --!!"); //this needs to be printed here, after you subtract the damage
-                            System.out.println("Player Health " + playerHealth);
+                            System.out.println("!!-- You receive " + enemyDamage + " damage. --!!");
                         }
-                    }
                     attackMenu();
                 } else if (userChoice.equals("2")) {
                     System.out.println("----------------------------------------------------------------------------------------");
@@ -142,8 +146,58 @@ public class Thief extends Character {
                         attackMenu();
                     }
                 } else if (userChoice.equals("3")) {
+
                     showInventory(inventory);
+                    boolean viewInventory = true;
+                    while(viewInventory) {
+                        if (inventory.isEmpty()) {
+                            System.out.println("You have nothing in your inventory.");
+                            viewInventory = false;
+                        } else {
+                            System.out.println("Which item do you want to use? Type out the name of the item, or type exit to go back to the menu.");
+                            String userItem = scanner.nextLine();
+
+                            if (userItem.equalsIgnoreCase("BEWITCHED BELL") && inventory.contains("BEWITCHED BELL")) {
+                                System.out.println("You use the BEWITCHED BELL, the " + evilEnemy.getName() + " cowers in fear and runs away! After the monster is out of your sight, the\n" +
+                                        "bell shatters, its broken remains falling to the floor.");
+                                inventory.remove("BEWITCHED BELL");
+                                alive = true;
+                                break;
+                            }
+                            else if (userItem.equalsIgnoreCase("DIVINE BLADE") && inventory.contains("DIVINE BLADE")) {
+                                System.out.println("You wield the DIVINE BLADE and attack your enemy! The " + evilEnemy.getName() + " bursts\n" +
+                                        "into a magical light, the soul being freed from the monster's curse! The DIVINE BLADE slowly fades\n" +
+                                        "into magical light as well, rendering the weapon unusable.\n");
+                                inventory.remove("DIVINE BLADE");
+                                alive = true;
+                                break;
+                            }
+                            else if (userItem.equalsIgnoreCase("HEALING POTION") && inventory.contains("HEALING POTION")) {
+                                System.out.println("You drink the entire HEALING POTION and regain your full health.");
+                                playerHealth = 120;
+                                inventory.remove("HEALING POTION");
+                                viewInventory = false;
+                            } else if (userItem.equalsIgnoreCase("HEALING POTION 2") && inventory.contains("HEALING POTION 2")) {
+                                System.out.println("You drink the entire HEALING POTION and regain your full health.");
+                                playerHealth = 120;
+                                inventory.remove("HEALING POTION 2");
+                                viewInventory = false;
+                            }
+                            else if (userItem.equalsIgnoreCase("RED MUSHROOM") && inventory.contains("RED MUSHROOM")) {
+                                System.out.println("What do you think you're going to do with that mushroom?");
+                                attackMenu();
+                            } else if (userItem.equalsIgnoreCase("exit")) {
+                                viewInventory = false;
+                            } else {
+                                System.out.println("You don't have that item in your inventory!");
+                                showInventory(inventory);
+                            }
+                        }
+
+                    }
                     attackMenu();
+
+
                 } else if (userChoice.equals("4")) {
                     System.out.println("Surrendering the fight will cause the game to end. Are you SURE you want to surrender? [Y/N]");
                     //need to add something here, if user enters yes....
