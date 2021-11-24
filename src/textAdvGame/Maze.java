@@ -20,7 +20,6 @@ public class Maze {
         Character userCharacter = myCharacter;
         ArrayList<String> inventory = characterInventory;
 
-
         System.out.println("However, the entrance to the castle is guarded by a huge maze. There isn't\n" +
                 "any way around it, so your only choice is to go through it. You enter the maze with\n" +
                 "your weapons ready and begin to trek the magical hedges.");
