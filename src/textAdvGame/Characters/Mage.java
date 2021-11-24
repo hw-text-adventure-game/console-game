@@ -38,6 +38,16 @@ public class Mage extends Character {
         return alive;
     }
 
+    public void showInventory(ArrayList<String> characterInventory) {
+
+        if(!characterInventory.isEmpty()) {
+            for(String item : characterInventory) {
+                System.out.println("- " + item); //Counter was just printing 1 for every item,
+                // so I had to change it until a solution is found :(
+            }
+        }
+    }
+
     public String personalMessage1() {
         return "You can feel the magical aura of this castle; the Revival Stone is definitely hidden in there.\n";
     }
@@ -98,33 +108,27 @@ public class Mage extends Character {
                     if (enemyHealth <= 0) { //Displays 0 if enemy health dips into negatives
                         System.out.println("*** The " + evilEnemy.getName() + " has no more health! ***");
                     } else {
+                        System.out.println("*** The " + evilEnemy.getName() + "'s health is now " + enemyHealth + " ***");
+
                         if(evilEnemy.getSpecialAttackChance() != 0) {  //checking if enemy has special attack
 
                             if (random.nextInt(100) < evilEnemy.getSpecialAttackChance()) {  //if the enemy does have special attack, activate enemy trait
                                 int enemySpecialDamage = evilEnemy.getSpecialAttackDamage();
-                                System.out.println("Enemy Special Damage " + enemySpecialDamage);
 
                                 playerHealth -= enemySpecialDamage;
-                                System.out.println("Enemy's special attack was activated");
-                                System.out.println("Special Damage " + enemySpecialDamage);
-                                System.out.println("Player Health " + playerHealth);
-                                System.out.println("Maze Guardian Health " + enemyHealth);
+
+                                System.out.println(evilEnemy.specialMessage() + "!!-- It does " + enemySpecialDamage + " damage! --!!");
                             }
                             else {     //if the enemy does have a special attack, but the chance wasn't high enough, then do the following
 
                                 playerHealth -= enemyDamage;
 
-                                System.out.println("*** The " + evilEnemy.getName() + "'s health is now " + enemyHealth + " ***");
                                 System.out.println("!!-- You receive " + enemyDamage + " damage. --!!");
-                                System.out.println("Player Health " + playerHealth);
                             }
                         } else {   //if enemy has no special attack (like the goblin) do the following
-
                             playerHealth -= enemyDamage;
 
-                            System.out.println("*** The " + evilEnemy.getName() + "'s health is now " + enemyHealth + " ***");
-                            System.out.println("!!-- You receive " + enemyDamage + " damage. --!!"); //this needs to be printed here, after you subtract the damage
-                            System.out.println("Player Health " + playerHealth);
+                            System.out.println("!!-- You receive " + enemyDamage + " damage. --!!");
                         }
                     if (random.nextInt(100) < persistence) {
 
