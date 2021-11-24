@@ -4,7 +4,7 @@
 
 [✔] Add Cleric Functionality
 [] Do testing with each class, make them all look similar to WARRIOR outputs.
-[] Add a functioning inventory system (Using arraylists?)
+[✔] Add a functioning inventory system (Using arraylists?)
     [✔] for Warrior
     [✔] for Thief
     [✔] for Cleric

@@ -75,7 +75,16 @@ public class WitchHunter extends Character {
 
                     int enemyDamage = evilEnemy.getEnemyAttackDamage();
 
-                    System.out.println("You shoot your crossbow and do " + this.attackDamage + " damage!");
+                    if(evilEnemy.getType().equals("Rock")) {
+                        int reducedDamage = this.attackDamage = random.nextInt(6) + 20 / 2;
+                        System.out.println("You shoot your crossbow and do " + reducedDamage + " damage!"); //Attack if monster type is rock
+                    } else if (evilEnemy.getType().equals("Plant")) {
+                        int plantDamage = this.attackDamage = random.nextInt(6) + 20 + 5;
+                        System.out.println("CRITICAL HIT! You shoot your crossbow and do " + plantDamage + " damage!");
+                    }
+                    else {
+                        System.out.println("You shoot your crossbow and do " + this.attackDamage + " damage!"); //Attack
+                    }
 
                     enemyHealth -= attackDamage;
 
