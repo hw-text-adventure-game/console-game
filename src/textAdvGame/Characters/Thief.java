@@ -145,7 +145,7 @@ public class Thief extends Character {
                             System.out.println("You showed AGILITY! You decided the battle was not one worth winning, so you\n" +
                                     "make a tactful retreat! You can run away " + agility + " more times.");
                             alive = true;
-                            break;
+                            break OUTER;
                         } else if (agility == 1){
                             agility--;
                             System.out.println("You use the last of your AGILITY. You can't run away anymore after this.");
