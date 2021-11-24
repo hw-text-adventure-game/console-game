@@ -28,6 +28,16 @@ public class WitchHunter extends Character {
         return attackDamage;
     }
 
+    public void showInventory(ArrayList<String> characterInventory) {
+
+        if(!characterInventory.isEmpty()) {
+            for(String item : characterInventory) {
+                System.out.println("- " + item); //Counter was just printing 1 for every item,
+                // so I had to change it until a solution is found :(
+            }
+        }
+    }
+
     public String personalMessage1() {
         return "This where the witch resides; you can feel it in your bones.\n";
     }
@@ -96,20 +106,19 @@ public class WitchHunter extends Character {
 
                             if (random.nextInt(100) < evilEnemy.getSpecialAttackChance()) {  //if the enemy does have special attack, activate enemy trait
                                 int enemySpecialDamage = evilEnemy.getSpecialAttackDamage();
-                                System.out.println("Enemy Special Damage " + enemySpecialDamage);
+
+                                System.out.println(evilEnemy.specialMessage() + "!!-- It does " + enemySpecialDamage + " damage! --!!");
 
                                 playerHealth -= enemySpecialDamage;
-                                System.out.println("Maze Guardian Health " + enemyHealth);
-                                System.out.println("Enemy's special attack was activated");
-                                System.out.println("!!-- You receive " + enemySpecialDamage + " damage. --!!");
 
                                 if (random.nextInt(100) < dodgeChance) {
 
                                     playerHealth += enemySpecialDamage;
 
-                                    System.out.println("------------------------------------------------------------------------");
-                                    System.out.println("You showed ADAPTABILITY! You predicted the enemies moves and dodged their attack!");
-                                    System.out.println("------------------------------------------------------------------------");
+                                    System.out.println("---------------------------------------------------------------------------------");
+                                    System.out.println("You showed ADAPTABILITY! You predicted the enemies moves and dodged their attack\n" +
+                                            "before it could hit you!");
+                                    System.out.println("---------------------------------------------------------------------------------");
 
                                 }
 
@@ -126,12 +135,12 @@ public class WitchHunter extends Character {
 
                                 playerHealth += enemyDamage;
 
-                                    System.out.println("------------------------------------------------------------------------");
-                                    System.out.println("You showed ADAPTABILITY! You predicted the enemies moves and dodged their attack!");
-                                    System.out.println("------------------------------------------------------------------------");
+                                    System.out.println("---------------------------------------------------------------------------------");
+                                    System.out.println("You showed ADAPTABILITY! You predicted the enemies moves and dodged their attack\n" +
+                                            "before it could hit you!");
+                                    System.out.println("---------------------------------------------------------------------------------");
 
                                 }
-                                System.out.println("Player Health " + playerHealth);
 
                             }
                         } else {   //if enemy has no special attack (like the goblin) do the following
@@ -145,12 +154,12 @@ public class WitchHunter extends Character {
 
                                     playerHealth += enemyDamage;
 
-                                    System.out.println("------------------------------------------------------------------------");
-                                    System.out.println("You showed ADAPTABILITY! You predicted the enemies moves and dodged their attack!");
-                                    System.out.println("------------------------------------------------------------------------");
+                                    System.out.println("---------------------------------------------------------------------------------");
+                                    System.out.println("You showed ADAPTABILITY! You predicted the enemies moves and dodged their attack\n" +
+                                            "before it could hit you!");
+                                    System.out.println("---------------------------------------------------------------------------------");
 
                                 }
-                            System.out.println("Player Health " + playerHealth);
 
                         }
 
