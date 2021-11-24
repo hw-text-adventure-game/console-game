@@ -17,7 +17,7 @@ public class Cleric extends Character {
 
     public Cleric(String name,  String profession){
         super(name, profession);
-        this.attackDamage = random.nextInt(6) + 10;
+        this.attackDamage = random.nextInt(6) + 15;
         this.playerHealth = 100;
     }
 
@@ -27,6 +27,16 @@ public class Cleric extends Character {
 
     public int getAttackDamage() {
         return attackDamage;
+    }
+
+    public void showInventory(ArrayList<String> characterInventory) {
+
+        if(!characterInventory.isEmpty()) {
+            for(String item : characterInventory) {
+                System.out.println("- " + item); //Counter was just printing 1 for every item,
+                // so I had to change it until a solution is found :(
+            }
+        }
     }
 
     public String personalMessage1() {
@@ -73,11 +83,17 @@ public class Cleric extends Character {
 
                 if (userChoice.equals("1")) {
 
-                    this.attackDamage = random.nextInt(6) + 20; //Player Attack Damage
+                    this.attackDamage = random.nextInt(6) + 15; //Player Attack Damage
 
                     int enemyDamage = evilEnemy.getEnemyAttackDamage();
 
-                    System.out.println("You throw a harmful elixir and do " + this.attackDamage + " damage!");
+                    if(evilEnemy.getType().equals("Rock")) {
+                        int reducedDamage = this.attackDamage = random.nextInt(6) + 15 / 2;
+                        System.out.println("You throw a harmful elixir and do " + reducedDamage + " damage!");
+                    }
+                    else {
+                        System.out.println("You throw a harmful elixir and do " + this.attackDamage + " damage!");
+                    }
 
                     enemyHealth -= attackDamage;
 
@@ -130,7 +146,6 @@ public class Cleric extends Character {
                                     System.out.println("------------------------------------------------------------------------");
 
                                 }
-                                System.out.println("Player Health " + playerHealth);
 
                             }
                         } else {   //if enemy has no special attack (like the goblin) do the following
@@ -152,7 +167,6 @@ public class Cleric extends Character {
                                 System.out.println("------------------------------------------------------------------------");
 
                             }
-                            System.out.println("Player Health " + playerHealth);
 
                         }
 

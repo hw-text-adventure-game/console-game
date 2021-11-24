@@ -3,8 +3,13 @@
 --------------- OVERALL TODOS ---------------
 
 [✔] Add Cleric Functionality
-[] Do testing with each class, make them all look similar to WARRIOR outputs.
-[] Add a functioning inventory system (Using arraylists?)
+[✔] Do testing with each class, make them all look similar to WARRIOR outputs.
+    [✔] for Thief
+    [✔] for Cleric
+    [✔] for Witch Hunter
+    [✔] for Mage
+
+[✔] Add a functioning inventory system (Using arraylists?)
     [✔] for Warrior
     [✔] for Thief
     [✔] for Cleric
@@ -33,12 +38,16 @@
 
 [✔]Add Boulder Monster + Functionality //Rhi
 []Add Phantom Demon + Functionality
-[]Add this functionality to EVERY class
-[]Do a check to make sure each user fights every enemy the same way (special attacks being activated, types of monsters taking effects, etc)
-[]Give MazeGuard a type of "Plant" and have sharp weapons do an extra +5 damage (add this buff only to Warrior, Thief, and Witch Hunter)
-    [✔] for Warrior
+    [] for Warrior
     [] for Thief
+    [] for Cleric
     [] for Witch Hunter
+    [] for Mage
+[✔]Do a check to make sure each user fights every enemy the same way (special attacks being activated, types of monsters taking effects, etc)
+[✔]Give MazeGuard a type of "Plant" and have sharp weapons do an extra +5 damage (add this buff only to Warrior, Thief, and Witch Hunter)
+    [✔] for Warrior
+    [✔] for Thief
+    [✔] for Witch Hunter
 
 
 -- Minor TODOS ---
