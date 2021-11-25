@@ -28,7 +28,7 @@ public class GameApplication {
         System.out.println("------------------------------------------------------------------------------------------------------------");
         System.out.println("\"After you remember your name and your past, you get up and begin to search The Enchanted Forest,\n" +
                 "but suddenly you hear a noise from behind you!\"");
-        System.out.println("------------------------------------------------------------------------------------------------------------");
+        System.out.println("------------------------------------------------------------------------------------------------------------\n");
 
             ArrayList<String> inventory = new ArrayList<>();
 
