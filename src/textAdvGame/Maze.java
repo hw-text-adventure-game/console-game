@@ -479,7 +479,6 @@ public class Maze {
 
                 System.out.println("***You escaped the maze!***");
                 alive = false; //break out of maze
-                youWin();
 
             } else if (fifthChoice.equals("3")) {
 
