@@ -28,6 +28,8 @@ public class Trench {
                 "abyss.");
         System.out.println("------------------------------------------------------------------------------------------------------------\n");
 
+        System.out.println("---------------------------------------------------------------------");
+        System.out.println("You soon reach the bottom of the pit and find only three ways to go:\n");
 
         outsideOfCave(userCharacter, inventory);
 
@@ -40,16 +42,54 @@ public class Trench {
 
         Scanner scanner = new Scanner(System.in);
         String goHere;
+        boolean alive = true;
 
-        System.out.println("---------------------------------------------------------------------");
-        System.out.println("You soon reach the bottom of the pit and find only two ways to go:\n" +
-                "\n" +
+        while (alive) {
+
+        System.out.println(
                 "[1] Go into the Caves\n" +
                 "[2] Visit the \"Hangman Shack\" \n" +
                 "[3] Leave the Trench");
+
         System.out.println("---------------------------------------------------------------------");
 
         goHere = scanner.nextLine();
+
+        if(goHere.equals("1")) {
+            enterCaves(userCharacter, inventory);
+        }
+        else if(goHere.equals("2")) {
+
+            String talkToHangman;
+
+            System.out.println("You decide to head towards the Hangman Shack, unsure of what you'll find.\n" +
+                    "An elder man appears out from the shack, wearing a torn up wizard hat and shaggy robes.\n" +
+                    "His beard is so long that it touches the ground and his voice is gravelly as he speaks:\n" +
+                    "\n" +
+                    "Hangman Man: \"Oho, a " + userCharacter.getProfession() + "? How strange! I haven't seen anyone like\n" +
+                    "you in years! Tell me, do they have those juicy chicken legs where you're from? I haven't had\n" +
+                    "that in a long time! All I've been living off of is plants and mushrooms so I'm starvin', heh heh!\n\"");
+
+            System.out.println("Would you like to talk to the Hangman Man? [Y/N]");
+
+            talkToHangman = scanner.nextLine();
+
+            if(talkToHangman.equalsIgnoreCase("y")) {
+                System.out.println("You decided to talk to the Hangman Man!");
+            } else {
+                System.out.println("You leave the kooky old man to his madness.");
+                outsideOfCave(userCharacter, inventory);
+            }
+
+        }
+
+    }
+
+    }
+
+
+
+    public static void enterCaves(Character userCharacter, ArrayList<String> inventory) {
     }
 
 }

@@ -1,5 +1,10 @@
 /* (This is the easiest file type to comment in.)
 
+
+MAZE CHEAT CODE:  North, West, East, East, South
+
+
+
 FOR REFERENCE:
 
 - Everything in quotes is story related.
