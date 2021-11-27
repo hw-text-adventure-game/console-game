@@ -68,7 +68,7 @@ public class Trench {
                     "\n" +
                     "Hangman Man: \"Oho, a " + userCharacter.getProfession() + "? How strange! I haven't seen anyone like\n" +
                     "you in years! Tell me, do they have those juicy chicken legs where you're from? I haven't had\n" +
-                    "that in a long time! All I've been living off of is plants and mushrooms so I'm starvin', heh heh!\n\"");
+                    "that in a long time! All I've been living off of is plants and mushrooms so I'm starvin', heh heh!\"\n");
 
             System.out.println("Would you like to talk to the Hangman Man? [Y/N]");
 
@@ -102,12 +102,12 @@ public class Trench {
             System.out.println("What would you like to talk about?\n");
 
             System.out.println(
-                    "[1] Yourself\n" +
-                    "[2] The Hangman Man" +
-                    "[3] The Enchanted Forest" +
-                    "[4] The Castle" +
-                    "[5] The Witch" +
-                    "[6] Leave");
+                    "[1] You\n" +
+                    "[2] The Hangman Man\n" +
+                    "[3] The Enchanted Forest\n" +
+                    "[4] The Castle\n" +
+                    "[5] The Witch\n" +
+                    "[6] Leave\n");
 
             talkToHangman = scanner.nextLine();
 
@@ -116,6 +116,10 @@ public class Trench {
             }
             else if(talkToHangman.equals("2")) {
                 System.out.println("Two");
+                System.out.println(
+                    "Hangman Man: \"Me? I'm the Hangman Man, the man who likes to play hangman, heh heh! It's the only\n" +
+                    "game keeping me young these days...but a game of hangman isn't the same without a mushroom! Hmm? Why\n" +
+                     "does a mushroom make a difference? Heh heh...when you get as old as me, you'll understand, " + userCharacter.getName() + ".\"\n");
             }
             else if(talkToHangman.equals("3")) {
                 System.out.println("Three");
@@ -127,7 +131,6 @@ public class Trench {
                 System.out.println("Five");
             }
             else if(talkToHangman.equals("6")) {
-                talking = false;
                 outsideOfCave(userCharacter, inventory);
             }
 
