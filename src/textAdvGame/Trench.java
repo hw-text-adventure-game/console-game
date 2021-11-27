@@ -107,7 +107,8 @@ public class Trench {
                     "[3] The Enchanted Forest\n" +
                     "[4] The Castle\n" +
                     "[5] The Witch\n" +
-                    "[6] Leave\n");
+                    "[6] [PLAY HANGMAN WITH HANGMAN MAN]\n" +
+                    "[7] Leave\n");
 
             talkToHangman = scanner.nextLine();
 
@@ -115,22 +116,38 @@ public class Trench {
                 System.out.println("One");
             }
             else if(talkToHangman.equals("2")) {
-                System.out.println("Two");
                 System.out.println(
                     "Hangman Man: \"Me? I'm the Hangman Man, the man who likes to play hangman, heh heh! It's the only\n" +
                     "game keeping me young these days...but a game of hangman isn't the same without a mushroom! Hmm? Why\n" +
                      "does a mushroom make a difference? Heh heh...when you get as old as me, you'll understand, " + userCharacter.getName() + ".\"\n");
             }
             else if(talkToHangman.equals("3")) {
-                System.out.println("Three");
+                System.out.println(
+                        "\"This old forest? Heh, it's cursed, but I think you knew that already. Anyone who enters is bound\n" +
+                        "by the curse of the forest; once you enter, you can never leave. Trust me, I tried! Heh heh! The only way you're\n" +
+                        "gonna get out of here is if you get rid of The Witch. As long as she's around, the curse will stay and you'll be\n" +
+                        "trapped. Oh yeah, and if that witch tries to offer you one of her deals, don't take it. She's a deceitful woman;\n" +
+                        "she'll always find the loopholes, just like my wife! Heh heh heh!\"\n");
             }
             else if(talkToHangman.equals("4")) {
-                System.out.println("Four");
+                System.out.println("\"Interested in the castle, eh? Have ya been there yet? Well if you have, you probably noticed the magical\n" +
+                        "lock on the door. You gotta say the password for the lock to come off, ya see? Good thing I know the password, heh!\n" +
+                        "I'm not just gonna give it to you willy nilly though, we gotta play for it! And I don't play without mushrooms!\n" +
+                        "...how about I make you a deal? You give me a mushroom, and we'll play a game of hangman so you can get the password.\n" +
+                        "Any mushroom will do, but my favorites are the red ones, heh heh! they grow a lot in th maze, you should go look for\n" +
+                        "em!\"\n");
             }
             else if(talkToHangman.equals("5")) {
                 System.out.println("Five");
+                System.out.println("\"The Witch? Heh, yeah I know her. When I knew her though, she just went by Wisteria. We used to be good\n" +
+                        "friends her and I, until her powers corrupted her. She wanted everyone to know and fear her power, so she created\n" +
+                        "The Enchanted Forest and put a curse upon this land so she could do just that. I've tried talking sense into her,\n" +
+                        "but she eventually got so tired of me that she put a lock on her castle door, heh heh!\"\n");
             }
             else if(talkToHangman.equals("6")) {
+                System.out.println("Six");
+            }
+            else if(talkToHangman.equals("7")) {
                 outsideOfCave(userCharacter, inventory);
             }
 
