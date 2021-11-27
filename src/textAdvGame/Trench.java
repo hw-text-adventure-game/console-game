@@ -76,6 +76,7 @@ public class Trench {
 
             if(talkToHangman.equalsIgnoreCase("y")) {
                 System.out.println("You decided to talk to the Hangman Man!");
+                hangMan(userCharacter, inventory);
             } else {
                 System.out.println("You leave the kooky old man to his madness.");
                 outsideOfCave(userCharacter, inventory);
@@ -87,6 +88,55 @@ public class Trench {
 
     }
 
+    public static void hangMan(Character myCharacter, ArrayList<String> characterInventory) {
+
+        Character userCharacter = myCharacter;
+        ArrayList<String> inventory = characterInventory;
+
+        Scanner scanner = new Scanner(System.in);
+        boolean talking = true;
+        String talkToHangman;
+
+        while (talking) {
+
+            System.out.println("What would you like to talk about?\n");
+
+            System.out.println(
+                    "[1] Yourself\n" +
+                    "[2] The Hangman Man" +
+                    "[3] The Enchanted Forest" +
+                    "[4] The Castle" +
+                    "[5] The Witch" +
+                    "[6] Leave");
+
+            talkToHangman = scanner.nextLine();
+
+            if(talkToHangman.equals("1")) {
+                System.out.println("One");
+            }
+            else if(talkToHangman.equals("2")) {
+                System.out.println("Two");
+            }
+            else if(talkToHangman.equals("3")) {
+                System.out.println("Three");
+            }
+            else if(talkToHangman.equals("4")) {
+                System.out.println("Four");
+            }
+            else if(talkToHangman.equals("5")) {
+                System.out.println("Five");
+            }
+            else if(talkToHangman.equals("6")) {
+                talking = false;
+                outsideOfCave(userCharacter, inventory);
+            }
+
+
+
+
+        }
+
+    }
 
 
     public static void enterCaves(Character userCharacter, ArrayList<String> inventory) {
