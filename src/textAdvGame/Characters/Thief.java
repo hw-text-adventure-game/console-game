@@ -41,6 +41,11 @@ public class Thief extends Character {
         return "A castle this big is bound to be full of treasure, you hit the jackpot!\n";
     }
 
+    public String oldManResponse1() {
+
+        return "So you're " + this.getName() + " the " + this.getProfession() + " eh?";
+    }
+
     //also has a trait for agility, run away from battle, can be used 3 times to "cancel" a fight
     private int agility = 3;
 

@@ -51,6 +51,11 @@ public class Warrior extends Character {
         return "You wonder if this is what the citizens are afraid of; it would be wise to investigate the castle.\n";
     }
 
+    public String oldManResponse1() {
+
+        return "So you're " + this.getName() + " the " + this.getProfession() + " eh?";
+    }
+
     private int bravery = 25;
 
     public void attackMenu(Enemy evilEnemy, ArrayList<String> characterInventory) { //Takes in enemy to kill + inventory
