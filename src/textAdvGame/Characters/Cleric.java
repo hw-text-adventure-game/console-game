@@ -44,6 +44,11 @@ public class Cleric extends Character {
                 "herbs you need for your potions.\n";
     }
 
+    public String oldManResponse1() {
+
+        return "So you're " + this.getName() + " the " + this.getProfession() + " eh?";
+    }
+
     public void attackMenu(Enemy evilEnemy, ArrayList<String> characterInventory) { //Takes in enemy to kill
         int previousHealth = 0;
 

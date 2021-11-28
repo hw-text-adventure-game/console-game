@@ -77,6 +77,10 @@ public class Character implements AttackOptions {
         return null;
     }
 
+    public String oldManResponse1() {
+            return null;
+    }
+
     public static Character chooseCharacter(){
         Scanner scanner = new Scanner(System.in);
         String userChoice = "NumberChoice";

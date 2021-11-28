@@ -114,6 +114,7 @@ public class Trench {
 
             if(talkToHangman.equals("1")) {
                 System.out.println("One");
+                System.out.println(userCharacter.oldManResponse1());
             }
             else if(talkToHangman.equals("2")) {
                 System.out.println(
@@ -139,7 +140,7 @@ public class Trench {
             }
             else if(talkToHangman.equals("5")) {
                 System.out.println("Five");
-                System.out.println("\"The Witch? Heh, yeah I know her. When I knew her though, she just went by Wisteria. We used to be good\n" +
+                System.out.println("\"The Witch? Heh, yeah I know her. When I knew her though, she went by her real name. We used to be good\n" +
                         "friends her and I, until her powers corrupted her. She wanted everyone to know and fear her power, so she created\n" +
                         "The Enchanted Forest and put a curse upon this land so she could do just that. I've tried talking sense into her,\n" +
                         "but she eventually got so tired of me that she put a lock on her castle door, heh heh!\"\n");
