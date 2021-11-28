@@ -44,7 +44,10 @@ public class WitchHunter extends Character {
 
     public String oldManResponse1() {
 
-        return "So you're " + this.getName() + " the " + this.getProfession() + " eh?";
+        return "So you're " + this.getName() + " the " + this.getProfession() + " eh? You're the loner type then. Adaptable in\n" +
+                "survival situations but...I mean, anyone can see you're not really the social butterfly type, heh heh. Ya gotta\n" +
+                "learn to be adaptable in all situations, not just life or death ones. Once ya get rid of the witch, go make some\n" +
+                "friends for this old man's sake, will ya?\n";
     }
 
     public void attackMenu(Enemy evilEnemy, ArrayList<String> characterInventory) { //Takes in enemy to kill
