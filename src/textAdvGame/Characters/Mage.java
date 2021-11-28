@@ -54,7 +54,10 @@ public class Mage extends Character {
 
     public String oldManResponse1() {
 
-        return "So you're " + this.getName() + " the " + this.getProfession() + " eh?";
+        return "So you're " + this.getName() + " the " + this.getProfession() + " eh? And you want to find the Revival Stone? Heh heh,\n" +
+                "you're even more persistent than the other bozos who come through these woods; I guess that's what mages are after these\n" +
+                "days. The Witch might have it, but I doubt she'd give it up to anyone, so you should just give up...but even if I say that,\n" +
+                "I know you won't give up either. heh.\n";
     }
 
     public void attackMenu(Enemy evilEnemy, ArrayList<String> characterInventory) { //Takes in enemy to kill

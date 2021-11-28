@@ -53,7 +53,9 @@ public class Warrior extends Character {
 
     public String oldManResponse1() {
 
-        return "So you're " + this.getName() + " the " + this.getProfession() + " eh?";
+        return "So you're " + this.getName() + " the " + this.getProfession() + " eh? You're a brave soul for coming all the way out here.\n" +
+                "I bet people rely on you a lot where you come from, huh? It must be nice, having people depend on you. Well, I hope you put\n" +
+                "a stop to The Witch once and for all, for your people's sake.\n";
     }
 
     private int bravery = 25;
