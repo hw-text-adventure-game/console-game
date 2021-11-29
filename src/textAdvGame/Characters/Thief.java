@@ -43,7 +43,7 @@ public class Thief extends Character {
 
     public String oldManResponse1() {
 
-        return "So you're " + this.getName() + " the " + this.getProfession() + " eh? I really despise your kind; you don't care what\n" +
+        return "Hangman Man: So you're " + this.getName() + " the " + this.getProfession() + " eh? I really despise your kind; you don't care what\n" +
                 "you take, as long as it benefits you in the end...but if that's what the world has come to, guess I can't entirely blame\n" +
                 "ya. Oh well, I reckon if you're quick enough you can snatch a potion or two from The Witch; it'll fetch ya a high price.\n";
     }

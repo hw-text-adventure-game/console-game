@@ -3,6 +3,8 @@
 
 MAZE CHEAT CODE:  North, West, East, East, South
 
+MUSHROOM CHEAT CODE:  North, West, NORTH (MUSHROOM) then East, East, South
+
 
 
 FOR REFERENCE:

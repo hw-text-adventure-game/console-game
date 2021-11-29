@@ -60,7 +60,6 @@ public class GameApplication {
         //Add personalized line here before the user enters the maze.
 
             enterMaze(userCharacter, inventory); //Passing in userCharacter to maze
-            enterTrench(userCharacter, inventory); //Passing in userCharacter to trench after they leave the maze
 
         }
 

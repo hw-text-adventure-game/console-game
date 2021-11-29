@@ -46,7 +46,7 @@ public class Cleric extends Character {
 
     public String oldManResponse1() {
 
-        return "So you're " + this.getName() + " the " + this.getProfession() + " eh? You're the softer type, then. Makes me wonder\n" +
+        return "Hangman Man: So you're " + this.getName() + " the " + this.getProfession() + " eh? You're the softer type, then. Makes me wonder\n" +
                 "what a person like you is doing out here, but I can already tell from the look in your eyes. You're here for someone else,\n" +
                 "not yourself. That's real selfless of ya. Be careful though, your empathy could kill you out here.\n";
     }
