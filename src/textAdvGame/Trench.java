@@ -4,6 +4,7 @@ import textAdvGame.Characters.Character;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import static textAdvGame.Maze.teleportMaze;
 
 public class Trench {
 
@@ -75,10 +76,25 @@ public class Trench {
             talkToHangman = scanner.nextLine();
 
             if(talkToHangman.equalsIgnoreCase("y")) {
-                System.out.println("You decided to talk to the Hangman Man!");
                 hangMan(userCharacter, inventory);
             } else {
                 System.out.println("You leave the kooky old man to his madness.");
+                outsideOfCave(userCharacter, inventory);
+            }
+
+        } else if(goHere.equals("3")) {
+            String teleportToMaze;
+
+            System.out.println("You exit the trenches, only to be met with the glowing rock with the riddle engraved into it.\n" +
+                    "(If you wish to return to the beginning of the maze, type in \"Wayward Stone\". Otherwise, type exit).");
+
+            teleportToMaze = scanner.nextLine();
+
+            if(teleportToMaze.equalsIgnoreCase("wayward stone")) {
+                teleportMaze(userCharacter, inventory);
+                System.out.println("Go back to the beginning of the maze.");
+            } else {
+                System.out.println("With nowhere else to go up here, you decide to head back down into the trenches.");
                 outsideOfCave(userCharacter, inventory);
             }
 
@@ -87,6 +103,7 @@ public class Trench {
     }
 
     }
+
 
     public static void hangMan(Character myCharacter, ArrayList<String> characterInventory) {
 
@@ -113,7 +130,6 @@ public class Trench {
             talkToHangman = scanner.nextLine();
 
             if(talkToHangman.equals("1")) {
-                System.out.println("One");
                 System.out.println(userCharacter.oldManResponse1());
             }
             else if(talkToHangman.equals("2")) {
@@ -124,14 +140,14 @@ public class Trench {
             }
             else if(talkToHangman.equals("3")) {
                 System.out.println(
-                        "\"This old forest? Heh, it's cursed, but I think you knew that already. Anyone who enters is bound\n" +
+                        "Hangman Man: \"This old forest? Heh, it's cursed, but I think you knew that already. Anyone who enters is bound\n" +
                         "by the curse of the forest; once you enter, you can never leave. Trust me, I tried! Heh heh! The only way you're\n" +
                         "gonna get out of here is if you get rid of The Witch. As long as she's around, the curse will stay and you'll be\n" +
                         "trapped. Oh yeah, and if that witch tries to offer you one of her deals, don't take it. She's a deceitful woman;\n" +
                         "she'll always find the loopholes, just like my wife! Heh heh heh!\"\n");
             }
             else if(talkToHangman.equals("4")) {
-                System.out.println("\"Interested in the castle, eh? Have ya been there yet? Well if you have, you probably noticed the magical\n" +
+                System.out.println("Hangman Man: \"Interested in the castle, eh? Have ya been there yet? Well if you have, you probably noticed the magical\n" +
                         "lock on the door. You gotta say the password for the lock to come off, ya see? Good thing I know the password, heh!\n" +
                         "I'm not just gonna give it to you willy nilly though, we gotta play for it! And I don't play without mushrooms!\n" +
                         "...how about I make you a deal? You give me a mushroom, and we'll play a game of hangman so you can get the password.\n" +
@@ -140,13 +156,21 @@ public class Trench {
             }
             else if(talkToHangman.equals("5")) {
                 System.out.println("Five");
-                System.out.println("\"The Witch? Heh, yeah I know her. When I knew her though, she went by her real name. We used to be good\n" +
+                System.out.println("Hangman Man: \"The Witch? Heh, yeah I know her. When I knew her though, she went by her real name. We used to be good\n" +
                         "friends her and I, until her powers corrupted her. She wanted everyone to know and fear her power, so she created\n" +
                         "The Enchanted Forest and put a curse upon this land so she could do just that. I've tried talking sense into her,\n" +
                         "but she eventually got so tired of me that she put a lock on her castle door, heh heh!\"\n");
             }
             else if(talkToHangman.equals("6")) {
                 System.out.println("Six");
+
+                if(!inventory.contains("RED MUSHROOM")) {
+                    System.out.println("Hangman Man: \"Woah woah woah, hold your horses! I won't play hangman if you just ask me to! No, I gotta be in the\n" +
+                    "hangman mood! Bring me a mushroom and I'll play a good ol fashion round of hangman with ya.\"\n");
+                } else {
+                    System.out.println("You have a mushroom!");
+                }
+
             }
             else if(talkToHangman.equals("7")) {
                 outsideOfCave(userCharacter, inventory);

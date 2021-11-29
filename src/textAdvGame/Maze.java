@@ -9,6 +9,8 @@ import textAdvGame.Enemies.StoneGolem;;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import static textAdvGame.Trench.enterTrench;
+
 public class Maze {
 
 //I got the maze methods to work, but I couldn't tell you how I got them to work......
@@ -23,6 +25,22 @@ public class Maze {
         System.out.println("However, the entrance to the castle is guarded by a huge maze. There isn't\n" +
                 "any way around it, so your only choice is to go through it. You enter the maze with\n" +
                 "your weapons ready and begin to trek the magical hedges.");
+        System.out.println("------------------------------------------------------------------------------------------------------------\n");
+
+        MazePaths(userCharacter, inventory);
+
+
+    }
+
+    public static void teleportMaze(Character myCharacter, ArrayList<String> characterInventory) {
+        Character userCharacter = myCharacter;
+        ArrayList<String> inventory = characterInventory;
+
+        System.out.println("------------------------------------------------------------------------------------------------------------");
+        System.out.println("You say \"Wayward Stone\" out loud and POOF!--you appear back at the beginning of the maze.\n" +
+                "Before going back inside the maze, you make a mental note of the way out so you don't get lost in there:\n" +
+                "1: North, 2: West, 3: East, 4: East, 5: South.\n" +
+                "After doing this, you re-enter the maze.");
         System.out.println("------------------------------------------------------------------------------------------------------------\n");
 
         MazePaths(userCharacter, inventory);
@@ -478,7 +496,8 @@ public class Maze {
             } else if (fifthChoice.equals("2")) {
 
                 System.out.println("***You escaped the maze!***");
-                alive = false; //break out of maze
+                alive = false;
+                enterTrench(userCharacter, inventory); //Passing in userCharacter to trench after they leave the maze
 
             } else if (fifthChoice.equals("3")) {
 
