@@ -151,18 +151,17 @@ public class Trench {
                         "lock on the door. You gotta say the password for the lock to come off, ya see? Good thing I know the password, heh!\n" +
                         "I'm not just gonna give it to you willy nilly though, we gotta play for it! And I don't play without mushrooms!\n" +
                         "...how about I make you a deal? You give me a mushroom, and we'll play a game of hangman so you can get the password.\n" +
-                        "Any mushroom will do, but my favorites are the red ones, heh heh! they grow a lot in th maze, you should go look for\n" +
+                        "Any mushroom will do, but my favorites are the red ones, heh heh! they grow a lot in the maze, you should go look for\n" +
                         "em!\"\n");
             }
             else if(talkToHangman.equals("5")) {
-                System.out.println("Five");
                 System.out.println("Hangman Man: \"The Witch? Heh, yeah I know her. When I knew her though, she went by her real name. We used to be good\n" +
                         "friends her and I, until her powers corrupted her. She wanted everyone to know and fear her power, so she created\n" +
                         "The Enchanted Forest and put a curse upon this land so she could do just that. I've tried talking sense into her,\n" +
                         "but she eventually got so tired of me that she put a lock on her castle door, heh heh!\"\n");
             }
             else if(talkToHangman.equals("6")) {
-                System.out.println("Six");
+                String correctWord = Hangman.hangmanGame();
 
                 if(!inventory.contains("RED MUSHROOM")) {
                     System.out.println("Hangman Man: \"Woah woah woah, hold your horses! I won't play hangman if you just ask me to! No, I gotta be in the\n" +

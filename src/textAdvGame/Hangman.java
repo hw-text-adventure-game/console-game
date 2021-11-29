@@ -1,5 +1,6 @@
 package textAdvGame;
 
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -8,17 +9,22 @@ public class Hangman {
     public Hangman() {
     }
 
-    public static void hangmanGame() {
+    public static String hangmanGame() {
 
         Scanner scanner = new Scanner(System.in);
         Random rand = new Random();
         String[] wordArr = {"class", "programming", "instance", "static", "method", "constructor", "byte", "double", "boolean", "float", "scanner"}; //You can change these words to whatever you want to fit in with the theme of the game
 
+        String theWord = null;
+
         boolean weArePlaying = true;
 
         while (weArePlaying) {
-            System.out.println("Welcome to my game of textAdvGame.Hangman. Guess correctly and I'll let you pass.");  //You can add instructions or story here
+            System.out.println("Welcome to my game of Hangman. Guess correctly and the password is yours.");  //You can add instructions or story here
             char[] randomWordToGuess = wordArr[rand.nextInt(wordArr.length)].toCharArray();
+            System.out.println("randomword " + Arrays.toString(randomWordToGuess));
+            theWord = String.copyValueOf(randomWordToGuess);
+            System.out.println("the word " + theWord); //this is the full word
             int numberOfUnderscores = randomWordToGuess.length;   //this sets the number of underscores to the length of the word
             char[] playerGuess = new char[numberOfUnderscores];  //this creates an empty char array where we can save the users input
 
@@ -52,14 +58,18 @@ public class Hangman {
                         System.out.println(playerGuess);
                         System.out.println("Congratulations, you won!");
                     }
+                    System.out.println("The password is: " + theWord);
+                    weArePlaying = false;
                 }
             }
-            if (!wordIsGuessed) System.out.println("You ran out of guesses :/");
-            System.out.println("Do you want to play again? (yes/no)");   //Instead of giving them the option to play again, we could kick them back into the maze or make them fight, or whatever you want to do
-            String anotherGame = scanner.nextLine();
-            if (anotherGame.equals("no") || anotherGame.equals("n")) weArePlaying = false;
+            if (!wordIsGuessed){
+                System.out.println("You ran out of guesses. I can't believe you I am so disappointed at your attempt. Old man tangent");
+                weArePlaying = false;
+                GameApplication.gameOver();
+            }
+
         }
-        System.out.println("Goodbye");
+        return theWord;
     }
 
     public static void printArray(char[] array) {
