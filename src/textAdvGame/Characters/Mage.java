@@ -209,7 +209,17 @@ public class Mage extends Character {
                             else if (userItem.equalsIgnoreCase("RED MUSHROOM") && inventory.contains("RED MUSHROOM")) {
                                 System.out.println("What do you think you're going to do with that mushroom?");
                                 attackMenu();
-                            } else if (userItem.equalsIgnoreCase("exit")) {
+                            } else if (userItem.equalsIgnoreCase("LANTERN") && inventory.contains("LANTERN")) {
+                                if(evilEnemy.getType().equals("Shadow")) {
+                                    System.out.println("You pull out the LANTERN! The monster cowers in fear and runs away from the bright light!");
+                                    alive = true;
+                                    break INNER;
+                                } else {
+                                    System.out.println("You pull out the LANTERN, but nothing happens. (Use this on shadow type monsters!)");
+                                    attackMenu();
+                                }
+                            }
+                            else if (userItem.equalsIgnoreCase("exit")) {
                                 viewInventory = false;
                             } else {
                                 System.out.println("You don't have that item in your inventory!");
