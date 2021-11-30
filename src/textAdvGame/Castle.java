@@ -9,15 +9,17 @@ import java.util.Scanner;
 
 public class Castle {
 
-    public static void enterCastleGarden(Character myCharacter, ArrayList<String> characterInventory) {
+    public static void enterCastleGarden(Character myCharacter, ArrayList<String> characterInventory, String word) {
 
         boolean alive = true;
-        String correctWord = Hangman.hangmanGame(); //this doesn't work as intended, it gives you a different name + forces you to play again
+//        String correctWord = Hangman.hangmanGame(); //this doesn't work as intended, it gives you a different name + forces you to play again
 
         while (alive) {
 
         Character userCharacter = myCharacter;
         ArrayList<String> inventory = characterInventory;
+        String marysString = word;
+            System.out.println("***this is marysString " + marysString);
 
         System.out.println("------------------------------------------------------------------------------------------------------------");
         System.out.println("After escaping the caves, you find a long, stone staircase leading out of the trench and straight.\n" +
@@ -83,14 +85,14 @@ public class Castle {
 
                 userGuess = scanner.nextLine();
 
-                if(userGuess.equals(correctWord)) {
+                if(userGuess.equals(marysString)) {
                     System.out.println("You got it right! The doors open.");
                 }
                 else if(userGuess.equals("exit")) {
                     System.out.println("You decide to give up for now and search for clues about the password.");
                 }
                 else {
-                    System.out.println("The door doesn';'t budge.");
+                    System.out.println("The door doesn't budge.");
                 }
 
             } else if (userChoice.equals("2")) {

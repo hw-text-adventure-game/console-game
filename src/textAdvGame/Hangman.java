@@ -15,7 +15,7 @@ public class Hangman {
         Random rand = new Random();
         String[] wordArr = {"willow", "raven", "alice", "hazel", "salem", "gwen", "belladona", "ambrosia", "cassandra", "sylvia", "rhea"}; //You can change these words to whatever you want to fit in with the theme of the game
 
-        String theWord = null;
+        String theWord = "helloThere";
 
         boolean weArePlaying = true;
 

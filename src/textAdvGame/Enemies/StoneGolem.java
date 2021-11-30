@@ -13,7 +13,7 @@ public class StoneGolem extends Enemy{
 
     public StoneGolem(String name) {
         super(name);
-        this.enemyHealth = 120;
+        this.enemyHealth = 25;  //change this to 100 later
     }
 
     public int getEnemyHealth() {
