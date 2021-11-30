@@ -54,7 +54,6 @@ public class Trench {
 
         while (alive) {
 
-            String marysString = null;
 
 
             System.out.println(
@@ -67,7 +66,7 @@ public class Trench {
         goHere = scanner.nextLine();
 
         if(goHere.equals("1")) {
-            enterCaves(userCharacter, inventory, marysString);
+            enterCaves(userCharacter, inventory);
         }
         else if(goHere.equals("2")) {
 
@@ -197,11 +196,11 @@ public class Trench {
     }
 
 
-    public static void enterCaves(Character myCharacter, ArrayList<String> characterInventory, String word) {
+    public static void enterCaves(Character myCharacter, ArrayList<String> characterInventory) {
 
         Character userCharacter = myCharacter;
         ArrayList<String> inventory = characterInventory;
-        String marysString = word;
+
 
 
         System.out.println("------------------------------------------------------------------------------------------------------------");
@@ -209,20 +208,20 @@ public class Trench {
                 "creatures surround you. Wanting to get out of the caves as soon as possible you go deeper, finding three paths to\n" +
                 "choose from:");
 
-        firstCavePaths(userCharacter, inventory, marysString);
+        firstCavePaths(userCharacter, inventory);
 
     }
 
     /* --------------------- FIRST CAVE PATHS --------------------- */
 
 
-    public static void firstCavePaths(Character myCharacter, ArrayList<String> characterInventory, String word) {
+    public static void firstCavePaths(Character myCharacter, ArrayList<String> characterInventory) {
 
         boolean alive = true;
 
         Character userCharacter = myCharacter;
         ArrayList<String> inventory = characterInventory;
-        String marysString = word;
+
 
 
         Scanner scanner = new Scanner(System.in);
@@ -262,7 +261,7 @@ public class Trench {
                 System.out.println("You decide to head straight and come upon more tunnels to go down."); //User chose north in firstMazePaths
                 System.out.println("---------------------------------------------------------------------\n");
                 alive = false;
-                secondCavePaths(myCharacter, inventory, marysString);
+                secondCavePaths(myCharacter, inventory);
 
             } else if (firstChoice.equals("3")) {
 
@@ -288,11 +287,11 @@ public class Trench {
                 System.out.println("After defeating the " + firstEnemy.getName() + ", you look around, but can't find anything\n" +
                         "else. You head back to the crossroads.");
                 System.out.println("----------------------------------------------------------------------------------------\n");
-                firstCavePaths(userCharacter, inventory, marysString);
+                firstCavePaths(userCharacter, inventory);
 
             } else {
                 System.err.println("Enter a valid number.");
-                firstCavePaths(userCharacter, inventory, marysString);
+                firstCavePaths(userCharacter, inventory);
             }
 
 
@@ -306,13 +305,12 @@ public class Trench {
 
     /* --------------------- SECOND CAVE PATHS --------------------- */
 
-    public static void secondCavePaths(Character myCharacter, ArrayList<String> characterInventory, String word) {
+    public static void secondCavePaths(Character myCharacter, ArrayList<String> characterInventory) {
 
         boolean alive = true;
 
         Character userCharacter = myCharacter;
         ArrayList<String> inventory = characterInventory;
-        String marysString = word;
 
         Scanner scanner = new Scanner(System.in);
         String firstChoice;
@@ -339,7 +337,7 @@ public class Trench {
                 System.out.println("---------------------------------------------------------------------\n");
 
                 alive = false;
-                thirdCavePaths(myCharacter, inventory, marysString);
+                thirdCavePaths(myCharacter, inventory);
 
 
             } else if (firstChoice.equals("2")) {
@@ -366,7 +364,7 @@ public class Trench {
                 System.out.println("After defeating the " + firstEnemy.getName() + ", you look around, but can't find anything\n" +
                         "else. You head back to the crossroads.");
                 System.out.println("----------------------------------------------------------------------------------------\n");
-                secondCavePaths(userCharacter, inventory, marysString);
+                secondCavePaths(userCharacter, inventory);
 
             } else if (firstChoice.equals("3")) {
 
@@ -392,11 +390,11 @@ public class Trench {
                 System.out.println("After defeating the " + firstEnemy2.getName() + ", you look around, but can't find anything\n" +
                         "else. You head back to the crossroads.");
                 System.out.println("----------------------------------------------------------------------------------------\n");
-                secondCavePaths(userCharacter, inventory, marysString);
+                secondCavePaths(userCharacter, inventory);
 
             } else {
                 System.err.println("Enter a valid number.");
-                secondCavePaths(userCharacter, inventory, marysString);
+                secondCavePaths(userCharacter, inventory);
             }
 
 
@@ -407,13 +405,12 @@ public class Trench {
 
     /* --------------------- THIRD CAVE PATHS --------------------- */
 
-    public static void thirdCavePaths(Character myCharacter, ArrayList<String> characterInventory, String word) {
+    public static void thirdCavePaths(Character myCharacter, ArrayList<String> characterInventory) {
 
         boolean alive = true;
 
         Character userCharacter = myCharacter;
         ArrayList<String> inventory = characterInventory;
-        String marysString = word;
 
         Scanner scanner = new Scanner(System.in);
         String firstChoice;
@@ -456,7 +453,7 @@ public class Trench {
                 System.out.println("After defeating the " + firstEnemy.getName() + ", you look around, but can't find anything\n" +
                         "else. You head back to the crossroads.");
                 System.out.println("----------------------------------------------------------------------------------------\n");
-                thirdCavePaths(userCharacter, inventory, marysString);
+                thirdCavePaths(userCharacter, inventory);
 
 
             } else if (firstChoice.equals("2")) {
@@ -483,18 +480,18 @@ public class Trench {
                 System.out.println("After defeating the " + firstEnemy.getName() + ", you look around, but can't find anything\n" +
                         "else. You head back to the crossroads.");
                 System.out.println("----------------------------------------------------------------------------------------\n");
-                thirdCavePaths(userCharacter, inventory, marysString);
+                thirdCavePaths(userCharacter, inventory);
 
             } else if (firstChoice.equals("3")) {
 
                 System.out.println("***You escaped the caves!***");
                 alive = false;
-                enterCastleGarden(userCharacter, inventory, marysString); //Passing in userCharacter to castle garden after they leave the trench
+                enterCastleGarden(userCharacter, inventory); //Passing in userCharacter to castle garden after they leave the trench
 
 
             } else {
                 System.err.println("Enter a valid number.");
-                firstCavePaths(userCharacter, inventory, marysString);
+                firstCavePaths(userCharacter, inventory);
             }
 
 
