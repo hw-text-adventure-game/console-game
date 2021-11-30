@@ -111,6 +111,9 @@ public class Mage extends Character {
                     if(evilEnemy.getType().equals("Rock")) {
                         int reducedDamage = this.attackDamage = random.nextInt(6) + 15 / 2;
                         System.out.println("You cast a spell and do " + reducedDamage + " damage!");
+                    } else if (evilEnemy.getType().equals("Shadow")) {
+                        int shadowDamage = this.attackDamage = random.nextInt(6) + 20 + 5;
+                        System.out.println("CRITICAL HIT! You cast a spell and do " + shadowDamage + " damage!");
                     }
                     else {
                         System.out.println("You cast a spell and do " + this.attackDamage + " damage!");
