@@ -4,6 +4,7 @@ import textAdvGame.Characters.Character;
 import textAdvGame.Enemies.Demon;
 import textAdvGame.Enemies.Enemy;
 import textAdvGame.Enemies.MazeGuard;
+import textAdvGame.Enemies.StoneGolem;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -200,6 +201,9 @@ public class Trench {
 
     }
 
+    /* --------------------- FIRST CAVE PATHS --------------------- */
+
+
     public static void firstCavePaths(Character myCharacter, ArrayList<String> characterInventory) {
 
         boolean alive = true;
@@ -240,7 +244,11 @@ public class Trench {
 
             } else if (firstChoice.equals("2")) {
 
-                System.out.println("This is the right way.");
+                System.out.println("---------------------------------------------------------------------");
+                System.out.println("You decide to head straight and come upon more tunnels to go down."); //User chose north in firstMazePaths
+                System.out.println("---------------------------------------------------------------------\n");
+                alive = false;
+                secondCavePaths(myCharacter, inventory);
 
             } else if (firstChoice.equals("3")) {
 
@@ -279,6 +287,205 @@ public class Trench {
 
 
     }
+
+
+
+    /* --------------------- SECOND CAVE PATHS --------------------- */
+
+    public static void secondCavePaths(Character myCharacter, ArrayList<String> characterInventory) {
+
+        boolean alive = true;
+
+        Character userCharacter = myCharacter;
+        ArrayList<String> inventory = characterInventory;
+
+        Scanner scanner = new Scanner(System.in);
+        String firstChoice;
+
+        while (alive) {
+
+            System.out.println("----SECOND CAVE PATHS----\n");
+
+            System.out.println("----------------------------------");
+            System.out.println("Which way would you like to go?\n" +
+                    "\n" +
+                    "[1] Go Left\n" +
+                    "[2] Go Straight\n" +
+                    "[3] Go Right\n");
+            System.out.println("----------------------------------");
+
+            firstChoice = scanner.nextLine();
+
+            if (firstChoice.equals("1")) {
+
+                System.out.println("---------------------------------------------------------------------");
+                System.out.println("You decide to head left and come upon more tunnels. It seems\n" +
+                        "like people could get lost pretty easily in here with all these ways to go."); //User chose west in secondtMazePaths
+                System.out.println("---------------------------------------------------------------------\n");
+
+                alive = false;
+                thirdCavePaths(myCharacter, inventory);
+
+
+            } else if (firstChoice.equals("2")) {
+
+                System.out.println("------------------------------------------------------------------------------");
+                System.out.println("\"You decide to head straight, but come face to face with a monster!\"");
+                System.out.println("------------------------------------------------------------------------------\n");
+
+                Enemy firstEnemy;
+                firstEnemy = new Demon("PHANTOM DEMON"); //Change to maze guardian or boulder monster
+
+                System.out.println("***** A " + firstEnemy.getName() + " appears! *****");
+                System.out.println(firstEnemy.monsterInfo());
+                System.out.println(firstEnemy.traitMessage());
+
+                userCharacter.attackMenu(firstEnemy, inventory);
+                if (userCharacter.getStatus() == false) { //if getStatus is false (not alive), end game. Otherwise, continue.
+                    alive = false;
+                    gameOver();
+                    break;
+                }
+
+                System.out.println("----------------------------------------------------------------------------------------");
+                System.out.println("After defeating the " + firstEnemy.getName() + ", you look around, but can't find anything\n" +
+                        "else. You head back to the crossroads.");
+                System.out.println("----------------------------------------------------------------------------------------\n");
+                secondCavePaths(userCharacter, inventory);
+
+            } else if (firstChoice.equals("3")) {
+
+                System.out.println("------------------------------------------------------------------------------");
+                System.out.println("\"You decide to head right, but come face to face with a monster!\"");
+                System.out.println("------------------------------------------------------------------------------\n");
+
+                Enemy firstEnemy2;
+                firstEnemy2 = new StoneGolem("STONE GOLEM"); //Change to maze guardian or boulder monster
+
+                System.out.println("***** A " + firstEnemy2.getName() + " appears! *****");
+                System.out.println(firstEnemy2.monsterInfo());
+                System.out.println(firstEnemy2.traitMessage());
+
+                userCharacter.attackMenu(firstEnemy2, inventory);
+                if (userCharacter.getStatus() == false) { //if getStatus is false (not alive), end game. Otherwise, continue.
+                    alive = false;
+                    gameOver();
+                    break;
+                }
+
+                System.out.println("----------------------------------------------------------------------------------------");
+                System.out.println("After defeating the " + firstEnemy2.getName() + ", you look around, but can't find anything\n" +
+                        "else. You head back to the crossroads.");
+                System.out.println("----------------------------------------------------------------------------------------\n");
+                secondCavePaths(userCharacter, inventory);
+
+            } else {
+                System.err.println("Enter a valid number.");
+                secondCavePaths(userCharacter, inventory);
+            }
+
+
+        }
+
+
+    }
+
+    /* --------------------- THIRD CAVE PATHS --------------------- */
+
+    public static void thirdCavePaths(Character myCharacter, ArrayList<String> characterInventory) {
+
+        boolean alive = true;
+
+        Character userCharacter = myCharacter;
+        ArrayList<String> inventory = characterInventory;
+
+        Scanner scanner = new Scanner(System.in);
+        String firstChoice;
+
+        while (alive) {
+
+            System.out.println("----THIRD CAVE PATHS----\n");
+
+            System.out.println("----------------------------------");
+            System.out.println("Which way would you like to go?\n" +
+                    "\n" +
+                    "[1] Go Left\n" +
+                    "[2] Go Straight\n" +
+                    "[3] Go Right\n");
+            System.out.println("----------------------------------");
+
+            firstChoice = scanner.nextLine();
+
+            if (firstChoice.equals("1")) {
+
+                System.out.println("------------------------------------------------------------------------------");
+                System.out.println("\"You decide to head left, but come face to face with a monster!\"");
+                System.out.println("------------------------------------------------------------------------------\n");
+
+                Enemy firstEnemy;
+                firstEnemy = new Demon("PHANTOM DEMON"); //Change to maze guardian or boulder monster
+
+                System.out.println("***** A " + firstEnemy.getName() + " appears! *****");
+                System.out.println(firstEnemy.monsterInfo());
+                System.out.println(firstEnemy.traitMessage());
+
+                userCharacter.attackMenu(firstEnemy, inventory);
+                if (userCharacter.getStatus() == false) { //if getStatus is false (not alive), end game. Otherwise, continue.
+                    alive = false;
+                    gameOver();
+                    break;
+                }
+
+                System.out.println("----------------------------------------------------------------------------------------");
+                System.out.println("After defeating the " + firstEnemy.getName() + ", you look around, but can't find anything\n" +
+                        "else. You head back to the crossroads.");
+                System.out.println("----------------------------------------------------------------------------------------\n");
+                thirdCavePaths(userCharacter, inventory);
+
+
+            } else if (firstChoice.equals("2")) {
+
+                System.out.println("------------------------------------------------------------------------------");
+                System.out.println("\"You decide to head straight, but come face to face with a monster!\"");
+                System.out.println("------------------------------------------------------------------------------\n");
+
+                Enemy firstEnemy;
+                firstEnemy = new Demon("PHANTOM DEMON"); //Change to maze guardian or boulder monster
+
+                System.out.println("***** A " + firstEnemy.getName() + " appears! *****");
+                System.out.println(firstEnemy.monsterInfo());
+                System.out.println(firstEnemy.traitMessage());
+
+                userCharacter.attackMenu(firstEnemy, inventory);
+                if (userCharacter.getStatus() == false) { //if getStatus is false (not alive), end game. Otherwise, continue.
+                    alive = false;
+                    gameOver();
+                    break;
+                }
+
+                System.out.println("----------------------------------------------------------------------------------------");
+                System.out.println("After defeating the " + firstEnemy.getName() + ", you look around, but can't find anything\n" +
+                        "else. You head back to the crossroads.");
+                System.out.println("----------------------------------------------------------------------------------------\n");
+                thirdCavePaths(userCharacter, inventory);
+
+            } else if (firstChoice.equals("3")) {
+
+                System.out.println("***You escaped the caves!***");
+                alive = false;
+//                enterCastleGarden(userCharacter, inventory); //Passing in userCharacter to castle garden after they leave the trench
+
+
+            } else {
+                System.err.println("Enter a valid number.");
+                firstCavePaths(userCharacter, inventory);
+            }
+
+
+        }
+
+    }
+
 
     public static void gameOver () {
         System.out.println("GAME OVER!");
