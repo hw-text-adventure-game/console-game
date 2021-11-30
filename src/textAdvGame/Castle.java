@@ -5,12 +5,14 @@ import textAdvGame.Enemies.Enemy;
 import textAdvGame.Enemies.StoneGolem;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Castle {
 
     public static void enterCastleGarden(Character myCharacter, ArrayList<String> characterInventory) {
 
         boolean alive = true;
+        String correctWord = Hangman.hangmanGame(); //this doesn't work as intended, it gives you a different name + forces you to play again
 
         while (alive) {
 
@@ -47,6 +49,55 @@ public class Castle {
             break;
         }
 
+            Scanner scanner = new Scanner(System.in);
+            String userChoice;
+
+            System.out.println("----------------------------------------------------------------------------------------");
+            System.out.println("After defeating the " + firstEnemy.getName() + ", you approach the castle door, but as you\n" +
+                    "try to open the doors, you realize that they're locked by a spell. A hint to breaking the spell is\n" +
+                    "etched into the stone:\n" +
+
+                    "\n" +
+
+                    "\"Say The Witch's real name and the doors will open.\"\n" +
+
+
+                    "\n" +
+
+                    "The Witch is just a door away, what will you do?\n" +
+
+                    "\n" +
+                            "[1] Guess the password\n" +
+                            "[2] Leave the castle grounds\n");
+
+            System.out.println("----------------------------------------------------------------------------------------\n");
+
+            userChoice = scanner.nextLine();
+
+            if (userChoice.equals("1")) {
+
+                String userGuess;
+
+                System.out.println("You go up to the door and say the password...\n" +
+                        "(Type in your guess or type \"exit\" to leave.");
+
+                userGuess = scanner.nextLine();
+
+                if(userGuess.equals(correctWord)) {
+                    System.out.println("You got it right! The doors open.");
+                }
+                else if(userGuess.equals("exit")) {
+                    System.out.println("You decide to give up for now and search for clues about the password.");
+                }
+                else {
+                    System.out.println("The door doesn';'t budge.");
+                }
+
+            } else if (userChoice.equals("2")) {
+
+            } else {
+                System.err.println("Enter a valid number.");
+            }
 
         //Put password area here later
 
