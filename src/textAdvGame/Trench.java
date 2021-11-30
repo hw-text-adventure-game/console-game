@@ -9,6 +9,7 @@ import textAdvGame.Enemies.StoneGolem;
 import java.util.ArrayList;
 import java.util.Scanner;
 import static textAdvGame.Maze.teleportMaze;
+import static textAdvGame.Castle.enterCastleGarden;
 
 public class Trench {
 
@@ -165,13 +166,15 @@ public class Trench {
                         "but she eventually got so tired of me that she put a lock on her castle door, heh heh!\"\n");
             }
             else if(talkToHangman.equals("6")) {
-                String correctWord = Hangman.hangmanGame();
 
                 if(!inventory.contains("RED MUSHROOM")) {
                     System.out.println("Hangman Man: \"Woah woah woah, hold your horses! I won't play hangman if you just ask me to! No, I gotta be in the\n" +
                     "hangman mood! Bring me a mushroom and I'll play a good ol fashion round of hangman with ya.\"\n");
                 } else {
-                    System.out.println("You have a mushroom!");
+                    System.out.println("Hangman Man: \"I see ya got a mushroom there, and it's a red one too! My favorite, heh heh!\n" +
+                    "Say, how about you hand that shroom over and this old geezer shows ya how to play a true hangman game?\"\n");
+                    String correctWord = Hangman.hangmanGame();
+
                 }
 
             }
@@ -473,7 +476,7 @@ public class Trench {
 
                 System.out.println("***You escaped the caves!***");
                 alive = false;
-//                enterCastleGarden(userCharacter, inventory); //Passing in userCharacter to castle garden after they leave the trench
+                enterCastleGarden(userCharacter, inventory); //Passing in userCharacter to castle garden after they leave the trench
 
 
             } else {
