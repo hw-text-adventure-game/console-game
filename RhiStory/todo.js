@@ -28,8 +28,8 @@
 ---- TRENCH TODOS ----
 
 []Add a small maze of cave systems
-[]Add an NPC to talk to who you can play hangman with
-[]ONLY allow the user to play hangman if they find the RED MUSHROOM item in the maze
+[✔]Add an NPC to talk to who you can play hangman with
+[✔]ONLY allow the user to play hangman if they find the RED MUSHROOM item in the maze
 []Add a monster with a type of "Shadow" and make weapons that produce light do an extra +5 damage (add this buff only to Mage and Cleric)
 []Add a LANTERN item that kills ONLY Shadow type monsters, otherwise make it useless
 
