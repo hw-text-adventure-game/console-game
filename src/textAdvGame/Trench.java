@@ -9,6 +9,7 @@ import textAdvGame.Enemies.StoneGolem;
 import java.util.ArrayList;
 import java.util.Scanner;
 import static textAdvGame.Maze.teleportMaze;
+import static textAdvGame.Castle.enterCastleGarden;
 
 public class Trench {
 
@@ -473,7 +474,7 @@ public class Trench {
 
                 System.out.println("***You escaped the caves!***");
                 alive = false;
-//                enterCastleGarden(userCharacter, inventory); //Passing in userCharacter to castle garden after they leave the trench
+                enterCastleGarden(userCharacter, inventory); //Passing in userCharacter to castle garden after they leave the trench
 
 
             } else {

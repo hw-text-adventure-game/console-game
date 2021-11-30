@@ -57,8 +57,6 @@ public class GameApplication {
                 "As you continue further, you see a castle in the distance, towering above all the trees.\n" +
                 userCharacter.personalMessage1());
 
-        //Add personalized line here before the user enters the maze.
-
             enterMaze(userCharacter, inventory); //Passing in userCharacter to maze
 
         }
