@@ -1,6 +1,9 @@
 package textAdvGame;
 
 import textAdvGame.Characters.Character;
+import textAdvGame.Enemies.Demon;
+import textAdvGame.Enemies.Enemy;
+import textAdvGame.Enemies.MazeGuard;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -183,7 +186,108 @@ public class Trench {
     }
 
 
-    public static void enterCaves(Character userCharacter, ArrayList<String> inventory) {
+    public static void enterCaves(Character myCharacter, ArrayList<String> characterInventory) {
+
+        Character userCharacter = myCharacter;
+        ArrayList<String> inventory = characterInventory;
+
+        System.out.println("------------------------------------------------------------------------------------------------------------");
+        System.out.println("You enter the caves; you can barely see a few inches in front of your face as the growls of unknown\n" +
+                "creatures surround you. Wanting to get out of the caves as soon as possible you go deeper, finding three paths to\n" +
+                "choose from:");
+
+        firstCavePaths(userCharacter, inventory);
+
+    }
+
+    public static void firstCavePaths(Character myCharacter, ArrayList<String> characterInventory) {
+
+        boolean alive = true;
+
+        Character userCharacter = myCharacter;
+        ArrayList<String> inventory = characterInventory;
+
+        Scanner scanner = new Scanner(System.in);
+        String firstChoice;
+
+        while (alive) {
+
+            System.out.println("----FIRST CAVE PATHS----\n");
+
+            System.out.println("----------------------------------");
+            System.out.println("Which way would you like to go?\n" +
+                    "\n" +
+                    "[1] Go Left\n" +
+                    "[2] Go Straight\n" +
+                    "[3] Go Right\n");
+            System.out.println("----------------------------------");
+
+            firstChoice = scanner.nextLine();
+
+            if (firstChoice.equals("1")) {
+
+                if(!inventory.contains("LANTERN")) {
+                    inventory.add("LANTERN");
+
+                    System.out.println("----------------------------------------------------------------------------------------");
+                    System.out.println("You decide to head left and find a LANTERN! You put it into your inventory.\n" +
+                            "After searching the area some more, you find that there isn't anything else that's useful. You\n" +
+                            "return to your original spot.");
+                    System.out.println("----------------------------------------------------------------------------------------\n");
+                } else {
+                    System.out.println("You already found the item in this area.\n");
+                }
+
+            } else if (firstChoice.equals("2")) {
+
+                System.out.println("This is the right way.");
+
+            } else if (firstChoice.equals("3")) {
+
+                System.out.println("------------------------------------------------------------------------------");
+                System.out.println("\"You decide to head right, but come face to face with a monster!\"");
+                System.out.println("------------------------------------------------------------------------------\n");
+
+                Enemy firstEnemy;
+                firstEnemy = new Demon("PHANTOM DEMON"); //Change to maze guardian or boulder monster
+
+                System.out.println("***** A " + firstEnemy.getName() + " appears! *****");
+                System.out.println(firstEnemy.monsterInfo());
+                System.out.println(firstEnemy.traitMessage());
+
+                userCharacter.attackMenu(firstEnemy, inventory);
+                if (userCharacter.getStatus() == false) { //if getStatus is false (not alive), end game. Otherwise, continue.
+                    alive = false;
+                    gameOver();
+                    break;
+                }
+
+                System.out.println("----------------------------------------------------------------------------------------");
+                System.out.println("After defeating the " + firstEnemy.getName() + ", you look around, but can't find anything\n" +
+                        "else. You head back to the crossroads.");
+                System.out.println("----------------------------------------------------------------------------------------\n");
+                firstCavePaths(userCharacter, inventory);
+
+            } else {
+                System.err.println("Enter a valid number.");
+                firstCavePaths(userCharacter, inventory);
+            }
+
+
+        }
+
+
+
+    }
+
+    public static void gameOver () {
+        System.out.println("GAME OVER!");
+        GameApplication.beginGame();
+    }
+
+    public static void youWin () {
+        System.out.println("YOU WIN!");
+        GameApplication.beginGame();
     }
 
 }

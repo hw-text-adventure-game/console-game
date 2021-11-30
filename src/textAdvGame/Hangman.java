@@ -13,7 +13,7 @@ public class Hangman {
 
         Scanner scanner = new Scanner(System.in);
         Random rand = new Random();
-        String[] wordArr = {"class", "programming", "instance", "static", "method", "constructor", "byte", "double", "boolean", "float", "scanner"}; //You can change these words to whatever you want to fit in with the theme of the game
+        String[] wordArr = {"willow", "raven", "alice", "hazel", "salem", "gwen", "belladona", "ambrosia", "cassandra", "sylvia", "rhea"}; //You can change these words to whatever you want to fit in with the theme of the game
 
         String theWord = null;
 
