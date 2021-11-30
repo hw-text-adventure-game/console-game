@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class Castle {
 
-    public static void enterCastleGarden(Character myCharacter, ArrayList<String> characterInventory, String word) {
+    public static void enterCastleGarden(Character myCharacter, ArrayList<String> characterInventory) {
 
         boolean alive = true;
 //        String correctWord = Hangman.hangmanGame(); //this doesn't work as intended, it gives you a different name + forces you to play again
@@ -18,8 +18,7 @@ public class Castle {
 
         Character userCharacter = myCharacter;
         ArrayList<String> inventory = characterInventory;
-        String marysString = word;
-            System.out.println("***this is marysString " + marysString);
+
 
         System.out.println("------------------------------------------------------------------------------------------------------------");
         System.out.println("After escaping the caves, you find a long, stone staircase leading out of the trench and straight.\n" +
@@ -85,7 +84,12 @@ public class Castle {
 
                 userGuess = scanner.nextLine();
 
-                if(userGuess.equals(marysString)) {
+                if(userGuess.equalsIgnoreCase("willow") || userGuess.equalsIgnoreCase("raven")
+                || userGuess.equalsIgnoreCase("alice") || userGuess.equalsIgnoreCase("hazel") ||
+                userGuess.equalsIgnoreCase("salem") || userGuess.equalsIgnoreCase("gwen") ||
+                userGuess.equalsIgnoreCase("belladona") || userGuess.equalsIgnoreCase("ambrosia") ||
+                userGuess.equalsIgnoreCase("cassandra") || userGuess.equalsIgnoreCase("sylvia") ||
+                userGuess.equalsIgnoreCase("rhea")) {
                     System.out.println("You got it right! The doors open.");
                 }
                 else if(userGuess.equals("exit")) {
