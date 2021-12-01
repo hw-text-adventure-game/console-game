@@ -177,10 +177,7 @@ public class Trench {
                 } else {
                     System.out.println("Hangman Man: \"I see ya got a mushroom there, and it's a red one too! My favorite, heh heh!\n" +
                     "Say, how about you hand that shroom over and this old geezer shows ya how to play a true hangman game?\"\n");
-//                    String correctWord = Hangman.hangmanGame();
                     String correctWord = Hangman.hangmanGame();
-                    String marysString = correctWord;
-                    System.out.println(marysString);
                  }
 
             }

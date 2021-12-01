@@ -83,13 +83,8 @@ public class Castle {
                         "(Type in your guess or type \"exit\" to leave.");
 
                 userGuess = scanner.nextLine();
-
-                if(userGuess.equalsIgnoreCase("willow") || userGuess.equalsIgnoreCase("raven")
-                || userGuess.equalsIgnoreCase("alice") || userGuess.equalsIgnoreCase("hazel") ||
-                userGuess.equalsIgnoreCase("salem") || userGuess.equalsIgnoreCase("gwen") ||
-                userGuess.equalsIgnoreCase("belladona") || userGuess.equalsIgnoreCase("ambrosia") ||
-                userGuess.equalsIgnoreCase("cassandra") || userGuess.equalsIgnoreCase("sylvia") ||
-                userGuess.equalsIgnoreCase("rhea")) {
+                if (userGuess.equals(Hangman.getTheWord()))
+                {
                     System.out.println("You got it right! The doors open.");
                 }
                 else if(userGuess.equals("exit")) {
