@@ -5,8 +5,23 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Hangman {
+    private static String theWord;
+
     //default constructor, not sure if we need this constructor.
     public Hangman() {
+    }
+
+    //constructor using a String, might not need this
+    public Hangman(String theWord) {
+        this.theWord = theWord;
+    }
+
+    public static String getTheWord() {
+        return theWord;
+    }
+
+    public static void setTheWord(String theWord) {
+        Hangman.theWord = theWord;
     }
 
     public static String hangmanGame() {
@@ -38,7 +53,7 @@ public class Hangman {
             while (!wordIsGuessed && tries > 0) {
                 System.out.print("Current word: ");
                 printArray(playerGuess);        //printArray method is below
-                System.out.printf("You have %d left.\n", tries);
+                System.out.printf("You have %d tries left.\n", tries);
 
                 System.out.println("Enter a single character");
                 char input = scanner.nextLine().charAt(0);    //if the user enters alfjaeflkj it will only get the first char
@@ -69,6 +84,7 @@ public class Hangman {
             }
 
         }
+        Hangman.setTheWord(theWord);
         return theWord;
     }
 
