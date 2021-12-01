@@ -51,6 +51,12 @@ public class Cleric extends Character {
                 "not yourself. That's real selfless of ya. Be careful though, your empathy could kill you out here.\n";
     }
 
+    public String personalDesire() {
+        return "The witch pulls out a small bag of herbs, the same rare healing herbs you're been looking for this entire time.\n" +
+                "\n" +
+                "The Witch: \"This is what you came all this way for, right? For these herbs? Well, it's all yours if you take my offer.\"\n";
+    }
+
     public void attackMenu(Enemy evilEnemy, ArrayList<String> characterInventory) { //Takes in enemy to kill
         int previousHealth = 0;
 

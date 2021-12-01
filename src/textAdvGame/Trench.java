@@ -41,6 +41,23 @@ public class Trench {
 
     }
 
+    public static void teleportTrench(Character myCharacter, ArrayList<String> characterInventory) {
+        Character userCharacter = myCharacter;
+        ArrayList<String> inventory = characterInventory;
+
+        System.out.println("------------------------------------------------------------------------------------------------------------");
+        System.out.println("You say \"Wayward Stone\" out loud and POOF!--you appear back at the beginning of trench.\n" +
+                "You climb down the flimsy ladder once more, into the abyss.\n");
+        System.out.println("------------------------------------------------------------------------------------------------------------\n");
+
+
+        System.out.println("---------------------------------------------------------------------");
+        System.out.println("You soon reach the bottom of the pit and find only three ways to go:\n");
+
+        outsideOfCave(userCharacter, inventory);
+
+    }
+
     public static void outsideOfCave(Character myCharacter, ArrayList<String> characterInventory) {
 
         Character userCharacter = myCharacter;

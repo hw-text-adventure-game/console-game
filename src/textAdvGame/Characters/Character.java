@@ -195,4 +195,9 @@ public class Character implements AttackOptions {
 
     public void attackMenu(Enemy firstEnemy, ArrayList<String> inventory) {
     }
+
+    public String personalDesire() {
+        return null;
+    }
+
 }

@@ -48,6 +48,12 @@ public class Thief extends Character {
                 "ya. Oh well, I reckon if you're quick enough you can snatch a potion or two from The Witch; it'll fetch ya a high price.\n";
     }
 
+    public String personalDesire() {
+        return "The witch pulls out a giant bag and throws it on the ground, revealing tons of gold coins inside.\n" +
+                "\n" +
+                "The Witch: \"This is what you came all this way for, right? For riches? Well, it's all yours if you take my offer.\"\n";
+    }
+
     //also has a trait for agility, run away from battle, can be used 3 times to "cancel" a fight
     private int agility = 3;
 

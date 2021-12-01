@@ -58,6 +58,13 @@ public class Warrior extends Character {
                 "a stop to The Witch once and for all, for your people's sake.\n";
     }
 
+    public String personalDesire() {
+        return "The witch pulls out a magical contract; in the writing it says that she swears to never return to this kingdom and to instead move to another.\n" +
+                "\n" +
+                "The Witch: \"This is what you came all this way for, right? To ease the worries of your people? Well you won't have to worry anymore, just sign this\n" +
+                "and I'll agree to leave your people alone.\"\n";
+    }
+
     private int bravery = 25;
 
     public void attackMenu(Enemy evilEnemy, ArrayList<String> characterInventory) { //Takes in enemy to kill + inventory
