@@ -50,6 +50,13 @@ public class WitchHunter extends Character {
                 "friends for this old man's sake, will ya?\n";
     }
 
+    public String personalDesire() {
+        return "The witch pulls out a magical contract; in the writing it says that she swears to never return to this kingdom and to instead move to another.\n" +
+                "\n" +
+                "The Witch: \"This is what you came all this way for, right? To get rid of me? Well you won't have to worry anymore, just sign this\n" +
+                "and I'll agree to leave you alone.\"\n";
+    }
+
     public void attackMenu(Enemy evilEnemy, ArrayList<String> characterInventory) { //Takes in enemy to kill
         int previousHealth = 0;
 

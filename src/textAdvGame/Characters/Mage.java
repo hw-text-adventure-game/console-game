@@ -60,6 +60,12 @@ public class Mage extends Character {
                 "I know you won't give up either. heh.\n";
     }
 
+    public String personalDesire() {
+        return "The witch pulls out a glowing stone; it's the legendary Revival Stone you've been searching for.\n" +
+                "\n" +
+                "The Witch: \"This is what you came all this way for, right? The Revival Stone? Well, it's all yours if you take my offer.\"\n";
+    }
+
     public void attackMenu(Enemy evilEnemy, ArrayList<String> characterInventory) { //Takes in enemy to kill
         int previousHealth = 0;
 
