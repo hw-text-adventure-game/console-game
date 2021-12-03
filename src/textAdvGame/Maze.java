@@ -121,8 +121,20 @@ public class Maze {
                 MazePaths(userCharacter, inventory);
             } else if (firstChoice.equals("4")) {
                 System.out.println("----------------------------------------------------------------------------------------");
-                System.out.println("You decide to head west, but all you are met with is a large hedge blocking your path.\n" +
-                        "This seems to be a dead end, so you go back and retrace your steps.");
+                System.out.println("You decide to head west, but all you are met with is a large hedge blocking your path. As\n" +
+                        "look closer however, you find a crumpled up piece of paper on the ground. You unfold it and look at the\n" +
+                        "contents:\n" +
+                        "\n" +
+
+                        "Passwords? \n" +
+                        "\"W*ll*w\" \n" +
+                        "\"R*v*n\" \n" +
+                        "\"A*i*e\" \n" +
+
+                        "\n" +
+
+                        "You can make out some letters, but the rest is illegible. This point on seems to be a dead end, so you go\n" +
+                        "back and retrace your steps.");
                 System.out.println("----------------------------------------------------------------------------------------\n");
                 MazePaths(userCharacter, inventory);
             } else {
@@ -207,8 +219,20 @@ public class Maze {
             } else if (secondChoice.equals("3")) {
 
             System.out.println("----------------------------------------------------------------------------------------");
-            System.out.println("You decide to head east, but all you are met with is a large hedge blocking your path.\n" +
-                    "This seems to be a dead end, so you go back and retrace your steps.");
+            System.out.println("You decide to head east, but all you are met with is a large hedge blocking your path. As\n" +
+                    "look closer however, you find a crumpled up piece of paper on the ground. You unfold it and look at the\n" +
+                    "contents:\n" +
+                    "\n" +
+
+                    "Passwords? \n" +
+                    "\"H*z*l\" \n" +
+                    "\"S*l*m\" \n" +
+                    "\"G***n\" \n" +
+
+                    "\n" +
+
+                    "You can make out some letters, but the rest is illegible. This point on seems to be a dead end, so you go\n" +
+                    "back and retrace your steps.");
             System.out.println("----------------------------------------------------------------------------------------\n");
             secondMazePaths(userCharacter, inventory);
 
@@ -278,8 +302,19 @@ public class Maze {
             } else if (thirdChoice.equals("2")) {
 
                 System.out.println("----------------------------------------------------------------------------------------");
-                System.out.println("You decide to head south, but all you are met with is a large hedge blocking your path.\n" +
-                        "This seems to be a dead end, so you go back and retrace your steps.");
+                System.out.println("You decide to head south, but all you are met with is a large hedge blocking your path. As\n" +
+                        "look closer however, you find a crumpled up piece of paper on the ground. You unfold it and look at the\n" +
+                        "contents:\n" +
+                        "\n" +
+
+                        "Passwords? \n" +
+                        "\"B*ll*d*n*\" \n" +
+                        "\"Ambr*s**\" \n" +
+
+                        "\n" +
+
+                        "You can make out some letters, but the rest is illegible. This point on seems to be a dead end, so you go\n" +
+                        "back and retrace your steps.");
                 System.out.println("----------------------------------------------------------------------------------------\n");
                 thirdMazePaths(userCharacter, inventory);
 
@@ -359,8 +394,20 @@ public class Maze {
             if (fourthChoice.equals("1")) {
 
                     System.out.println("----------------------------------------------------------------------------------------");
-                    System.out.println("You decide to head north, but all you are met with is a large hedge blocking your path.\n" +
-                            "This seems to be a dead end, so you go back and retrace your steps.");
+                System.out.println("You decide to head north, but all you are met with is a large hedge blocking your path. As\n" +
+                        "look closer however, you find a crumpled up piece of paper on the ground. You unfold it and look at the\n" +
+                        "contents:\n" +
+                        "\n" +
+
+                        "Passwords? \n" +
+                        "\"C*ss*nd**\" \n" +
+                        "\"S*lv**\" \n" +
+                        "\"Rh**\" \n" +
+
+                        "\n" +
+
+                        "You can make out some letters, but the rest is illegible. This point on seems to be a dead end, so you go\n" +
+                        "back and retrace your steps.");
                     System.out.println("----------------------------------------------------------------------------------------\n");
                     fourthMazePaths(userCharacter, inventory);
 
