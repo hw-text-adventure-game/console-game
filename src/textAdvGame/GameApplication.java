@@ -1,15 +1,12 @@
 package textAdvGame;
 
-import textAdvGame.Characters.Character;
+import textAdvGame.Characters.GameCharacter;
 import textAdvGame.Enemies.Enemy;
 import textAdvGame.Enemies.Goblin;
-import textAdvGame.Maze;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 import static textAdvGame.Maze.enterMaze;
-import static textAdvGame.Trench.enterTrench;
 
 
 public class GameApplication {
@@ -24,7 +21,7 @@ public class GameApplication {
                 "person...or even return at all. As you rub the sleep out of your eyes, you begin to remember who you" +
                 " are.");
         System.out.println("------------------------------------------------------------------------------------------------------------");
-        Character userCharacter = Character.chooseCharacter();
+        GameCharacter userCharacter = GameCharacter.chooseCharacter();
 
         System.out.println("------------------------------------------------------------------------------------------------------------");
         System.out.println("\"After you remember your name and your past, you get up and begin to search The Enchanted Forest,\n" +

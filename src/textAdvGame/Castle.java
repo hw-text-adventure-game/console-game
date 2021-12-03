@@ -1,6 +1,6 @@
 package textAdvGame;
 
-import textAdvGame.Characters.Character;
+import textAdvGame.Characters.GameCharacter;
 import textAdvGame.Enemies.Enemy;
 import textAdvGame.Enemies.StoneGolem;
 
@@ -12,14 +12,14 @@ import static textAdvGame.Trench.teleportTrench;
 
 public class Castle {
 
-    public static void enterCastleGarden(Character myCharacter, ArrayList<String> characterInventory) {
+    public static void enterCastleGarden(GameCharacter myCharacter, ArrayList<String> characterInventory) {
 
         boolean alive = true;
 //        String correctWord = Hangman.hangmanGame(); //this doesn't work as intended, it gives you a different name + forces you to play again
 
         while (alive) {
 
-        Character userCharacter = myCharacter;
+        GameCharacter userCharacter = myCharacter;
         ArrayList<String> inventory = characterInventory;
 
 
@@ -125,13 +125,13 @@ public class Castle {
 
  }
 
-    public static void enterCastle(Character myCharacter, ArrayList<String> characterInventory) {
+    public static void enterCastle(GameCharacter myCharacter, ArrayList<String> characterInventory) {
 
         boolean alive = true;
 
         while (alive) {
 
-            Character userCharacter = myCharacter;
+            GameCharacter userCharacter = myCharacter;
             ArrayList<String> inventory = characterInventory;
 
             Scanner scanner = new Scanner(System.in);

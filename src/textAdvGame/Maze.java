@@ -1,7 +1,7 @@
 package textAdvGame;
 
 import textAdvGame.*;
-import textAdvGame.Characters.Character;
+import textAdvGame.Characters.GameCharacter;
 import textAdvGame.Enemies.Enemy;
 import textAdvGame.Enemies.Goblin;
 import textAdvGame.Enemies.MazeGuard;
@@ -18,8 +18,8 @@ public class Maze {
 
 /* --------------------- ENTER MAZE --------------------- */
 
-    public static void enterMaze(Character myCharacter, ArrayList<String> characterInventory) {
-        Character userCharacter = myCharacter;
+    public static void enterMaze(GameCharacter myCharacter, ArrayList<String> characterInventory) {
+        GameCharacter userCharacter = myCharacter;
         ArrayList<String> inventory = characterInventory;
 
         System.out.println("However, the entrance to the castle is guarded by a huge maze. There isn't\n" +
@@ -32,8 +32,8 @@ public class Maze {
 
     }
 
-    public static void teleportMaze(Character myCharacter, ArrayList<String> characterInventory) {
-        Character userCharacter = myCharacter;
+    public static void teleportMaze(GameCharacter myCharacter, ArrayList<String> characterInventory) {
+        GameCharacter userCharacter = myCharacter;
         ArrayList<String> inventory = characterInventory;
 
         System.out.println("------------------------------------------------------------------------------------------------------------");
@@ -50,10 +50,10 @@ public class Maze {
 
     /* --------------------- FIRST MAZE PATHS --------------------- */
 
-    public static void MazePaths(Character myCharacter, ArrayList<String> characterInventory) {
+    public static void MazePaths(GameCharacter myCharacter, ArrayList<String> characterInventory) {
         boolean alive = true;
 
-        Character userCharacter = myCharacter;
+        GameCharacter userCharacter = myCharacter;
         ArrayList<String> inventory = characterInventory;
 
         Scanner scanner = new Scanner(System.in);
@@ -137,11 +137,11 @@ public class Maze {
 
     /* --------------------- SECOND MAZE PATHS --------------------- */
 
-    public static void secondMazePaths(Character myCharacter, ArrayList<String> characterInventory) {
+    public static void secondMazePaths(GameCharacter myCharacter, ArrayList<String> characterInventory) {
 
         boolean alive = true;
 
-        Character userCharacter = myCharacter;
+        GameCharacter userCharacter = myCharacter;
         ArrayList<String> inventory = characterInventory;
 
         Scanner scanner = new Scanner(System.in);
@@ -233,11 +233,11 @@ public class Maze {
 
     /* --------------------- THIRD MAZE PATHS --------------------- */
 
-    public static void thirdMazePaths(Character myCharacter, ArrayList<String> characterInventory) {
+    public static void thirdMazePaths(GameCharacter myCharacter, ArrayList<String> characterInventory) {
 
         boolean alive = true;
 
-        Character userCharacter = myCharacter;
+        GameCharacter userCharacter = myCharacter;
         ArrayList<String> inventory = characterInventory;
 
         Scanner scanner = new Scanner(System.in);
@@ -331,11 +331,11 @@ public class Maze {
 
     /* --------------------- FOURTH MAZE PATHS --------------------- */
 
-    public static void fourthMazePaths(Character myCharacter, ArrayList<String> characterInventory) {
+    public static void fourthMazePaths(GameCharacter myCharacter, ArrayList<String> characterInventory) {
 
         boolean alive = true;
 
-        Character userCharacter = myCharacter;
+        GameCharacter userCharacter = myCharacter;
         ArrayList<String> inventory = characterInventory;
 
         Scanner scanner = new Scanner(System.in);
@@ -441,11 +441,11 @@ public class Maze {
 
     /* --------------------- FIFTH MAZE PATHS --------------------- */
 
-    public static void fifthMazePaths(Character myCharacter, ArrayList<String> characterInventory) {
+    public static void fifthMazePaths(GameCharacter myCharacter, ArrayList<String> characterInventory) {
 
         boolean alive = true;
 
-        Character userCharacter = myCharacter;
+        GameCharacter userCharacter = myCharacter;
         ArrayList<String> inventory = characterInventory;
 
         Scanner scanner = new Scanner(System.in);
@@ -497,7 +497,7 @@ public class Maze {
 
                 System.out.println("***You escaped the maze!***");
                 alive = false;
-                enterTrench(userCharacter, inventory); //Passing in userCharacter to trench after they leave the maze
+                enterTrench(userCharacter, inventory); //Passing in userGameCharacter to trench after they leave the maze
 
             } else if (fifthChoice.equals("3")) {
 

@@ -1,13 +1,12 @@
 package textAdvGame.Characters;
 
-import textAdvGame.Characters.Character;
 import textAdvGame.Enemies.Enemy;
 
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Mage extends Character {
+public class Mage extends GameCharacter {
     private int playerHealth;
     Random random = new Random();
     //attack bw 15 & 20

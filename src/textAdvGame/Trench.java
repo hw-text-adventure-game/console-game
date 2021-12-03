@@ -1,9 +1,8 @@
 package textAdvGame;
 
-import textAdvGame.Characters.Character;
+import textAdvGame.Characters.GameCharacter;
 import textAdvGame.Enemies.Demon;
 import textAdvGame.Enemies.Enemy;
-import textAdvGame.Enemies.MazeGuard;
 import textAdvGame.Enemies.StoneGolem;
 
 import java.util.ArrayList;
@@ -13,8 +12,8 @@ import static textAdvGame.Castle.enterCastleGarden;
 
 public class Trench {
 
-    public static void enterTrench(Character myCharacter, ArrayList<String> characterInventory) {
-        Character userCharacter = myCharacter;
+    public static void enterTrench(GameCharacter myCharacter, ArrayList<String> characterInventory) {
+        GameCharacter userCharacter = myCharacter;
         ArrayList<String> inventory = characterInventory;
 
         System.out.println("------------------------------------------------------------------------------------------------------------");
@@ -41,8 +40,8 @@ public class Trench {
 
     }
 
-    public static void teleportTrench(Character myCharacter, ArrayList<String> characterInventory) {
-        Character userCharacter = myCharacter;
+    public static void teleportTrench(GameCharacter myCharacter, ArrayList<String> characterInventory) {
+        GameCharacter userCharacter = myCharacter;
         ArrayList<String> inventory = characterInventory;
 
         System.out.println("------------------------------------------------------------------------------------------------------------");
@@ -58,9 +57,9 @@ public class Trench {
 
     }
 
-    public static void outsideOfCave(Character myCharacter, ArrayList<String> characterInventory) {
+    public static void outsideOfCave(GameCharacter myCharacter, ArrayList<String> characterInventory) {
 
-        Character userCharacter = myCharacter;
+        GameCharacter userCharacter = myCharacter;
         ArrayList<String> inventory = characterInventory;
 
 
@@ -131,9 +130,9 @@ public class Trench {
     }
 
 
-    public static void hangMan(Character myCharacter, ArrayList<String> characterInventory) {
+    public static void hangMan(GameCharacter myCharacter, ArrayList<String> characterInventory) {
 
-        Character userCharacter = myCharacter;
+        GameCharacter userCharacter = myCharacter;
         ArrayList<String> inventory = characterInventory;
 
         Scanner scanner = new Scanner(System.in);
@@ -210,9 +209,9 @@ public class Trench {
     }
 
 
-    public static void enterCaves(Character myCharacter, ArrayList<String> characterInventory) {
+    public static void enterCaves(GameCharacter myCharacter, ArrayList<String> characterInventory) {
 
-        Character userCharacter = myCharacter;
+        GameCharacter userCharacter = myCharacter;
         ArrayList<String> inventory = characterInventory;
 
 
@@ -229,11 +228,11 @@ public class Trench {
     /* --------------------- FIRST CAVE PATHS --------------------- */
 
 
-    public static void firstCavePaths(Character myCharacter, ArrayList<String> characterInventory) {
+    public static void firstCavePaths(GameCharacter myCharacter, ArrayList<String> characterInventory) {
 
         boolean alive = true;
 
-        Character userCharacter = myCharacter;
+        GameCharacter userCharacter = myCharacter;
         ArrayList<String> inventory = characterInventory;
 
 
@@ -319,11 +318,11 @@ public class Trench {
 
     /* --------------------- SECOND CAVE PATHS --------------------- */
 
-    public static void secondCavePaths(Character myCharacter, ArrayList<String> characterInventory) {
+    public static void secondCavePaths(GameCharacter myCharacter, ArrayList<String> characterInventory) {
 
         boolean alive = true;
 
-        Character userCharacter = myCharacter;
+        GameCharacter userCharacter = myCharacter;
         ArrayList<String> inventory = characterInventory;
 
         Scanner scanner = new Scanner(System.in);
@@ -419,11 +418,11 @@ public class Trench {
 
     /* --------------------- THIRD CAVE PATHS --------------------- */
 
-    public static void thirdCavePaths(Character myCharacter, ArrayList<String> characterInventory) {
+    public static void thirdCavePaths(GameCharacter myCharacter, ArrayList<String> characterInventory) {
 
         boolean alive = true;
 
-        Character userCharacter = myCharacter;
+        GameCharacter userCharacter = myCharacter;
         ArrayList<String> inventory = characterInventory;
 
         Scanner scanner = new Scanner(System.in);

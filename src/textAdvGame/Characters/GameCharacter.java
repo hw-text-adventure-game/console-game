@@ -1,12 +1,11 @@
 package textAdvGame.Characters;
 import textAdvGame.*;
 import textAdvGame.Enemies.Enemy;
-import textAdvGame.Enemies.Goblin;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Character implements AttackOptions {
+public class GameCharacter implements AttackOptions {
     private String name;
     private String profession;
     private int attackDamage;
@@ -14,13 +13,13 @@ public class Character implements AttackOptions {
     boolean alive = true;
 
     //default constructor
-    public Character(){}
+    public GameCharacter(){}
 
     //Rhi Comment: Every character will have a profession, so I added the profession
     //string, getProfession and setProfession method.
 
     //constructor
-    public Character (String name, String profession){
+    public GameCharacter(String name, String profession){
         this.name = name;
         this.profession = profession;
     }
@@ -81,7 +80,7 @@ public class Character implements AttackOptions {
             return null;
     }
 
-    public static Character chooseCharacter(){
+    public static GameCharacter chooseCharacter(){
         Scanner scanner = new Scanner(System.in);
         String userChoice = "NumberChoice";
         String userCharacter = "defaultCharacter";
@@ -160,7 +159,7 @@ public class Character implements AttackOptions {
             userReply = scanner.nextLine();
         }while(userReply.equalsIgnoreCase("N"));
 
-        Character userChar;
+        GameCharacter userChar;
 
         //Instantiating class based on input given before
         //Passing in userInput as name and userCharacter as profession for each

@@ -5,6 +5,8 @@ MAZE CHEAT CODE:  North, West, East, East, South
 
 MUSHROOM CHEAT CODE:  North, West, NORTH (MUSHROOM) then East, East, South
 
+Bug: On the warrior, when it attacks the Maze Guardian in the 4th maze path, thw warrior does a critical hit every time
+
 
 
 FOR REFERENCE:

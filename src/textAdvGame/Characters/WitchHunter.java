@@ -1,13 +1,12 @@
 package textAdvGame.Characters;
 
-import textAdvGame.Characters.Character;
 import textAdvGame.Enemies.Enemy;
 
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-public class WitchHunter extends Character {
+public class WitchHunter extends GameCharacter {
     private int playerHealth;
     Random random = new Random();
     private int attackDamage;
