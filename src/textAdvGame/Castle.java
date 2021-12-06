@@ -3,11 +3,13 @@ package textAdvGame;
 import textAdvGame.Characters.GameCharacter;
 import textAdvGame.Enemies.Enemy;
 import textAdvGame.Enemies.StoneGolem;
+import textAdvGame.Enemies.Witch;
 
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Scanner;
 
+import static textAdvGame.Maze.teleportMaze;
 import static textAdvGame.Trench.teleportTrench;
 
 public class Castle {
@@ -72,7 +74,7 @@ public class Castle {
 
                     "\n" +
                             "[1] Guess the password\n" +
-                            "[2] Leave the castle grounds\n");
+                            "[2] Leave the castle grounds");
 
             System.out.println("----------------------------------------------------------------------------------------\n");
 
@@ -104,7 +106,6 @@ public class Castle {
 
                     if(teleportToTrench.equalsIgnoreCase("wayward stone")) {
                         teleportTrench(userCharacter, inventory);
-                        System.out.println("Go back to the beginning of the maze.");
                     } else {
                         System.out.println("With nowhere else to go here, you decide to head into the castle garden.");
                         enterCastleGarden(userCharacter, inventory);
@@ -115,6 +116,20 @@ public class Castle {
                 }
 
             } else if (userChoice.equals("2")) {
+                String teleportToTrench;
+
+                System.out.println("You exit the trenches, only to be met with the glowing rock with the riddle engraved into it.\n" +
+                        "(If you wish to return to the beginning of the maze, type in \"Wayward Stone\". Otherwise, type exit).");
+
+                teleportToTrench = scanner.nextLine();
+
+                if(teleportToTrench.equalsIgnoreCase("wayward stone")) {
+                    teleportTrench(userCharacter, inventory);
+                    System.out.println("Go back to the beginning of the maze.");
+                } else {
+                    System.out.println("With nowhere else to go up here, you decide to head back into the castle gardens.");
+                    teleportTrench(userCharacter, inventory);
+                }
 
             } else {
                 System.err.println("Enter a valid number.");
@@ -152,7 +167,8 @@ public class Castle {
 
                     "\n" +
 
-                    "I'll also tell you the secret to lifting the forest's curse so you can go home. What do you say? Sound like a fair deal?\n");
+                    "The Witch: \" I'll also tell you the secret to lifting the forest's curse so you can go home. What do you say? Sound like a\n" +
+                    "fair deal?\"\n");
 
            String takeDeal;
 
@@ -161,7 +177,7 @@ public class Castle {
             takeDeal = scanner.nextLine();
 
             if(takeDeal.equalsIgnoreCase("y")) {
-                System.out.println("You take the deal and shake her hand, but as soon as you grasp her hand, she sets you on fire!.\n" +
+                System.out.println("You take the deal and shake her hand, but as soon as you grasp her hand, she sets you on fire!\n" +
 
                 "\n" +
 
@@ -176,13 +192,13 @@ public class Castle {
 
                 "\n" +
 
-               "The Witch: \"Very well then, we shall do this the hard way! Say your prayers, " + userCharacter.getName() + "!" +
+               "The Witch: \"Very well then, we shall do this the hard way! Say your prayers, " + userCharacter.getName() + "!\"" +
 
                 "\n"
                 );
 
                 Enemy firstEnemy;
-                firstEnemy = new StoneGolem("WITCH " + Hangman.getTheWord().toUpperCase(Locale.ROOT));
+                firstEnemy = new Witch("WITCH " + Hangman.getTheWord().toUpperCase(Locale.ROOT));
 
                 System.out.println("*****" + firstEnemy.getName() + " appears! *****");
                 System.out.println(firstEnemy.monsterInfo());

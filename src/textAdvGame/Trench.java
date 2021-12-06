@@ -117,7 +117,6 @@ public class Trench {
 
             if(teleportToMaze.equalsIgnoreCase("wayward stone")) {
                 teleportMaze(userCharacter, inventory);
-                System.out.println("Go back to the beginning of the maze.");
             } else {
                 System.out.println("With nowhere else to go up here, you decide to head back down into the trenches.");
                 outsideOfCave(userCharacter, inventory);
