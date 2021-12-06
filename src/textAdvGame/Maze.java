@@ -62,6 +62,7 @@ public class Maze {
         while (alive) {
 
             System.out.println("----FIRST MAZE PATHS----\n");
+            System.out.println("--0% through the maze--\n");
 
             System.out.println("----------------------------------");
             System.out.println("Which way would you like to go?\n" +
@@ -163,6 +164,7 @@ public class Maze {
         while (alive) {
 
             System.out.println("----SECOND MAZE PATHS----\n");
+            System.out.println("--20% through the maze--\n");
 
         System.out.println("----------------------------------");
         System.out.println("Which way would you like to go now?\n" +
@@ -271,6 +273,7 @@ public class Maze {
         while (alive) {
 
             System.out.println("----THIRD MAZE PATHS----\n");
+            System.out.println("--40% through the maze--\n");
 
             System.out.println("----------------------------------");
             System.out.println("Which way would you like to go this time?\n" +
@@ -379,6 +382,7 @@ public class Maze {
         while (alive) {
 
             System.out.println("----FOURTH MAZE PATHS----\n");
+            System.out.println("--60% through the maze--\n");
 
             System.out.println("----------------------------------");
             System.out.println("Which way would you like to go?\n" +
@@ -501,6 +505,7 @@ public class Maze {
         while (alive) {
 
             System.out.println("----FIFTH MAZE PATHS----\n");
+            System.out.println("--80% through the maze--\n");
 
             System.out.println("----------------------------------");
             System.out.println("Which way would you like to go now?\n" +
